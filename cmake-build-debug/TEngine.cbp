@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TEngine"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TEngine">
+				<Option output="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/TEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG_BUILD"/>
+					<Add directory="C:/Users/Thomas Lienbacher/Desktop/TEngine/dependencies/sdl2/include"/>
+					<Add directory="C:/Users/Thomas Lienbacher/Desktop/TEngine/dependencies/glew/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 TEngine"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TEngine/fast">
+				<Option output="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/TEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG_BUILD"/>
+					<Add directory="C:/Users/Thomas Lienbacher/Desktop/TEngine/dependencies/sdl2/include"/>
+					<Add directory="C:/Users/Thomas Lienbacher/Desktop/TEngine/dependencies/glew/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 TEngine/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/camera.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/camera.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/display.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/display.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/light.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/light.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/main.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/render.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/render.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/texture.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/texture.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/tinyobj_loader_c.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Thomas Lienbacher/Desktop/TEngine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
