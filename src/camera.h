@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #ifndef TENGINE_CAMERA_H
@@ -24,7 +24,7 @@ typedef struct {
 } camera_t;
 
 camera_t* camera_new(float fov, float aspect, float near, float far);
-void camera_view(camera_t* camera, vec3 pos, float yaw, float roll, float pitch);
+void camera_view(camera_t* camera, vec3 pos, float pitch, float yaw, float roll);
 void camera_free(camera_t* camera);
 
 #ifdef __cplusplus

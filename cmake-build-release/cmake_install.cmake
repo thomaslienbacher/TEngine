@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Thomas Lienbacher/Desktop/TEngine
+# Install script for directory: C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-release/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

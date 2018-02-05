@@ -6,7 +6,7 @@
 #define TENGINE_MASTER_H
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #ifdef __cplusplus

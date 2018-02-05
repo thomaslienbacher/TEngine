@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Thomas Lienbacher\Desktop\TEngine"
+"C:\Program Files\JetBrains\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine"
 -- The C compiler identification is GNU 5.3.0
 -- Check for working C compiler: C:/MinGW/bin/gcc.exe
 -- Check for working C compiler: C:/MinGW/bin/gcc.exe -- works
@@ -8,4 +8,4 @@
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Thomas Lienbacher/Desktop/TEngine/cmake-build-debug
+-- Build files have been written to: C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug

@@ -3,12 +3,10 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #include "render.h"
-#include "model.h"
-#include "mesh.h"
 
 void render_begin(){
     glEnableVertexAttribArray(POSITION_INDEX);

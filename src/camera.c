@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #include <stdlib.h>
@@ -23,7 +23,7 @@ camera_t* camera_new(float fov, float aspect, float near, float far){
     return camera;
 }
 
-void camera_view(camera_t* camera, vec3 pos, float yaw, float roll, float pitch){
+void camera_view(camera_t* camera, vec3 pos, float pitch, float yaw, float roll){
     static mat4x4 rotateMat;
     mat4x4_identity(rotateMat);
     mat4x4_rotate(rotateMat, rotateMat, 1, 0, 0, pitch * DEG_2_RAD);

@@ -3,25 +3,29 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "display.h"
 #include "utils.h"
-#include "master.h"
 #include "filehelper.h"
 
 static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
                       GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
-    dief("OpenGl Callback: %s type = 0x%x, severity = 0x%x, message = %s\n",
-         (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, severity, message);
+    if(type == GL_DEBUG_TYPE_ERROR) {
+        dief("OpenGl Callback: ** GL ERROR ** type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
+    }
+    else {
+        dprintf("OpenGl Callback: INFO type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message)
+    }
 }
 
 display_t* display_new(const char* title, int width, int height){
     display_t* display = calloc(1, sizeof(display_t));
     display->running = 1;
+    display->hasFocus = 1;
     display->lastTick = SDL_GetTicks();
 
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
@@ -85,6 +89,10 @@ void display_prepare(display_t* display, float* delta){
     while (SDL_PollEvent(&display->events)) {
         if (display->events.type == SDL_QUIT) {
             display->running = 0;
+        }
+        if(display->events.type == SDL_WINDOWEVENT){
+            if(display->events.window.event == SDL_WINDOWEVENT_FOCUS_GAINED) display->hasFocus = 1;
+            if(display->events.window.event == SDL_WINDOWEVENT_FOCUS_LOST) display->hasFocus = 0;
         }
     }
 

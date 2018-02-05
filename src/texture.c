@@ -3,12 +3,11 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #include <stdlib.h>
 #include "texture.h"
-#include "master.h"
 #include "utils.h"
 #include "filehelper.h"
 
@@ -35,12 +34,12 @@ texture_t* texture_new(FILE* texFile, GLenum filter, float aniso){
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter == GL_NEAREST ? GL_NEAREST : GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter);
-    //glGenerateMipmap(GL_TEXTURE_2D);
+    glGenerateMipmap(GL_TEXTURE_2D);
 
     //get anisotropic filtering
     if(GLEW_EXT_texture_filter_anisotropic){
         if(maxAniso < 0) glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
-        //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, aniso > maxAniso ? maxAniso : aniso);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, aniso > maxAniso ? maxAniso : aniso);
     }
 
     free(image);

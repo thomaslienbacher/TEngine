@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #ifndef TENGINE_program_H
@@ -24,12 +24,12 @@ typedef struct {
 
 program_t* program_new(FILE* vertexShd, FILE* fragmentShd);
 void program_use(program_t* program);
-int program_getunipos(program_t *program, char *name);
+int program_getunipos(program_t *program, const char *name);
 
-void program_unistr_f(program_t *program, char *name, float f);
-void program_unistr_vec3(program_t *program, char *name, vec3 v);
-void program_unistr_vec4(program_t *program, char *name, vec4 v);
-void program_unistr_mat(program_t *program, char *name, mat4x4 m);
+void program_unistr_f(program_t *program, const char *name, float f);
+void program_unistr_vec3(program_t *program, const char *name, vec3 v);
+void program_unistr_vec4(program_t *program, const char *name, vec4 v);
+void program_unistr_mat(program_t *program, const char *name, mat4x4 m);
 
 void program_unipos_f(program_t *program, int loc, float f);
 void program_unipos_vec3(program_t *program, int loc, vec3 v);

@@ -574,73 +574,73 @@ close_code.h
 
 ../dependencies/sdl2/include/SDL2/close_code.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/camera.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.c
 stdlib.h
 -
 camera.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/camera.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/camera.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/display.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c
 stdio.h
 -
 stdlib.h
 -
 display.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/display.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
-lodepng.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h
-filehelper.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
-
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/display.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
+filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
+master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
+
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c
 stdlib.h
 -
 filehelper.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 stdio.h
 -
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/light.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c
 stdlib.h
 -
 light.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/light.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/light.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 program.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 math.h
 -
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c
 lodepng.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
 limits.h
 -
 stdio.h
@@ -648,7 +648,7 @@ stdio.h
 stdlib.h
 -
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
 string.h
 -
 vector
@@ -656,135 +656,139 @@ vector
 string
 -
 lodepng.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
 iostream
 -
 lodepng.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/main.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/main.c
 stdio.h
 -
 windows.h
 -
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 display.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/display.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
 program.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 camera.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/camera.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h
 mesh.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 render.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/render.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 light.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/light.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
 filehelper.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 model.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 SDL2/SDL.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/SDL2/SDL.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/SDL2/SDL.h
 glew.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/glew.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/glew.h
+lodepng.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.c
 mesh.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h
-tinyobj_loader_c.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/tinyobj_loader_c.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
+master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 filehelper.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
+tinyobj_loader_c.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tinyobj_loader_c.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 GL/glew.h
 -
 stdio.h
 -
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.c
 stdlib.h
 -
 model.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 mesh.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 texture.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/texture.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.c
 stdlib.h
 -
 program.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 filehelper.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 stdio.h
 -
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/render.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c
 render.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/render.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 model.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 mesh.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/render.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 mesh.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/mesh.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 program.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/program.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 model.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/texture.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c
 stdlib.h
 -
 texture.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/texture.h
-lodepng.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/lodepng.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
+master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 filehelper.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/filehelper.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/texture.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
 stdio.h
 -
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/tinyobj_loader_c.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tinyobj_loader_c.h
 stdlib.h
 -
 stdio.h
@@ -794,17 +798,17 @@ assert.h
 string.h
 -
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.c
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.c
 stdlib.h
 -
 utils.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 master.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 stdio.h
 -
 linmath.h
-C:/Users/Thomas Lienbacher/Desktop/TEngine/src/linmath.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 

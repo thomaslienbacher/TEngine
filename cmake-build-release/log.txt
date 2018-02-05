@@ -2,12 +2,10 @@ Vendor: Intel
 Renderer: Intel(R) HD Graphics
 OpenGL: 3.3
 
-Error: in C:\Users\Thomas Lienbacher\Desktop\TEngine\src\program.c at program_new on line 34
-Msg: Vertex Shader: ERROR: 0:23: 'gl_instanceId' : undeclared identifier 
-ERROR: 0:23: 'assign' :  l-value required "i_vertex" (can't modify an attribute)
+Error: in C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\src\filehelper.c at fadv_open on line 17
+Msg: File: file opened NULL: data/icon.png using rb
 
-
-Build: Jan 31 2018 19:08:38
+Build: Feb  5 2018 07:53:45
 
 Num of extensions: 187
    GL_EXT_blend_minmax

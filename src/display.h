@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #ifndef TENGINE_DISPLAY_H
@@ -13,6 +13,7 @@
 extern "C" {
 #endif
 
+#include <stdio.h>
 #include "master.h"
 
 typedef struct {
@@ -21,6 +22,7 @@ typedef struct {
     SDL_GLContext glContext;
     SDL_Surface* icon;
     char running;
+    char hasFocus;
     Uint32 lastTick;
 } display_t;
 

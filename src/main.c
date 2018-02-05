@@ -10,7 +10,6 @@
 #include "render.h"
 #include "light.h"
 #include "filehelper.h"
-#include "model.h"
 
 void cam_control(camera_t* camera){
     const Uint8* kb = SDL_GetKeyboardState(NULL);
@@ -110,7 +109,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
         else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
         lightengine_upload(lightengine, program);
-
 
         //rendering
         model->mesh = mesh;

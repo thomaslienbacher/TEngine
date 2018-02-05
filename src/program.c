@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #include <stdlib.h>
@@ -95,31 +95,31 @@ void program_use(program_t* program){
     }
 }
 
-int program_getunipos(program_t *program, char *name){
+int program_getunipos(program_t *program, const char *name){
     program_use(program);
     return glGetUniformLocation(program->id, name);
 }
 
 
-void program_unistr_f(program_t *program, char *name, float f){
+void program_unistr_f(program_t *program, const char *name, float f){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     glUniform1f(loc, f);
 }
 
-void program_unistr_vec3(program_t *program, char *name, vec3 v){
+void program_unistr_vec3(program_t *program, const char *name, vec3 v){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     glUniform3fv(loc, 1, v);
 }
 
-void program_unistr_vec4(program_t *program, char *name, vec4 v){
+void program_unistr_vec4(program_t *program, const char *name, vec4 v){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     glUniform4fv(loc, 1, v);
 }
 
-void program_unistr_mat(program_t *program, char *name, mat4x4 m){
+void program_unistr_mat(program_t *program, const char *name, mat4x4 m){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     glUniformMatrix4fv(loc, 1, GL_FALSE, m[0]);

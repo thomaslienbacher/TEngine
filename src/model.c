@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.0
+ * version: 1.1
  */
 
 #include <stdlib.h>
@@ -13,6 +13,7 @@ model_t* model_new(mesh_t* mesh, texture_t* texture){
     model_t* model = calloc(1, sizeof(model_t));
     model->mesh = mesh;
     model->texture = texture;
+    model->scale = 1.0f;
 
     model_mat(model, model->pos, model->rot, model->scale);
 
