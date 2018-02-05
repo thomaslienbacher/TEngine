@@ -392,6 +392,33 @@ src/render.c.s:
 	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/render.c.s
 .PHONY : src/render.c.s
 
+src/tengine_math.obj: src/tengine_math.c.obj
+
+.PHONY : src/tengine_math.obj
+
+# target to build an object file
+src/tengine_math.c.obj:
+	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/tengine_math.c.obj
+.PHONY : src/tengine_math.c.obj
+
+src/tengine_math.i: src/tengine_math.c.i
+
+.PHONY : src/tengine_math.i
+
+# target to preprocess a source file
+src/tengine_math.c.i:
+	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/tengine_math.c.i
+.PHONY : src/tengine_math.c.i
+
+src/tengine_math.s: src/tengine_math.c.s
+
+.PHONY : src/tengine_math.s
+
+# target to generate assembly for a file
+src/tengine_math.c.s:
+	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/tengine_math.c.s
+.PHONY : src/tengine_math.c.s
+
 src/texture.obj: src/texture.c.obj
 
 .PHONY : src/texture.obj
@@ -485,6 +512,9 @@ help:
 	@echo ... src/render.obj
 	@echo ... src/render.i
 	@echo ... src/render.s
+	@echo ... src/tengine_math.obj
+	@echo ... src/tengine_math.i
+	@echo ... src/tengine_math.s
 	@echo ... src/texture.obj
 	@echo ... src/texture.i
 	@echo ... src/texture.s

@@ -47,9 +47,9 @@ CMakeFiles/TEngine.dir/src/camera.c.obj: ../dependencies/sdl2/include/SDL2/begin
 CMakeFiles/TEngine.dir/src/camera.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
 CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/camera.c
 CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/camera.h
-CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/master.h
+CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/tengine_math.h
 CMakeFiles/TEngine.dir/src/camera.c.obj: ../src/utils.h
 
 CMakeFiles/TEngine.dir/src/display.c.obj: ../dependencies/glew/include/glew.h
@@ -99,14 +99,12 @@ CMakeFiles/TEngine.dir/src/display.c.obj: ../dependencies/sdl2/include/SDL2/clos
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/display.c
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/display.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/filehelper.h
-CMakeFiles/TEngine.dir/src/display.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/utils.h
 
 CMakeFiles/TEngine.dir/src/filehelper.c.obj: ../src/filehelper.c
 CMakeFiles/TEngine.dir/src/filehelper.c.obj: ../src/filehelper.h
-CMakeFiles/TEngine.dir/src/filehelper.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/filehelper.c.obj: ../src/utils.h
 
 CMakeFiles/TEngine.dir/src/light.c.obj: ../dependencies/glew/include/glew.h
@@ -155,10 +153,10 @@ CMakeFiles/TEngine.dir/src/light.c.obj: ../dependencies/sdl2/include/SDL2/begin_
 CMakeFiles/TEngine.dir/src/light.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
 CMakeFiles/TEngine.dir/src/light.c.obj: ../src/light.c
 CMakeFiles/TEngine.dir/src/light.c.obj: ../src/light.h
-CMakeFiles/TEngine.dir/src/light.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/light.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/light.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/light.c.obj: ../src/program.h
+CMakeFiles/TEngine.dir/src/light.c.obj: ../src/tengine_math.h
 CMakeFiles/TEngine.dir/src/light.c.obj: ../src/utils.h
 
 CMakeFiles/TEngine.dir/src/lodepng.c.obj: ../src/lodepng.c
@@ -212,7 +210,6 @@ CMakeFiles/TEngine.dir/src/main.c.obj: ../src/camera.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/display.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/filehelper.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/light.h
-CMakeFiles/TEngine.dir/src/main.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/main.c
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/master.h
@@ -220,6 +217,7 @@ CMakeFiles/TEngine.dir/src/main.c.obj: ../src/mesh.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/model.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/program.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/render.h
+CMakeFiles/TEngine.dir/src/main.c.obj: ../src/tengine_math.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/texture.h
 CMakeFiles/TEngine.dir/src/main.c.obj: ../src/utils.h
 
@@ -268,7 +266,6 @@ CMakeFiles/TEngine.dir/src/mesh.c.obj: ../dependencies/sdl2/include/SDL2/SDL_vid
 CMakeFiles/TEngine.dir/src/mesh.c.obj: ../dependencies/sdl2/include/SDL2/begin_code.h
 CMakeFiles/TEngine.dir/src/mesh.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
 CMakeFiles/TEngine.dir/src/mesh.c.obj: ../src/filehelper.h
-CMakeFiles/TEngine.dir/src/mesh.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/mesh.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/mesh.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/mesh.c.obj: ../src/mesh.c
@@ -320,12 +317,12 @@ CMakeFiles/TEngine.dir/src/model.c.obj: ../dependencies/sdl2/include/SDL2/SDL_ve
 CMakeFiles/TEngine.dir/src/model.c.obj: ../dependencies/sdl2/include/SDL2/SDL_video.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../dependencies/sdl2/include/SDL2/begin_code.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
-CMakeFiles/TEngine.dir/src/model.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/mesh.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/model.c
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/model.h
+CMakeFiles/TEngine.dir/src/model.c.obj: ../src/tengine_math.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/texture.h
 CMakeFiles/TEngine.dir/src/model.c.obj: ../src/utils.h
 
@@ -374,11 +371,11 @@ CMakeFiles/TEngine.dir/src/program.c.obj: ../dependencies/sdl2/include/SDL2/SDL_
 CMakeFiles/TEngine.dir/src/program.c.obj: ../dependencies/sdl2/include/SDL2/begin_code.h
 CMakeFiles/TEngine.dir/src/program.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
 CMakeFiles/TEngine.dir/src/program.c.obj: ../src/filehelper.h
-CMakeFiles/TEngine.dir/src/program.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/program.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/program.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/program.c.obj: ../src/program.c
 CMakeFiles/TEngine.dir/src/program.c.obj: ../src/program.h
+CMakeFiles/TEngine.dir/src/program.c.obj: ../src/tengine_math.h
 CMakeFiles/TEngine.dir/src/program.c.obj: ../src/utils.h
 
 CMakeFiles/TEngine.dir/src/render.c.obj: ../dependencies/glew/include/glew.h
@@ -425,7 +422,6 @@ CMakeFiles/TEngine.dir/src/render.c.obj: ../dependencies/sdl2/include/SDL2/SDL_v
 CMakeFiles/TEngine.dir/src/render.c.obj: ../dependencies/sdl2/include/SDL2/SDL_video.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../dependencies/sdl2/include/SDL2/begin_code.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
-CMakeFiles/TEngine.dir/src/render.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/mesh.h
@@ -433,8 +429,13 @@ CMakeFiles/TEngine.dir/src/render.c.obj: ../src/model.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/program.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/render.c
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/render.h
+CMakeFiles/TEngine.dir/src/render.c.obj: ../src/tengine_math.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/texture.h
 CMakeFiles/TEngine.dir/src/render.c.obj: ../src/utils.h
+
+CMakeFiles/TEngine.dir/src/tengine_math.c.obj: ../src/tengine_math.c
+CMakeFiles/TEngine.dir/src/tengine_math.c.obj: ../src/tengine_math.h
+CMakeFiles/TEngine.dir/src/tengine_math.c.obj: ../src/utils.h
 
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../dependencies/glew/include/glew.h
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../dependencies/sdl2/include/SDL2/SDL.h
@@ -481,7 +482,6 @@ CMakeFiles/TEngine.dir/src/texture.c.obj: ../dependencies/sdl2/include/SDL2/SDL_
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../dependencies/sdl2/include/SDL2/begin_code.h
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../src/filehelper.h
-CMakeFiles/TEngine.dir/src/texture.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/texture.c.obj: ../src/texture.c
@@ -532,7 +532,6 @@ CMakeFiles/TEngine.dir/src/utils.c.obj: ../dependencies/sdl2/include/SDL2/SDL_ve
 CMakeFiles/TEngine.dir/src/utils.c.obj: ../dependencies/sdl2/include/SDL2/SDL_video.h
 CMakeFiles/TEngine.dir/src/utils.c.obj: ../dependencies/sdl2/include/SDL2/begin_code.h
 CMakeFiles/TEngine.dir/src/utils.c.obj: ../dependencies/sdl2/include/SDL2/close_code.h
-CMakeFiles/TEngine.dir/src/utils.c.obj: ../src/linmath.h
 CMakeFiles/TEngine.dir/src/utils.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/utils.c.obj: ../src/master.h
 CMakeFiles/TEngine.dir/src/utils.c.obj: ../src/utils.c

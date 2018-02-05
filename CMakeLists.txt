@@ -22,7 +22,7 @@ elseif(${CMAKE_BUILD_TYPE} STREQUAL Debug)
     add_definitions("-DDEBUG_BUILD")
 endif()
 
-add_executable(TEngine src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/main.c src/lodepng.c src/linmath.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h)
+add_executable(TEngine src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/main.c src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c)
 
 target_link_libraries(${PROJECT_NAME} C:/MinGW/lib/libopengl32.a)
 target_link_libraries(${PROJECT_NAME} ${DEPENDENCIES_DIR}glew/lib/libGLEW_2.dll.a)

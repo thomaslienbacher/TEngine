@@ -15,7 +15,7 @@ extern "C" {
 
 #include "master.h"
 #include "mesh.h"
-#include "linmath.h"
+#include "tengine_math.h"
 #include "program.h"
 #include "model.h"
 

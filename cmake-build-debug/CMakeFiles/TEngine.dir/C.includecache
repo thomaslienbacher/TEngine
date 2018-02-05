@@ -585,8 +585,8 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c
 stdio.h
@@ -629,14 +629,10 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 program.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
-
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
-math.h
--
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c
 lodepng.h
@@ -667,8 +663,8 @@ stdio.h
 -
 windows.h
 -
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 display.h
@@ -685,8 +681,6 @@ light.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
 filehelper.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
-model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 SDL2/SDL.h
@@ -723,8 +717,8 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 utils.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 mesh.h
@@ -747,28 +741,34 @@ stdio.h
 -
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c
 render.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
-model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
-mesh.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 mesh.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 program.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 model.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c
+tengine_math.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
+utils.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
+
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
+math.h
+-
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c
 stdlib.h
@@ -807,6 +807,4 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 stdio.h
 -
-linmath.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
 

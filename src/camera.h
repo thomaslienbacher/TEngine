@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 #include "master.h"
-#include "linmath.h"
+#include "tengine_math.h"
 
 typedef struct {
     mat4x4 projMat;

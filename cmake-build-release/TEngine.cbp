@@ -106,9 +106,6 @@
 		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h">
-			<Option target="TEngine"/>
-		</Unit>
 		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c">
 			<Option target="TEngine"/>
 		</Unit>
@@ -143,6 +140,12 @@
 			<Option target="TEngine"/>
 		</Unit>
 		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h">
 			<Option target="TEngine"/>
 		</Unit>
 		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c">

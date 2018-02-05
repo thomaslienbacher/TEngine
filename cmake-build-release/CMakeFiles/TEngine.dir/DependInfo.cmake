@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/model.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/program.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/render.c.obj"
+  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/tengine_math.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/texture.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/utils.c.obj"
   )

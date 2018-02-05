@@ -15,7 +15,7 @@ extern "C" {
 
 #include <stdio.h>
 #include "master.h"
-#include "linmath.h"
+#include "tengine_math.h"
 
 typedef struct {
     GLuint id;

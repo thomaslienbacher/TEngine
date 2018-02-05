@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 #include "master.h"
-#include "linmath.h"
+#include "tengine_math.h"
 #include "utils.h"
 #include "mesh.h"
 #include "texture.h"
@@ -30,6 +30,7 @@ typedef struct {
 
 model_t* model_new(mesh_t* mesh, texture_t* texture);
 void model_mat(model_t* model, const vec3 pos, const vec3 rot, float scale);
+void model_mat_mat(mat4x4 mat, const vec3 pos, const vec3 rot, float scale);
 void model_free(model_t* model);
 
 #ifdef __cplusplus

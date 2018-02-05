@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <windows.h>
-#include "linmath.h"
+#include "tengine_math.h"
 #include "master.h"
 #include "display.h"
 #include "program.h"
@@ -44,6 +44,23 @@ void cam_control(camera_t* camera){
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
+    vec3 tp = {23, 23, 11};
+    float ts = 115.0f;
+    vec3 tr = {0, 0, 0};
+
+    mat4x4 test;
+    model_mat_mat(test, tp, tr, ts);
+    vec3 dest;
+
+    mat4x4_get_trans(dest, test);
+    vec3_print(dest);
+    _mat4x4_get_rotate(dest, test);
+    vec3_print(dest);
+    float dsts = 99;
+    _mat4x4_get_scale(&dsts, test);
+    printf("s: %f\n", dsts);
+
+
     //display
     const int WIDTH = 1200;
     const int HEIGHT = 500;

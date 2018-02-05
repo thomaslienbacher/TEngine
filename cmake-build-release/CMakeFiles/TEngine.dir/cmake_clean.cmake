@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/TEngine.dir/src/mesh.c.obj"
   "CMakeFiles/TEngine.dir/src/light.c.obj"
   "CMakeFiles/TEngine.dir/src/filehelper.c.obj"
+  "CMakeFiles/TEngine.dir/src/tengine_math.c.obj"
   "TEngine.pdb"
   "TEngine.exe"
   "TEngine.exe.manifest"

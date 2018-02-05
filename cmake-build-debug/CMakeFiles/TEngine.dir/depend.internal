@@ -48,9 +48,9 @@ CMakeFiles/TEngine.dir/src/camera.c.obj
  ../dependencies/sdl2/include/SDL2/close_code.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/display.c.obj
  ../dependencies/glew/include/glew.h
@@ -100,14 +100,12 @@ CMakeFiles/TEngine.dir/src/display.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/filehelper.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/light.c.obj
  ../dependencies/glew/include/glew.h
@@ -156,10 +154,10 @@ CMakeFiles/TEngine.dir/src/light.c.obj
  ../dependencies/sdl2/include/SDL2/close_code.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/lodepng.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c
@@ -213,7 +211,6 @@ CMakeFiles/TEngine.dir/src/main.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/main.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
@@ -221,6 +218,7 @@ CMakeFiles/TEngine.dir/src/main.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/mesh.c.obj
@@ -269,7 +267,6 @@ CMakeFiles/TEngine.dir/src/mesh.c.obj
  ../dependencies/sdl2/include/SDL2/begin_code.h
  ../dependencies/sdl2/include/SDL2/close_code.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.c
@@ -321,12 +318,12 @@ CMakeFiles/TEngine.dir/src/model.c.obj
  ../dependencies/sdl2/include/SDL2/SDL_video.h
  ../dependencies/sdl2/include/SDL2/begin_code.h
  ../dependencies/sdl2/include/SDL2/close_code.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/program.c.obj
@@ -375,11 +372,11 @@ CMakeFiles/TEngine.dir/src/program.c.obj
  ../dependencies/sdl2/include/SDL2/begin_code.h
  ../dependencies/sdl2/include/SDL2/close_code.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/render.c.obj
  ../dependencies/glew/include/glew.h
@@ -426,7 +423,6 @@ CMakeFiles/TEngine.dir/src/render.c.obj
  ../dependencies/sdl2/include/SDL2/SDL_video.h
  ../dependencies/sdl2/include/SDL2/begin_code.h
  ../dependencies/sdl2/include/SDL2/close_code.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
@@ -434,7 +430,12 @@ CMakeFiles/TEngine.dir/src/render.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
+CMakeFiles/TEngine.dir/src/tengine_math.c.obj
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/texture.c.obj
  ../dependencies/glew/include/glew.h
@@ -482,7 +483,6 @@ CMakeFiles/TEngine.dir/src/texture.c.obj
  ../dependencies/sdl2/include/SDL2/begin_code.h
  ../dependencies/sdl2/include/SDL2/close_code.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c
@@ -533,7 +533,6 @@ CMakeFiles/TEngine.dir/src/utils.c.obj
  ../dependencies/sdl2/include/SDL2/SDL_video.h
  ../dependencies/sdl2/include/SDL2/begin_code.h
  ../dependencies/sdl2/include/SDL2/close_code.h
- C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/linmath.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.c

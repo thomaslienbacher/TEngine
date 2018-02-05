@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 #include "master.h"
-#include "linmath.h"
+#include "tengine_math.h"
 #include "program.h"
 
 typedef struct {
