@@ -3,7 +3,7 @@
 //
 
 /**
- * version: 1.1
+ * version: 1.2
  */
 
 #include <stdlib.h>
@@ -22,7 +22,7 @@ program_t* program_new(FILE* vertexShd, FILE* fragmentShd){
     unsigned long vertexLen = 0;
     char* vertexSrc = NULL;
     fadv_info(vertexShd, &vertexLen, &vertexSrc);
-    glShaderSource(vertex, 1, &vertexSrc, &vertexLen);
+    glShaderSource(vertex, 1, (const char**)&vertexSrc, (const GLint*)&vertexLen);
     glCompileShader(vertex);
     free(vertexSrc);
 
@@ -42,7 +42,7 @@ program_t* program_new(FILE* vertexShd, FILE* fragmentShd){
     unsigned long fragmentLen = 0;
     char* fragmentSrc = NULL;
     fadv_info(fragmentShd, &fragmentLen, &fragmentSrc);
-    glShaderSource(fragment, 1, &fragmentSrc, &fragmentLen);
+    glShaderSource(fragment, 1, (const char**)&fragmentSrc, (const GLint*)&fragmentLen);
     glCompileShader(fragment);
     free(fragmentSrc);
 

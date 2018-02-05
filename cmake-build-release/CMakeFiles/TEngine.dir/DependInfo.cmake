@@ -4,19 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/camera.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/display.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/filehelper.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/light.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/lodepng.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/main.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/main.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/mesh.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/model.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/program.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/render.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/tengine_math.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/texture.c.obj"
-  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/utils.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/camera.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/camera.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/display.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/display.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/filehelper.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/filehelper.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/light.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/light.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/lodepng.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/lodepng.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/main.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/main.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/mesh.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/mesh.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/model.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/model.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/program.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/program.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/render.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/render.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/tengine_math.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/tengine_math.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/texture.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/texture.c.obj"
+  "E:/Thomas/Repositories/TEngine/src/utils.c" "E:/Thomas/Repositories/TEngine/cmake-build-release/CMakeFiles/TEngine.dir/src/utils.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

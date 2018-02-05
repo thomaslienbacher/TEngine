@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/TEngine.dir/src/main.c.obj"
   "CMakeFiles/TEngine.dir/src/model.c.obj"
   "CMakeFiles/TEngine.dir/src/texture.c.obj"
   "CMakeFiles/TEngine.dir/src/render.c.obj"
-  "CMakeFiles/TEngine.dir/src/main.c.obj"
   "CMakeFiles/TEngine.dir/src/lodepng.c.obj"
   "CMakeFiles/TEngine.dir/src/display.c.obj"
   "CMakeFiles/TEngine.dir/src/utils.c.obj"

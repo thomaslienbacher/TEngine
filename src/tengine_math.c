@@ -3,19 +3,19 @@
 //
 
 /**
- * version: 1.2
+ * version: 1.3
  */
 
 #include "tengine_math.h"
 #include "utils.h"
 
-vec2 VEC2_ZERO = {0, 0};
-vec3 VEC3_ZERO = {0, 0, 0};
-vec4 VEC4_ZERO = {0, 0, 0, 0};
+const vec2 VEC2_ZERO = {0, 0};
+const vec3 VEC3_ZERO = {0, 0, 0};
+const vec4 VEC4_ZERO = {0, 0, 0, 0};
 
-vec3 VEC3_UNITX = {1.0f, 0, 0};
-vec3 VEC3_UNITY = {0, 1.0f, 0};
-vec3 VEC3_UNITZ = {0, 0, 1.0f};
+const vec3 VEC3_UNITX = {1.0f, 0, 0};
+const vec3 VEC3_UNITY = {0, 1.0f, 0};
+const vec3 VEC3_UNITZ = {0, 0, 1.0f};
 
 void vec2_print(const vec2 v){
     dprintf("v2: %.6f %.6f\n", v[0], v[1]);

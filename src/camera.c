@@ -8,7 +8,6 @@
 
 #include <stdlib.h>
 #include "camera.h"
-#include "utils.h"
 
 /**
  * @param fov in degrees

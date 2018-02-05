@@ -46,10 +46,10 @@ void cam_control(camera_t* camera){
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
     vec3 tp = {23, 23, 11};
     float ts = 115.0f;
-    vec3 tr = {0, 0, 0};
+    vec3 tr2 = {0, 0, 0};
 
     mat4x4 test;
-    model_mat_mat(test, tp, tr, ts);
+    model_mat_mat(test, tp, tr2, ts);
     vec3 dest;
 
     mat4x4_get_trans(dest, test);
@@ -81,7 +81,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
     camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
     program_unistr_mat(program, "u_projection", camera->projMat);
 
+#define MESH
+
     //mesh
+#ifdef MESH
     FILE *obj = fadv_open("data/arena.obj", "r");
     mesh_t *mesh = mesh_newobj(obj);
     fadv_close(obj);
@@ -91,15 +94,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
 
     //texture
     FILE *tex = fadv_open("data/arena.png", "rb");
-    texture_t *texture = texture_new(tex, GL_NEAREST, 1);
+    texture_t *texture = texture_new(tex, GL_LINEAR_MIPMAP_LINEAR, 4);
     fadv_close(tex);
 
     //model
     model_t *model = model_new(mesh, texture);
+#endif
 
     //lightengine
 #define w 2
-    lightengine_t* lightengine = lightengine_new(program, 4);
+    lightengine_t* lightengine = lightengine_new(program, w*w);
     for (int y = 0; y < w; ++y) {
         for (int x = 0; x < w; ++x) {
             vec3 pos = {x * 4, 3, y * 8};
@@ -128,6 +132,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
         lightengine_upload(lightengine, program);
 
         //rendering
+#ifdef MESH
         model->mesh = mesh;
         vec3 p = {0, 0, 0};
         float s = 1.0f;
@@ -163,14 +168,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
         }
 
         //render_instanced(model, program, w*w, mats);
+#endif
 
         display_show(display);
     }
 
     lightengine_free(lightengine);
+#ifdef MESH
     model_free(model);
     texture_free(texture);
     mesh_free(mesh);
+#endif
     camera_free(camera);
     program_free(program);
     display_free(display);

@@ -79,13 +79,13 @@ LINMATH_H_DEFINE_VEC(2)
 LINMATH_H_DEFINE_VEC(3)
 LINMATH_H_DEFINE_VEC(4)
 
-extern vec2 VEC2_ZERO;
-extern vec3 VEC3_ZERO;
-extern vec4 VEC4_ZERO;
+const extern vec2 VEC2_ZERO;
+const extern vec3 VEC3_ZERO;
+const extern vec4 VEC4_ZERO;
 
-extern vec3 VEC3_UNITX;
-extern vec3 VEC3_UNITY;
-extern vec3 VEC3_UNITZ;
+const extern vec3 VEC3_UNITX;
+const extern vec3 VEC3_UNITY;
+const extern vec3 VEC3_UNITZ;
 
 static inline void vec3_mul_cross(vec3 r, vec3 const a, vec3 const b) {
     r[0] = a[1] * b[2] - a[2] * b[1];

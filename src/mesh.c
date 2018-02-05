@@ -7,7 +7,7 @@
  */
 
 #include "mesh.h"
-#include "master.h"
+//#include "master.h"
 #include "utils.h"
 #include "filehelper.h"
 #include "tinyobj_loader_c.h"
@@ -26,7 +26,7 @@ mesh_t* mesh_newobj(FILE *objFile){
     char* data = malloc(data_len + 3);
     strcpy(data, temp);
     strcat(data, "\n\n");   //If I dont add 2 x \n to the data the last face doesnt get parsed
-                            //I don't know why the fuck this happens, maybe my file_ functions are fucked
+                            //I don't know why the this happens, maybe my fadv_ functions are faulty
                             //just leave the the lines as they are it works and if I change anything it will crash
     free(temp);
 
