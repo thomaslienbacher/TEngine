@@ -25,10 +25,12 @@ endif()
 #set(BUILD_USAGE Library)
 set(BUILD_USAGE TestApp)
 
+set(SOURCES src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c src/vector.c src/vector.h)
+
 if(${BUILD_USAGE} STREQUAL TestApp)
-    add_executable(TEngine src/main.c src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c)
+    add_executable(TEngine src/main.c ${SOURCES})
 elseif(${BUILD_USAGE} STREQUAL Library)
-    add_library(TEngine src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c)
+    add_library(TEngine ${SOURCES})
 endif()
 
 target_link_libraries(${PROJECT_NAME} C:/MinGW/lib/libopengl32.a)

@@ -18,7 +18,7 @@ static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
         dief("OpenGl Callback: ** GL ERROR ** type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
     }
     else {
-        dprintf("OpenGl Callback: INFO type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message)
+        dprintf("OpenGl Callback: INFO type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
     }
 }
 

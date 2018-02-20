@@ -43,7 +43,7 @@ void cam_control(camera_t* camera){
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
 }
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
+void test_render() {
     //display
     const int WIDTH = 1200;
     const int HEIGHT = 500;
@@ -153,6 +153,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
     camera_free(camera);
     program_free(program);
     display_free(display);
+}
+
+void test_vector() {
+
+}
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
+    test_vector();
 
     return 0;
 }
