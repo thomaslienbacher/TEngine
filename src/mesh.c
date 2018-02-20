@@ -12,7 +12,7 @@
 #include "filehelper.h"
 #include "tinyobj_loader_c.h"
 
-mesh_t* mesh_newobj(FILE *objFile){
+mesh_t* mesh_newobjf(FILE *objFile){
     //obj parsing
     tinyobj_attrib_t attrib;
     tinyobj_shape_t* shapes = NULL;
@@ -100,6 +100,14 @@ mesh_t* mesh_newobj(FILE *objFile){
     free(vertices);
     free(texcoords);
     free(normals);
+
+    return mesh;
+}
+
+mesh_t* mesh_newobj(const char *objFile) {
+    FILE *obj = fadv_open(objFile, "r");
+    mesh_t *mesh = mesh_newobjf(obj);
+    fadv_close(obj);
 
     return mesh;
 }

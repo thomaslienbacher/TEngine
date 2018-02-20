@@ -22,7 +22,8 @@ typedef struct {
     //uniform cache
 } program_t;
 
-program_t* program_new(FILE* vertexShd, FILE* fragmentShd);
+program_t* program_newf(FILE *vertexShd, FILE *fragmentShd);
+program_t* program_new(const char *vertexShd, const char *fragmentShd);
 void program_use(program_t* program);
 int program_getunipos(program_t *program, const char *name);
 

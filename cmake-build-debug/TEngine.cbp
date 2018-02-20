@@ -8,162 +8,162 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-debug"/>
+				<Option working_dir="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-debug"/>
+				<Option working_dir="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="TEngine">
-				<Option output="E:/Thomas/Repositories/TEngine/cmake-build-debug/TEngine.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-debug"/>
+				<Option output="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/TEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DDEBUG_BUILD"/>
-					<Add directory="E:/Thomas/Repositories/TEngine/dependencies/sdl2/include"/>
-					<Add directory="E:/Thomas/Repositories/TEngine/dependencies/glew/include"/>
+					<Add directory="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/dependencies/sdl2/include"/>
+					<Add directory="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/dependencies/glew/include"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 TEngine"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 TEngine"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="TEngine/fast">
-				<Option output="E:/Thomas/Repositories/TEngine/cmake-build-debug/TEngine.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-debug"/>
+				<Option output="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/TEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DDEBUG_BUILD"/>
-					<Add directory="E:/Thomas/Repositories/TEngine/dependencies/sdl2/include"/>
-					<Add directory="E:/Thomas/Repositories/TEngine/dependencies/glew/include"/>
+					<Add directory="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/dependencies/sdl2/include"/>
+					<Add directory="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/dependencies/glew/include"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/5.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 TEngine/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 TEngine/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-debug"/>
+				<Option working_dir="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;E:/Thomas/Repositories/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/camera.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/camera.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/display.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/display.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/filehelper.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/filehelper.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/light.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/light.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/lodepng.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/lodepng.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/main.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/main.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/master.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/mesh.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/mesh.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/model.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/model.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/program.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/program.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/render.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/render.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/tengine_math.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/tengine_math.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/texture.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/texture.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/tinyobj_loader_c.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tinyobj_loader_c.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/utils.c">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.c">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/utils.h">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/CMakeLists.txt">
+		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

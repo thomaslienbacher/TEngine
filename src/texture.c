@@ -13,7 +13,7 @@
 
 static float maxAniso = -1;
 
-texture_t* texture_new(FILE* texFile, GLenum filter, float aniso){
+texture_t* texture_newf(FILE *texFile, GLenum filter, float aniso){
     texture_t* texture = calloc(1, sizeof(texture_t));
 
     unsigned error;
@@ -43,6 +43,14 @@ texture_t* texture_new(FILE* texFile, GLenum filter, float aniso){
     }
 
     free(image);
+
+    return texture;
+}
+
+texture_t* texture_new(const char *file, GLenum filter, float aniso) {
+    FILE *tex = fadv_open(file, "rb");
+    texture_t *texture = texture_newf(tex, filter, aniso);
+    fadv_close(tex);
 
     return texture;
 }

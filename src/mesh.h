@@ -28,7 +28,8 @@ typedef struct {
     unsigned int* elements;
 } mesh_t;
 
-mesh_t* mesh_newobj(FILE *objFile);
+mesh_t* mesh_newobjf(FILE *objFile);
+mesh_t* mesh_newobj(const char *objFile);
 mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned int numVertices,
                      float* vertices, float* texcoords, float* normals);
 void mesh_bind(mesh_t* mesh);

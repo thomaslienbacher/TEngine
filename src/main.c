@@ -32,49 +32,26 @@ void cam_control(camera_t* camera){
     static float zr = 0;
     vec3 rot = {xr, yr, zr};
     float r = 0.4f;
-    if(kb[SDL_SCANCODE_I]) zr -= r;
-    if(kb[SDL_SCANCODE_K]) zr += r;
-    if(kb[SDL_SCANCODE_J]) xr -= r;
-    if(kb[SDL_SCANCODE_L]) xr += r;
-    if(kb[SDL_SCANCODE_U]) yr += r;
-    if(kb[SDL_SCANCODE_O]) yr -= r;
+    if(kb[SDL_SCANCODE_I]) xr -= r;
+    if(kb[SDL_SCANCODE_K]) xr += r;
+    if(kb[SDL_SCANCODE_J]) yr -= r;
+    if(kb[SDL_SCANCODE_L]) yr += r;
+    if(kb[SDL_SCANCODE_U]) zr += r;
+    if(kb[SDL_SCANCODE_O]) zr -= r;
     //printf("rot: %f %f %f\n", xr, yr, zr);
 
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
-    vec3 tp = {23, 23, 11};
-    float ts = 115.0f;
-    vec3 tr2 = {0, 0, 0};
-
-    mat4x4 test;
-    model_mat_mat(test, tp, tr2, ts);
-    vec3 dest;
-
-    mat4x4_get_trans(dest, test);
-    vec3_print(dest);
-    _mat4x4_get_rotate(dest, test);
-    vec3_print(dest);
-    float dsts = 99;
-    _mat4x4_get_scale(&dsts, test);
-    printf("s: %f\n", dsts);
-
-
     //display
     const int WIDTH = 1200;
     const int HEIGHT = 500;
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT);
-    FILE* icon = fadv_open("data/icon.png", "rb");
-    display_set_icon(display, icon);
-    fadv_close(icon);
+    display_set_icon(display, "data/icon.png");
 
     //program
-    FILE *vertex = fadv_open("data/vertex_shader.glsl", "r");
-    FILE *fragment = fadv_open("data/fragment_shader.glsl", "r");
-    program_t *program = program_new(vertex, fragment);
-    fadv_close(vertex);
-    fadv_close(fragment);
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
     program_use(program);
 
     //camera
@@ -85,17 +62,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
 
     //mesh
 #ifdef MESH
-    FILE *obj = fadv_open("data/arena.obj", "r");
-    mesh_t *mesh = mesh_newobj(obj);
-    fadv_close(obj);
-    FILE *obj2 = fadv_open("data/ico.obj", "r");
-    mesh_t *mesh2 = mesh_newobj(obj2);
-    fadv_close(obj2);
+    mesh_t *mesh = mesh_newobj("data/arena.obj");
+    mesh_t *mesh2 = mesh_newobj("data/ico.obj");
 
     //texture
-    FILE *tex = fadv_open("data/arena.png", "rb");
-    texture_t *texture = texture_new(tex, GL_LINEAR_MIPMAP_LINEAR, 4);
-    fadv_close(tex);
+    texture_t *texture = texture_new("data/arena.png", GL_LINEAR_MIPMAP_LINEAR, 4);
 
     //model
     model_t *model = model_new(mesh, texture);
@@ -108,7 +79,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
         for (int x = 0; x < w; ++x) {
             vec3 pos = {x * 4, 3, y * 8};
             vec3 col = {1, 1, 1};
-            float str = 10.1f;
+            float str = 1.1f;
             lightengine_set(lightengine, lightengine_get_id(lightengine), col, pos, str);
         }
     }
@@ -167,7 +138,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam
             }
         }
 
-        //render_instanced(model, program, w*w, mats);
+        render_instanced(model, program, w*w, mats);
 #endif
 
         display_show(display);

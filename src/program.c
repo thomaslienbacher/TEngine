@@ -11,7 +11,7 @@
 #include "utils.h"
 #include "filehelper.h"
 
-program_t* program_new(FILE* vertexShd, FILE* fragmentShd){
+program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
     program_t* program = calloc(1, sizeof(program_t));
 
     program->id = glCreateProgram();
@@ -78,6 +78,16 @@ program_t* program_new(FILE* vertexShd, FILE* fragmentShd){
 
     glDetachShader(program->id, vertex);
     glDetachShader(program->id, fragment);
+
+    return program;
+}
+
+program_t* program_new(const char *vertexShd, const char *fragmentShd) {
+    FILE *vertex = fadv_open(vertexShd, "r");
+    FILE *fragment = fadv_open(fragmentShd, "r");
+    program_t *program = program_newf(vertex, fragment);
+    fadv_close(vertex);
+    fadv_close(fragment);
 
     return program;
 }

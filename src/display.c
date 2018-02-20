@@ -32,7 +32,7 @@ display_t* display_new(const char* title, int width, int height){
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); //to disable aa both need to be set to 0
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); //anti aliasing
@@ -78,7 +78,7 @@ display_t* display_new(const char* title, int width, int height){
     return display;
 }
 
-void display_set_icon(display_t* display, FILE* icon){
+void display_set_iconf(display_t *display, FILE *icon){
     unsigned error;
     unsigned char* image;
     unsigned width, height;
@@ -95,6 +95,12 @@ void display_set_icon(display_t* display, FILE* icon){
     SDL_SetWindowIcon(display->window, display->icon);
 
     free(image);
+}
+
+void display_set_icon(display_t *display, const char* icon) {
+    FILE* f = fadv_open(icon, "rb");
+    display_set_iconf(display, f);
+    fadv_close(f);
 }
 
 void display_prepare(display_t* display, float* delta){

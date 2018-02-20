@@ -4,20 +4,17 @@ set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "5.3.0")
 set(CMAKE_C_COMPILER_WRAPPER "")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "11")
-set(CMAKE_C_COMPILE_FEATURES "c_std_90;c_function_prototypes;c_std_99;c_restrict;c_variadic_macros;c_std_11;c_static_assert")
-set(CMAKE_C90_COMPILE_FEATURES "c_std_90;c_function_prototypes")
-set(CMAKE_C99_COMPILE_FEATURES "c_std_99;c_restrict;c_variadic_macros")
-set(CMAKE_C11_COMPILE_FEATURES "c_std_11;c_static_assert")
+set(CMAKE_C_COMPILE_FEATURES "c_function_prototypes;c_restrict;c_variadic_macros;c_static_assert")
+set(CMAKE_C90_COMPILE_FEATURES "c_function_prototypes")
+set(CMAKE_C99_COMPILE_FEATURES "c_restrict;c_variadic_macros")
+set(CMAKE_C11_COMPILE_FEATURES "c_static_assert")
 
 set(CMAKE_C_PLATFORM_ID "MinGW")
 set(CMAKE_C_SIMULATE_ID "")
 set(CMAKE_C_SIMULATE_VERSION "")
 
-
 set(CMAKE_AR "C:/MinGW/bin/ar.exe")
-set(CMAKE_C_COMPILER_AR "C:/MinGW/bin/gcc-ar.exe")
 set(CMAKE_RANLIB "C:/MinGW/bin/ranlib.exe")
-set(CMAKE_C_COMPILER_RANLIB "C:/MinGW/bin/gcc-ranlib.exe")
 set(CMAKE_LINKER "C:/MinGW/bin/ld.exe")
 set(CMAKE_COMPILER_IS_GNUCC 1)
 set(CMAKE_C_COMPILER_LOADED 1)
@@ -66,6 +63,6 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "mingw32;gcc;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex")
+set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "mingw32;moldname;mingwex;msvcrt;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt")
 set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "C:/MinGW/lib/gcc/mingw32/5.3.0;C:/MinGW/lib/gcc;C:/MinGW/mingw32/lib;C:/MinGW/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
