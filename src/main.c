@@ -10,6 +10,7 @@
 #include "render.h"
 #include "light.h"
 #include "filehelper.h"
+#include "vector.h"
 
 void cam_control(camera_t* camera){
     const Uint8* kb = SDL_GetKeyboardState(NULL);
@@ -77,7 +78,7 @@ void test_render() {
     lightengine_t* lightengine = lightengine_new(program, w*w);
     for (int y = 0; y < w; ++y) {
         for (int x = 0; x < w; ++x) {
-            vec3 pos = {x * 4, 3, y * 8};
+            vec3 pos = {x * 3, 3, y * 3};
             vec3 col = {1, 1, 1};
             float str = 1.1f;
             lightengine_set(lightengine, lightengine_get_id(lightengine), col, pos, str);
@@ -131,7 +132,7 @@ void test_render() {
         model->mesh = mesh2;
         for (int y = 0; y < w; ++y) {
             for (int x = 0; x < w; ++x) {
-                vec3 posl = {x * 4, 3, y * 8};
+                vec3 posl = {x * 3, 3, y * 3};
                 float scalel = 0.2f;
                 vec3 tr = {x * 1.3f, x + y, y * 1.3f};
                 model_mat_mat(mats[y * w + x], posl, tr, scalel);
@@ -155,12 +156,47 @@ void test_render() {
     display_free(display);
 }
 
-void test_vector() {
+void print_vec(vector* vec) {
+    for (int j = 0; j < vec->size && 0 > 1; ++j) {
+        int* d = ((int*)vector_get(vec, j));
+        printf("%d -> %p -> ", j, d);
+        if(d) printf("%d\n", *d);
+        else printf("\n");
+    }
+}
 
+void test_vector() {
+    vector* vec = vector_new(10);
+
+    for(int i = 0; i < (1<<30); ++i) {
+        //printf("malloc: %d\n", sizeof(int));
+        int* d = malloc(sizeof(int));
+        *d = i * i;
+        vector_push(vec, d);
+        //printf("%d -> size: %d\n", i, vec->size);
+    }
+
+    print_vec(vec);
+
+    free(vector_remove(vec, 10));
+    free(vector_remove(vec, 11));
+    free(vector_remove(vec, 12));
+
+    print_vec(vec);
+    vector_trim(vec);
+    print_vec(vec);
+
+    for (int j = 0; j < vec->size; ++j) {
+        free(vector_remove(vec, j));
+    }
+
+    print_vec(vec);
+    vector_free(vec);
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
     test_vector();
+    system("pause");
 
     return 0;
 }

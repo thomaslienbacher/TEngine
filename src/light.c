@@ -36,7 +36,7 @@ lightengine_t* lightengine_new(program_t* program, int numLights){
     return lightengine;
 }
 
-#define N_CHECK(x) if((x) < 0 || (x) >= lightengine->numLights) dief("Light Engine: light number out of bounds: %d", (x));
+#define N_CHECK(x) if((x) < 0 || (x) >= lightengine->numLights) dief("Light Engine: light number out of bounds: %d", (x))
 
 void lightengine_set(lightengine_t* lightengine, int n, vec3 color, vec3 pos, float strength){
     N_CHECK(n);

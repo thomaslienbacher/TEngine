@@ -7,13 +7,13 @@
 
 typedef struct {
     void** array;
-    int size;
+    size_t size;
 } vector;
 
-vector* vector_new(int capacity);
+vector* vector_new(size_t capacity);
 void vector_push(vector* vec, void* data);
-void vector_remove(vector* vec, int pos);
-void* vector_get(vector* vec);
+void* vector_remove(vector* vec, int pos);
+void* vector_get(vector* vec, int pos);
 void vector_trim(vector* vec);
 void vector_free(vector* vec);
 
