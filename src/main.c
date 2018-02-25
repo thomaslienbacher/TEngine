@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <windows.h>
+#include <time.h>
 #include "tengine_math.h"
 #include "master.h"
 #include "display.h"
@@ -11,21 +12,22 @@
 #include "light.h"
 #include "filehelper.h"
 #include "vector.h"
+#include "model.h"
 
-void cam_control(camera_t* camera){
-    const Uint8* kb = SDL_GetKeyboardState(NULL);
+void cam_control(camera_t *camera) {
+    const Uint8 *kb = SDL_GetKeyboardState(NULL);
 
     static float x = 0;
     static float y = 0;
     static float z = 0;
     vec3 pos = {x, y, z};
     float a = 0.05f;
-    if(kb[SDL_SCANCODE_W]) z -= a;
-    if(kb[SDL_SCANCODE_S]) z += a;
-    if(kb[SDL_SCANCODE_A]) x -= a;
-    if(kb[SDL_SCANCODE_D]) x += a;
-    if(kb[SDL_SCANCODE_Q]) y += a;
-    if(kb[SDL_SCANCODE_E]) y -= a;
+    if (kb[SDL_SCANCODE_W]) z -= a;
+    if (kb[SDL_SCANCODE_S]) z += a;
+    if (kb[SDL_SCANCODE_A]) x -= a;
+    if (kb[SDL_SCANCODE_D]) x += a;
+    if (kb[SDL_SCANCODE_Q]) y += a;
+    if (kb[SDL_SCANCODE_E]) y -= a;
     //printf("pos: %f %f %f\n", x, y, z);
 
     static float xr = 0;
@@ -33,12 +35,12 @@ void cam_control(camera_t* camera){
     static float zr = 0;
     vec3 rot = {xr, yr, zr};
     float r = 0.4f;
-    if(kb[SDL_SCANCODE_I]) xr -= r;
-    if(kb[SDL_SCANCODE_K]) xr += r;
-    if(kb[SDL_SCANCODE_J]) yr -= r;
-    if(kb[SDL_SCANCODE_L]) yr += r;
-    if(kb[SDL_SCANCODE_U]) zr += r;
-    if(kb[SDL_SCANCODE_O]) zr -= r;
+    if (kb[SDL_SCANCODE_I]) xr -= r;
+    if (kb[SDL_SCANCODE_K]) xr += r;
+    if (kb[SDL_SCANCODE_J]) yr -= r;
+    if (kb[SDL_SCANCODE_L]) yr += r;
+    if (kb[SDL_SCANCODE_U]) zr += r;
+    if (kb[SDL_SCANCODE_O]) zr -= r;
     //printf("rot: %f %f %f\n", xr, yr, zr);
 
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
@@ -74,10 +76,10 @@ void test_render() {
 #endif
 
     //lightengine
-#define w 2
-    lightengine_t* lightengine = lightengine_new(program, w*w);
-    for (int y = 0; y < w; ++y) {
-        for (int x = 0; x < w; ++x) {
+#define NL 2
+    lightengine_t *lightengine = lightengine_new(program, NL * NL);
+    for (int y = 0; y < NL; ++y) {
+        for (int x = 0; x < NL; ++x) {
             vec3 pos = {x * 3, 3, y * 3};
             vec3 col = {1, 1, 1};
             float str = 1.1f;
@@ -89,7 +91,7 @@ void test_render() {
         float delta;
         display_prepare(display, &delta);
         char title[100];
-        sprintf(title, "OpenGL FPS: %f %f", 1.0f/delta, delta);
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
         SDL_SetWindowTitle(display->window, title);
 
         const Uint8 *kb = SDL_GetKeyboardState(NULL);
@@ -98,7 +100,7 @@ void test_render() {
         program_unistr_mat(program, "u_view", camera->viewMat);
 
         //render mesh
-        if(kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
         lightengine_upload(lightengine, program);
@@ -114,32 +116,32 @@ void test_render() {
         program_use(program);
         render_model(model);
 
-        static mat4x4 mats[w*w];
+        static mat4x4 mats[NL * NL];
         model->mesh = mesh;
 
-        for (int y = 0; y < w; ++y) {
-            for (int x = 0; x < w; ++x) {
+        for (int y = 0; y < NL; ++y) {
+            for (int x = 0; x < NL; ++x) {
                 vec3 posl = {x * 4, 0, y * 8};
                 float scalel = 1.1f;
                 vec3 tr = {x * 1.3f, x + y, y * 1.3f};
-                model_mat_mat(mats[y * w + x], posl, tr, scalel);
+                model_mat_mat(mats[y * NL + x], posl, tr, scalel);
             }
         }
 
-        //render_instanced(model, program, w*w, mats);
+        //render_instanced_dyn(model, program, w*w, mats);
 
 
         model->mesh = mesh2;
-        for (int y = 0; y < w; ++y) {
-            for (int x = 0; x < w; ++x) {
+        for (int y = 0; y < NL; ++y) {
+            for (int x = 0; x < NL; ++x) {
                 vec3 posl = {x * 3, 3, y * 3};
                 float scalel = 0.2f;
                 vec3 tr = {x * 1.3f, x + y, y * 1.3f};
-                model_mat_mat(mats[y * w + x], posl, tr, scalel);
+                model_mat_mat(mats[y * NL + x], posl, tr, scalel);
             }
         }
 
-        render_instanced(model, program, w*w, mats);
+        render_instanced_dyn(model, program, NL * NL, mats);
 #endif
 
         display_show(display);
@@ -156,24 +158,23 @@ void test_render() {
     display_free(display);
 }
 
-void print_vec(vector* vec) {
-    for (int j = 0; j < vec->size && 0 > 1; ++j) {
-        int* d = ((int*)vector_get(vec, j));
+void print_vec(vector *vec) {
+    for (int j = 0; j < vec->size; ++j) {
+        int *d = ((int *) vector_get(vec, j));
         printf("%d -> %p -> ", j, d);
-        if(d) printf("%d\n", *d);
+        if (d) printf("%d\n", *d);
         else printf("\n");
     }
 }
 
 void test_vector() {
-    vector* vec = vector_new(10);
+    vector *vec = vector_new(10);
 
-    for(int i = 0; i < (1<<30); ++i) {
-        //printf("malloc: %d\n", sizeof(int));
-        int* d = malloc(sizeof(int));
+    for (int i = 0; i < 200; ++i) {
+        int *d = malloc(sizeof(int));
         *d = i * i;
         vector_push(vec, d);
-        //printf("%d -> size: %d\n", i, vec->size);
+        printf("%d -> size: %d\n", i, vec->size);
     }
 
     print_vec(vec);
@@ -194,9 +195,273 @@ void test_vector() {
     vector_free(vec);
 }
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow){
-    test_vector();
-    system("pause");
+void print_display_modes() {
+    static int display_in_use = 0; /* Only using first display */
+
+    int i, display_mode_count;
+    SDL_DisplayMode mode;
+    Uint32 f;
+
+    SDL_Log("SDL_GetNumVideoDisplays(): %i", SDL_GetNumVideoDisplays());
+
+    display_mode_count = SDL_GetNumDisplayModes(display_in_use);
+    if (display_mode_count < 1) {
+        SDL_Log("SDL_GetNumDisplayModes failed: %s", SDL_GetError());
+        return;
+    }
+    SDL_Log("SDL_GetNumDisplayModes: %i", display_mode_count);
+
+    for (i = 0; i < display_mode_count; ++i) {
+        if (SDL_GetDisplayMode(display_in_use, i, &mode) != 0) {
+            SDL_Log("SDL_GetDisplayMode failed: %s", SDL_GetError());
+            return;
+        }
+        f = mode.format;
+
+        SDL_Log("Mode %i\tbpp %i\t%s\t%i x %i", i,
+                SDL_BITSPERPIXEL(f), SDL_GetPixelFormatName(f), mode.w, mode.h);
+    }
+}
+
+void test_instanced_model() {
+    //display
+    const int WIDTH = 1280;
+    const int HEIGHT = 720;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT);
+
+    print_display_modes();
+
+    display_set_icon(display, "data/icon.png");
+    SDL_SetWindowFullscreen(display->window, SDL_WINDOW_FULLSCREEN);
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    program_unistr_mat(program, "u_projection", camera->projMat);
+
+    //model
+    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    mesh_t *mesh2 = mesh_newobj("data/gun.obj");
+    mesh_t *mesh3 = mesh_newobj("data/arena.obj");
+    texture_t *texture = texture_new("data/arena.png", GL_NEAREST, 1);
+    texture_t *texture2 = texture_new("data/icon.png", GL_NEAREST, 1);
+    texture_t *texture3 = texture_new("data/gun_low.png", GL_NEAREST, 1);
+    model_t *model = model_new(mesh, texture);
+
+#define S 14
+    
+    static mat4x4 mats[S*S];
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta);
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+        dprintf("%s\n", title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control(camera);
+        program_unistr_mat(program, "u_view", camera->viewMat);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //render
+        for (float i = 1.0f; i < 6.0f; i += 0.4f) {
+            model->texture = texture;
+            model->mesh = mesh;
+            {
+                for (int x = 0; x < S; ++x) {
+                    for (int y = 0; y < S; ++y) {
+                        vec3 _pos = {x * 2, -i, y * 2};
+                        vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f,
+                                     360.0f - (SDL_GetTicks() / 300.f)};
+                        float _s = 0.5f;
+                        model_mat_mat(mats[y * S + x], _pos, _rot, _s);
+                    }
+                }
+
+                render_instanced_dyn(model, program, S * S, mats);
+            }
+
+            model->texture = texture2;
+            model->mesh = mesh2;
+            {
+                for (int x = 0; x < S; ++x) {
+                    for (int y = 0; y < S; ++y) {
+                        vec3 _pos = {x * 2, 3 * i, y * 2};
+                        vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f,
+                                     360.0f - (SDL_GetTicks() / 300.f)};
+                        float _s = 0.2f;
+                        model_mat_mat(mats[y * S + x], _pos, _rot, _s);
+                    }
+                }
+
+                render_instanced_dyn(model, program, S * S, mats);
+            }
+
+            model->texture = texture3;
+            model->mesh = mesh3;
+            {
+                for (int x = 0; x < S; ++x) {
+                    for (int y = 0; y < S; ++y) {
+                        vec3 _pos = {x * 2, 6 * i, y * 2};
+                        vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f,
+                                     360.0f - (SDL_GetTicks() / 300.f)};
+                        float _s = 0.05f;
+                        model_mat_mat(mats[y * S + x], _pos, _rot, _s);
+                    }
+                }
+
+                render_instanced_dyn(model, program, S * S, mats);
+            }
+        }
+
+        display_show(display);
+    }
+
+
+    model_free(model);
+    texture_free(texture);
+    texture_free(texture2);
+    texture_free(texture3);
+    mesh_free(mesh);
+    mesh_free(mesh2);
+    mesh_free(mesh3);
+
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
+void test_instanced_model_new() {
+    //display
+    const int WIDTH = 1280;
+    const int HEIGHT = 720;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT);
+
+    print_display_modes();
+
+    display_set_icon(display, "data/icon.png");
+    SDL_SetWindowFullscreen(display->window, SDL_WINDOW_FULLSCREEN);
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    program_unistr_mat(program, "u_projection", camera->projMat);
+
+    //model
+    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    mesh_t *mesh2 = mesh_newobj("data/gun.obj");
+    mesh_t *mesh3 = mesh_newobj("data/arena.obj");
+    texture_t *texture = texture_new("data/arena.png", GL_NEAREST, 1);
+    texture_t *texture2 = texture_new("data/icon.png", GL_NEAREST, 1);
+    texture_t *texture3 = texture_new("data/gun_low.png", GL_NEAREST, 1);
+    inst_model_t* model = inst_model_new(mesh, texture, S*S);
+    inst_model_t* model2 = inst_model_new(mesh2, texture2, S*S);
+    inst_model_t* model3 = inst_model_new(mesh3, texture3, S*S);
+
+    static mat4x4 mats[S*S];
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta);
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+        dprintf("%s\n", title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control(camera);
+        program_unistr_mat(program, "u_view", camera->viewMat);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //render
+        for (float i = 1.0f; i < 6.0f; i += 0.4f) {
+            {
+                if(clock() < 1500) for (int x = 0; x < S; ++x) {
+                    for (int y = 0; y < S; ++y) {
+                        vec3 _pos = {x * 2, -i, y * 2};
+                        vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f,
+                                     360.0f - (SDL_GetTicks() / 300.f)};
+                        float _s = 0.5f;
+                        model_mat_mat(model->mats[y * S + x], _pos, _rot, _s);
+                    }
+                }
+
+                if(clock() < 1500)inst_model_update(model);
+                render_inst_model(model, program);
+            }
+
+            {
+                if(clock() < 1500) for (int x = 0; x < S; ++x) {
+                    for (int y = 0; y < S; ++y) {
+                        vec3 _pos = {x * 2, 3 * i, y * 2};
+                        vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f,
+                                     360.0f - (SDL_GetTicks() / 300.f)};
+                        float _s = 0.2f;
+                        model_mat_mat(model2->mats[y * S + x], _pos, _rot, _s);
+                    }
+                }
+
+                if(clock() < 1500)inst_model_update(model2);
+                render_inst_model(model2, program);
+            }
+
+            {
+
+                if(clock() < 1500) for (int x = 0; x < S; ++x) {
+                    for (int y = 0; y < S; ++y) {
+                        vec3 _pos = {x * 2, 6 * i, y * 2};
+                        vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f,
+                                     360.0f - (SDL_GetTicks() / 300.f)};
+                        float _s = 0.05f;
+                        model_mat_mat(model3->mats[y * S + x], _pos, _rot, _s);
+                    }
+                }
+
+                if(clock() < 1500)inst_model_update(model3);
+                render_inst_model(model3, program);
+            }
+        }
+
+        display_show(display);
+    }
+
+
+    inst_model_free(model);
+    inst_model_free(model2);
+    inst_model_free(model3);
+    texture_free(texture);
+    texture_free(texture2);
+    texture_free(texture3);
+    mesh_free(mesh);
+    mesh_free(mesh2);
+    mesh_free(mesh3);
+
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
+    test_instanced_model_new();
 
     return 0;
 }

@@ -39,6 +39,7 @@ texture_t* texture_newf(FILE *texFile, GLenum filter, float aniso){
     //get anisotropic filtering
     if(GLEW_EXT_texture_filter_anisotropic){
         if(maxAniso < 0) glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
+        if(aniso < 1) dief("Texture: anisotropic filtering value to small: %f", aniso);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, aniso > maxAniso ? maxAniso : aniso);
     }
 

@@ -1,11 +1,11 @@
 Vendor: Intel
 Renderer: Intel(R) HD Graphics
-OpenGL: 3.3
+OpenGL: 4.0
 
 Error: in C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\src\filehelper.c at fadv_open on line 17
 Msg: File: file opened NULL: data/icon.png using rb
 
-Build: Feb  5 2018 07:53:45
+Build: Feb 24 2018 20:20:34
 
 Num of extensions: 187
    GL_EXT_blend_minmax

@@ -7,6 +7,7 @@
  */
 
 #include "render.h"
+#include "inst_model.h"
 
 void render_begin(){
     glEnableVertexAttribArray(POSITION_INDEX);
@@ -27,7 +28,7 @@ void render_same_model(model_t* model){
     glDrawElements(GL_TRIANGLES, model->mesh->numElements, GL_UNSIGNED_INT, 0);
 }
 
-void render_instanced(model_t* model, program_t* program, int count, mat4x4* mats){
+void render_instanced_dyn(model_t *model, program_t *program, int count, mat4x4 *mats){
     mesh_bind(model->mesh);
     texture_bind(model->texture);
 
@@ -43,7 +44,6 @@ void render_instanced(model_t* model, program_t* program, int count, mat4x4* mat
         glBufferData(GL_ARRAY_BUFFER, count * sizeof(float) * 16, mats, GL_STATIC_DRAW);
         glVertexAttribPointer(MODELICOL1_INDEX + i, 4, GL_FLOAT, GL_FALSE, 16 * sizeof(float), (void*)(4 * i * sizeof(float)));
         glVertexAttribDivisor(MODELICOL1_INDEX + i, 1);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 
     glEnableVertexAttribArray(POSITION_INDEX);
@@ -64,6 +64,35 @@ void render_instanced(model_t* model, program_t* program, int count, mat4x4* mat
     }
 
     glDeleteBuffers(4, matVbos);
+
+    //disable instancing
+    program_unipos_f(program, loc, 0);
+}
+
+void render_inst_model(inst_model_t* inst_model, program_t *program) {
+    mesh_bind(inst_model->mesh);
+    texture_bind(inst_model->texture);
+
+    //enable instancing
+    int loc = program_getunipos(program, "u_instanced");
+    program_unipos_f(program, loc, 1);
+
+    glEnableVertexAttribArray(POSITION_INDEX);
+    glEnableVertexAttribArray(TEXCOORD_INDEX);
+    glEnableVertexAttribArray(NORMAL_INDEX);
+    for (unsigned int j = 0; j < 4; ++j) {
+        glEnableVertexAttribArray(MODELICOL1_INDEX + j);
+    }
+    glActiveTexture(GL_TEXTURE0);
+
+    glDrawElementsInstanced(GL_TRIANGLES, inst_model->mesh->numElements, GL_UNSIGNED_INT, 0, inst_model->count);
+
+    glDisableVertexAttribArray(POSITION_INDEX);
+    glDisableVertexAttribArray(TEXCOORD_INDEX);
+    glDisableVertexAttribArray(NORMAL_INDEX);
+    for (unsigned int j = 0; j < 4; ++j) {
+        glDisableVertexAttribArray(MODELICOL1_INDEX + j);
+    }
 
     //disable instancing
     program_unipos_f(program, loc, 0);

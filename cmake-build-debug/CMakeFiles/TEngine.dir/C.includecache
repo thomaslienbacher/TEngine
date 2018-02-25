@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -616,6 +616,16 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 stdio.h
 -
 
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.c
+stdlib.h
+-
+inst_model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
+
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
+model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c
 stdlib.h
 -
@@ -661,6 +671,8 @@ stdio.h
 -
 windows.h
 -
+time.h
+-
 tengine_math.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 master.h
@@ -681,6 +693,8 @@ filehelper.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 vector.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/vector.h
+model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 SDL2/SDL.h
@@ -745,6 +759,8 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c
 render.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+inst_model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 master.h
@@ -757,6 +773,8 @@ program.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 model.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+inst_model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c
 tengine_math.h

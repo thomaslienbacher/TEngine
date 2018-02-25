@@ -15,7 +15,7 @@
 static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
                       GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
     if(type == GL_DEBUG_TYPE_ERROR) {
-        dief("OpenGl Callback: ** GL ERROR ** type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
+       dief("OpenGl Callback: ** GL ERROR ** type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
     }
     else {
         dprintf("OpenGl Callback: INFO type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
@@ -34,8 +34,8 @@ display_t* display_new(const char* title, int width, int height){
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); //to disable aa both need to be set to 0
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); //anti aliasing
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0); //to disable aa both need to be set to 0
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0); //anti aliasing
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
 
 #ifdef DEBUG_BUILD

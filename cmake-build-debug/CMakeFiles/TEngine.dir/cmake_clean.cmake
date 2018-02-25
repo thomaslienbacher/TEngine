@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/TEngine.dir/src/filehelper.c.obj"
   "CMakeFiles/TEngine.dir/src/tengine_math.c.obj"
   "CMakeFiles/TEngine.dir/src/vector.c.obj"
+  "CMakeFiles/TEngine.dir/src/inst_model.c.obj"
   "TEngine.pdb"
   "TEngine.exe"
   "TEngine.exe.manifest"

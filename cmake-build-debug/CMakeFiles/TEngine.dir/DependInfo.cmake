@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/camera.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/display.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/filehelper.c.obj"
+  "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/inst_model.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/light.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/lodepng.c.obj"
   "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/main.c" "C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug/CMakeFiles/TEngine.dir/src/main.c.obj"
