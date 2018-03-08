@@ -96,8 +96,10 @@ static GLuint used = 0;
 
 void program_use(program_t* program){
     if(program == NULL) {
-        glUseProgram(0);
-        used = 0;
+        if(used) {
+            glUseProgram(0);
+            used = 0;
+        }
     }
     else if(used != program->id) {
         glUseProgram(program->id);

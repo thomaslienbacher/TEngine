@@ -28,6 +28,9 @@ texture_t* texture_newf(FILE *texFile, GLenum filter, float aniso){
     free(fileData);
     if(error) dief("Loading Texture: %s", lodepng_error_text(error));
 
+    texture->width = width;
+    texture->height = height;
+
     //opengl
     glGenTextures(1, &texture->id);
     glBindTexture(GL_TEXTURE_2D, texture->id);
@@ -60,8 +63,10 @@ static unsigned int bound = 0;
 
 void texture_bind(texture_t* texture){
     if(texture == NULL){
-        glBindTexture(GL_TEXTURE_2D, 0);
-        bound = 0;
+        if(bound) {
+            glBindTexture(GL_TEXTURE_2D, 0);
+            bound = 0;
+        }
     }
     else if(texture->id != bound) {
         glBindTexture(GL_TEXTURE_2D, texture->id);

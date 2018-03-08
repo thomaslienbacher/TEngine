@@ -5,7 +5,7 @@ OpenGL: 4.0
 Error: in C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\src\filehelper.c at fadv_open on line 17
 Msg: File: file opened NULL: data/icon.png using rb
 
-Build: Feb 24 2018 20:20:34
+Build: Feb 27 2018 13:18:02
 
 Num of extensions: 187
    GL_EXT_blend_minmax

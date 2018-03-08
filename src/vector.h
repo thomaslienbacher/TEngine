@@ -5,6 +5,11 @@
 #ifndef TENGINE_VECTOR_H
 #define TENGINE_VECTOR_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef struct {
     void** array;
     size_t size;
@@ -16,5 +21,9 @@ void* vector_remove(vector* vec, int pos);
 void* vector_get(vector* vec, int pos);
 void vector_trim(vector* vec);
 void vector_free(vector* vec);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //TENGINE_VECTOR_H

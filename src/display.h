@@ -15,6 +15,7 @@ extern "C" {
 
 #include <stdio.h>
 #include "master.h"
+#include "framebuffer.h"
 
 typedef struct {
     SDL_Window *window;
@@ -24,12 +25,14 @@ typedef struct {
     char running;
     char hasFocus;
     Uint32 lastTick;
+    framebuffer_t* renderFb;
 } display_t;
 
-display_t* display_new(const char* title, int width, int height);
+display_t *display_new(const char *title, int width, int height, char fullscreen, int renderWidth, int renderHeight);
 void display_set_iconf(display_t *display, FILE *icon);
 void display_set_icon(display_t *display, const char* icon);
 void display_prepare(display_t* display, float* delta);
+void display_as_target(display_t* display);
 void display_show(display_t* display);
 void display_free(display_t* display);
 

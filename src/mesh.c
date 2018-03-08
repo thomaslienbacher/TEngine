@@ -148,8 +148,10 @@ static unsigned int bound = 0;
 
 void mesh_bind(mesh_t* mesh){
     if(mesh == NULL){
-        glBindVertexArray(0);
-        bound = 0;
+        if(bound) {
+            glBindVertexArray(0);
+            bound = 0;
+        }
     }
     else if(mesh->vao != bound) {
         glBindVertexArray(mesh->vao);

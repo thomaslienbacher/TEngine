@@ -17,6 +17,8 @@ extern "C" {
 #include "master.h"
 
 typedef struct {
+    int width;
+    int height;
     GLuint id;
 } texture_t;
 

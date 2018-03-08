@@ -11,6 +11,7 @@
 #include "display.h"
 #include "utils.h"
 #include "filehelper.h"
+#include "render.h"
 
 static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
                       GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
@@ -22,7 +23,7 @@ static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
     }
 }
 
-display_t* display_new(const char* title, int width, int height){
+display_t *display_new(const char *title, int width, int height, char fullscreen, int renderWidth, int renderHeight) {
     display_t* display = calloc(1, sizeof(display_t));
     display->running = 1;
     display->hasFocus = 1;
@@ -43,7 +44,16 @@ display_t* display_new(const char* title, int width, int height){
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_RELEASE_BEHAVIOR, 0);
 #endif
 
-    display->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
+    Uint32 flags = SDL_WINDOW_OPENGL | (fullscreen ? SDL_WINDOW_FULLSCREEN : 0);
+
+    if(fullscreen) {
+        SDL_DisplayMode dm;
+        SDL_GetCurrentDisplayMode(0, &dm);
+        width = dm.w;
+        height = dm.h;
+    }
+
+    display->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
     display->glContext = SDL_GL_CreateContext(display->window);
 
     SDL_GL_MakeCurrent(display->window, display->glContext);
@@ -62,6 +72,11 @@ display_t* display_new(const char* title, int width, int height){
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
+
+    //render buffer
+    display->renderFb = framebuffer_new(renderWidth, renderHeight);
+
+
 
 #ifdef DEBUG_BUILD
     if(strstr((char*)glGetString(GL_VENDOR), "NVIDIA")) { //I can't get debug output to work on nvidia so I'll guess
@@ -114,20 +129,29 @@ void display_prepare(display_t* display, float* delta){
         }
     }
 
+    glClearColor(CLEAR_COLOR[0], CLEAR_COLOR[1], CLEAR_COLOR[2], CLEAR_COLOR[3]);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    float c = 0;
-    glClearColor(c, c, c, 1);
 
     Uint32 now = SDL_GetTicks();
     *delta = (float)(now - display->lastTick) / 1000.f;
     display->lastTick = now;
+
+    framebuffer_bind(display->renderFb);
+    framebuffer_clear(display->renderFb);
+}
+
+void display_as_target(display_t* display) {
+    framebuffer_bind(display->renderFb);
 }
 
 void display_show(display_t* display){
+
+
     SDL_GL_SwapWindow(display->window);
 }
 
 void display_free(display_t* display){
+    framebuffer_free(display->renderFb);
     if(display->icon != 0) SDL_FreeSurface(display->icon);
     SDL_GL_MakeCurrent(display->window, NULL);
     SDL_DestroyWindow(display->window);

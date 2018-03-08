@@ -99,12 +99,76 @@ CMakeFiles/TEngine.dir/src/display.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/filehelper.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
+CMakeFiles/TEngine.dir/src/framebuffer.c.obj
+ ../dependencies/glew/include/glew.h
+ ../dependencies/sdl2/include/SDL2/SDL.h
+ ../dependencies/sdl2/include/SDL2/SDL_assert.h
+ ../dependencies/sdl2/include/SDL2/SDL_atomic.h
+ ../dependencies/sdl2/include/SDL2/SDL_audio.h
+ ../dependencies/sdl2/include/SDL2/SDL_blendmode.h
+ ../dependencies/sdl2/include/SDL2/SDL_clipboard.h
+ ../dependencies/sdl2/include/SDL2/SDL_config.h
+ ../dependencies/sdl2/include/SDL2/SDL_cpuinfo.h
+ ../dependencies/sdl2/include/SDL2/SDL_endian.h
+ ../dependencies/sdl2/include/SDL2/SDL_error.h
+ ../dependencies/sdl2/include/SDL2/SDL_events.h
+ ../dependencies/sdl2/include/SDL2/SDL_filesystem.h
+ ../dependencies/sdl2/include/SDL2/SDL_gamecontroller.h
+ ../dependencies/sdl2/include/SDL2/SDL_gesture.h
+ ../dependencies/sdl2/include/SDL2/SDL_haptic.h
+ ../dependencies/sdl2/include/SDL2/SDL_hints.h
+ ../dependencies/sdl2/include/SDL2/SDL_joystick.h
+ ../dependencies/sdl2/include/SDL2/SDL_keyboard.h
+ ../dependencies/sdl2/include/SDL2/SDL_keycode.h
+ ../dependencies/sdl2/include/SDL2/SDL_loadso.h
+ ../dependencies/sdl2/include/SDL2/SDL_log.h
+ ../dependencies/sdl2/include/SDL2/SDL_main.h
+ ../dependencies/sdl2/include/SDL2/SDL_messagebox.h
+ ../dependencies/sdl2/include/SDL2/SDL_mouse.h
+ ../dependencies/sdl2/include/SDL2/SDL_mutex.h
+ ../dependencies/sdl2/include/SDL2/SDL_pixels.h
+ ../dependencies/sdl2/include/SDL2/SDL_platform.h
+ ../dependencies/sdl2/include/SDL2/SDL_power.h
+ ../dependencies/sdl2/include/SDL2/SDL_quit.h
+ ../dependencies/sdl2/include/SDL2/SDL_rect.h
+ ../dependencies/sdl2/include/SDL2/SDL_render.h
+ ../dependencies/sdl2/include/SDL2/SDL_rwops.h
+ ../dependencies/sdl2/include/SDL2/SDL_scancode.h
+ ../dependencies/sdl2/include/SDL2/SDL_stdinc.h
+ ../dependencies/sdl2/include/SDL2/SDL_surface.h
+ ../dependencies/sdl2/include/SDL2/SDL_system.h
+ ../dependencies/sdl2/include/SDL2/SDL_thread.h
+ ../dependencies/sdl2/include/SDL2/SDL_timer.h
+ ../dependencies/sdl2/include/SDL2/SDL_touch.h
+ ../dependencies/sdl2/include/SDL2/SDL_version.h
+ ../dependencies/sdl2/include/SDL2/SDL_video.h
+ ../dependencies/sdl2/include/SDL2/begin_code.h
+ ../dependencies/sdl2/include/SDL2/close_code.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.c
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 CMakeFiles/TEngine.dir/src/inst_model.c.obj
  ../dependencies/glew/include/glew.h
@@ -263,6 +327,7 @@ CMakeFiles/TEngine.dir/src/main.c.obj
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/camera.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
+ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
  C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h

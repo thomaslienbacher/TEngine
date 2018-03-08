@@ -13,6 +13,8 @@
 #include "filehelper.h"
 #include "vector.h"
 #include "model.h"
+#include "framebuffer.h"
+#include "inst_model.h"
 
 void cam_control(camera_t *camera) {
     const Uint8 *kb = SDL_GetKeyboardState(NULL);
@@ -50,7 +52,7 @@ void test_render() {
     //display
     const int WIDTH = 1200;
     const int HEIGHT = 500;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
     display_set_icon(display, "data/icon.png");
 
     //program
@@ -227,7 +229,7 @@ void test_instanced_model() {
     //display
     const int WIDTH = 1280;
     const int HEIGHT = 720;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
 
     print_display_modes();
 
@@ -345,7 +347,7 @@ void test_instanced_model_new() {
     //display
     const int WIDTH = 1280;
     const int HEIGHT = 720;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
 
     print_display_modes();
 
@@ -459,9 +461,174 @@ void test_instanced_model_new() {
     display_free(display);
 }
 
+void print_fb() {
+    GLint drawFboId = 0, readFboId = 0;
+    glGetIntegerv(GL_DRAW_FRAMEBUFFER_BINDING, &drawFboId);
+    glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &readFboId);
+
+    fflush(stdout);
+    fflush(stderr);
+
+    dprintf("fb: draw: %d read: %d\n", drawFboId, readFboId);
+}
+
+void test_screen() {
+    //display
+    const int WIDTH = 640;
+    const int HEIGHT = 480;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_set_icon(display, "data/icon.png");
+    print_display_modes();
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    program_unistr_mat(program, "u_projection", camera->projMat);
+
+    //inst_model
+    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    mesh_t *mesh2 = mesh_newobj("data/plane.obj");
+    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
+    inst_model_t* inst_model = inst_model_new(mesh, texture, S*S);
+    model_t *model = model_new(mesh2, NULL);
+
+    //framebuffer
+    framebuffer_t* framebuffer = framebuffer_new(WIDTH, HEIGHT);
+    model->texture = framebuffer->texture;
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control(camera);
+        program_unistr_mat(program, "u_view", camera->viewMat);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        framebuffer_bind(framebuffer);
+        framebuffer_clear(framebuffer);
+
+        //render
+        for (int x = 0; x < S; ++x) {
+            for (int y = 0; y < S; ++y) {
+                vec3 _pos = {x * 2, 0, y * 2};
+                vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f, 360.0f - (SDL_GetTicks() / 300.f)};
+                float _s = 0.3f;
+                model_mat_mat(inst_model->mats[y * S + x], _pos, _rot, _s);
+            }
+        }
+
+        vec3_print(camera->pos);
+
+        inst_model_update(inst_model);
+        render_inst_model(inst_model, program);
+
+        framebuffer_bind(NULL);
+
+        model_mat(model, VEC3_ZERO, VEC3_ZERO, 1);
+        //model->texture = texture;
+        //model->mesh = mesh2;
+        program_unistr_mat(program, "u_model", model->mat);
+
+        vec3 p = {0, 0, 4};
+        camera_view(camera, p, 0, 0, 0);
+        program_unistr_mat(program, "u_view", camera->viewMat);
+        render_model(model);
+
+        display_show(display);
+    }
+
+    inst_model_free(inst_model);
+    texture_free(texture);
+    mesh_free(mesh);
+
+    framebuffer_free(framebuffer);
+    
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
+void test_new_render_target() {
+    //display
+    const int WIDTH = 640;
+    const int HEIGHT = 480;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_set_icon(display, "data/icon.png");
+    print_display_modes();
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    program_unistr_mat(program, "u_projection", camera->projMat);
+
+    //inst_model
+    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
+    inst_model_t* inst_model = inst_model_new(mesh, texture, S*S);
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control(camera);
+        program_unistr_mat(program, "u_view", camera->viewMat);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //render
+        for (int x = 0; x < S; ++x) {
+            for (int y = 0; y < S; ++y) {
+                vec3 _pos = {x * 2, 0, y * 2};
+                vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f, 360.0f - (SDL_GetTicks() / 300.f)};
+                float _s = 0.3f;
+                model_mat_mat(inst_model->mats[y * S + x], _pos, _rot, _s);
+            }
+        }
+
+        vec3_print(camera->pos);
+
+        inst_model_update(inst_model);
+        render_inst_model(inst_model, program);
+
+        display_show(display);
+    }
+
+    inst_model_free(inst_model);
+    texture_free(texture);
+    mesh_free(mesh);
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_instanced_model_new();
+    test_new_render_target();
 
     return 0;
 }

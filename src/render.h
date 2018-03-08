@@ -20,6 +20,8 @@ extern "C" {
 #include "model.h"
 #include "inst_model.h"
 
+extern vec4 CLEAR_COLOR;
+
 void render_begin();
 void render_model(model_t* model);
 void render_same_model(model_t* model);

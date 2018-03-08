@@ -203,6 +203,33 @@ src/filehelper.c.s:
 	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/filehelper.c.s
 .PHONY : src/filehelper.c.s
 
+src/framebuffer.obj: src/framebuffer.c.obj
+
+.PHONY : src/framebuffer.obj
+
+# target to build an object file
+src/framebuffer.c.obj:
+	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/framebuffer.c.obj
+.PHONY : src/framebuffer.c.obj
+
+src/framebuffer.i: src/framebuffer.c.i
+
+.PHONY : src/framebuffer.i
+
+# target to preprocess a source file
+src/framebuffer.c.i:
+	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/framebuffer.c.i
+.PHONY : src/framebuffer.c.i
+
+src/framebuffer.s: src/framebuffer.c.s
+
+.PHONY : src/framebuffer.s
+
+# target to generate assembly for a file
+src/framebuffer.c.s:
+	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/framebuffer.c.s
+.PHONY : src/framebuffer.c.s
+
 src/inst_model.obj: src/inst_model.c.obj
 
 .PHONY : src/inst_model.obj
@@ -545,6 +572,9 @@ help:
 	@echo ... src/filehelper.obj
 	@echo ... src/filehelper.i
 	@echo ... src/filehelper.s
+	@echo ... src/framebuffer.obj
+	@echo ... src/framebuffer.i
+	@echo ... src/framebuffer.s
 	@echo ... src/inst_model.obj
 	@echo ... src/inst_model.i
 	@echo ... src/inst_model.s

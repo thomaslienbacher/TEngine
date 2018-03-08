@@ -9,6 +9,8 @@
 #include "render.h"
 #include "inst_model.h"
 
+vec4 CLEAR_COLOR = {0, 0, 0, 0};
+
 void render_begin(){
     glEnableVertexAttribArray(POSITION_INDEX);
     glEnableVertexAttribArray(TEXCOORD_INDEX);
