@@ -25,7 +25,6 @@ typedef struct {
     char running;
     char hasFocus;
     Uint32 lastTick;
-    framebuffer_t* renderFb;
 } display_t;
 
 display_t *display_new(const char *title, int width, int height, char fullscreen, int renderWidth, int renderHeight);

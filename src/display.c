@@ -73,11 +73,6 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 
-    //render buffer
-    display->renderFb = framebuffer_new(renderWidth, renderHeight);
-
-
-
 #ifdef DEBUG_BUILD
     if(strstr((char*)glGetString(GL_VENDOR), "NVIDIA")) { //I can't get debug output to work on nvidia so I'll guess
         dprintf("Your graphics card vendor is %s.\n"
@@ -135,23 +130,17 @@ void display_prepare(display_t* display, float* delta){
     Uint32 now = SDL_GetTicks();
     *delta = (float)(now - display->lastTick) / 1000.f;
     display->lastTick = now;
-
-    framebuffer_bind(display->renderFb);
-    framebuffer_clear(display->renderFb);
 }
 
 void display_as_target(display_t* display) {
-    framebuffer_bind(display->renderFb);
+    //TODO: implement used when framebuffer render target is implemented
 }
 
 void display_show(display_t* display){
-
-
     SDL_GL_SwapWindow(display->window);
 }
 
 void display_free(display_t* display){
-    framebuffer_free(display->renderFb);
     if(display->icon != 0) SDL_FreeSurface(display->icon);
     SDL_GL_MakeCurrent(display->window, NULL);
     SDL_DestroyWindow(display->window);
