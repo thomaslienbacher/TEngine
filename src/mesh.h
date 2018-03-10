@@ -28,12 +28,20 @@ typedef struct {
     unsigned int* elements;
 } mesh_t;
 
+typedef struct {
+    GLuint vao;
+    GLuint vbo;
+} quad_t;
+
 mesh_t* mesh_newobjf(FILE *objFile);
 mesh_t* mesh_newobj(const char *objFile);
 mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned int numVertices,
                      float* vertices, float* texcoords, float* normals);
 void mesh_bind(mesh_t* mesh);
 void mesh_free(mesh_t* mesh);
+
+quad_t* quad_new();
+void quad_free(quad_t* quad);
 
 #ifdef __cplusplus
 }

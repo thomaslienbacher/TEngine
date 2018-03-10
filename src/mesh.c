@@ -6,11 +6,14 @@
  * version: 1.1
  */
 
+#include "quad.h"
 #include "mesh.h"
 //#include "master.h"
 #include "utils.h"
 #include "filehelper.h"
 #include "tinyobj_loader_c.h"
+
+#define QUAD_SIZE 6
 
 mesh_t* mesh_newobjf(FILE *objFile){
     //obj parsing
@@ -146,6 +149,9 @@ mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned in
 
 static unsigned int bound = 0;
 
+static float QUAD_VERTICES[] = {0, 0, 1, 0, 1, 1,
+                                0, 0, 1, 1, 0, 1};
+
 void mesh_bind(mesh_t* mesh){
     if(mesh == NULL){
         if(bound) {
@@ -165,4 +171,24 @@ void mesh_free(mesh_t* mesh){
     glDeleteBuffers(4, mesh->vbos);
     free(mesh->elements);
     free(mesh);
+}
+
+quad_t* quad_new() {
+    quad_t* quad = calloc(1, sizeof(quad_t));
+
+    glGenVertexArrays(1, &quad->vao);
+    glBindVertexArray(quad->vao);
+
+    glGenBuffers(1, &quad->vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, quad->vbo);
+    glBufferData(GL_ARRAY_BUFFER, QUAD_SIZE * 2 * sizeof(float), QUAD_VERTICES, GL_STATIC_DRAW);
+
+    return quad;
+}
+
+void quad_free(quad_t* quad) {
+    mesh_bind(NULL);
+    glDeleteVertexArrays(1, &quad->vao);
+    glDeleteBuffers(1, &quad->vbo);
+    free(quad);
 }

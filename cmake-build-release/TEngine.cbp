@@ -106,12 +106,6 @@
 		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h">
 			<Option target="TEngine"/>
 		</Unit>
-		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.c">
-			<Option target="TEngine"/>
-		</Unit>
-		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h">
-			<Option target="TEngine"/>
-		</Unit>
 		<Unit filename="C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c">
 			<Option target="TEngine"/>
 		</Unit>

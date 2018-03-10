@@ -230,33 +230,6 @@ src/framebuffer.c.s:
 	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/framebuffer.c.s
 .PHONY : src/framebuffer.c.s
 
-src/inst_model.obj: src/inst_model.c.obj
-
-.PHONY : src/inst_model.obj
-
-# target to build an object file
-src/inst_model.c.obj:
-	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/inst_model.c.obj
-.PHONY : src/inst_model.c.obj
-
-src/inst_model.i: src/inst_model.c.i
-
-.PHONY : src/inst_model.i
-
-# target to preprocess a source file
-src/inst_model.c.i:
-	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/inst_model.c.i
-.PHONY : src/inst_model.c.i
-
-src/inst_model.s: src/inst_model.c.s
-
-.PHONY : src/inst_model.s
-
-# target to generate assembly for a file
-src/inst_model.c.s:
-	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/src/inst_model.c.s
-.PHONY : src/inst_model.c.s
-
 src/light.obj: src/light.c.obj
 
 .PHONY : src/light.obj
@@ -575,9 +548,6 @@ help:
 	@echo ... src/framebuffer.obj
 	@echo ... src/framebuffer.i
 	@echo ... src/framebuffer.s
-	@echo ... src/inst_model.obj
-	@echo ... src/inst_model.i
-	@echo ... src/inst_model.s
 	@echo ... src/light.obj
 	@echo ... src/light.i
 	@echo ... src/light.s

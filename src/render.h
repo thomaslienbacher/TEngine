@@ -18,7 +18,6 @@ extern "C" {
 #include "tengine_math.h"
 #include "program.h"
 #include "model.h"
-#include "inst_model.h"
 
 extern vec4 CLEAR_COLOR;
 

@@ -98,6 +98,7 @@ CMakeFiles/TEngine.dir/src/display.c.obj: ../dependencies/sdl2/include/SDL2/clos
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/display.c
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/display.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/filehelper.h
+CMakeFiles/TEngine.dir/src/display.c.obj: ../src/framebuffer.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/inst_model.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/lodepng.h
 CMakeFiles/TEngine.dir/src/display.c.obj: ../src/master.h

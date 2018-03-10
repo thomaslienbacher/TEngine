@@ -10,11 +10,7 @@
 #include "mesh.h"
 #include "render.h"
 #include "light.h"
-#include "filehelper.h"
 #include "vector.h"
-#include "model.h"
-#include "framebuffer.h"
-#include "inst_model.h"
 
 void cam_control(camera_t *camera) {
     const Uint8 *kb = SDL_GetKeyboardState(NULL);
@@ -561,13 +557,12 @@ void test_screen() {
     display_free(display);
 }
 
-void test_new_render_target() {
+void test_quad() {
     //display
     const int WIDTH = 640;
     const int HEIGHT = 480;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, 0, 0);
     display_set_icon(display, "data/icon.png");
-    print_display_modes();
 
     //program
     program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
@@ -578,9 +573,8 @@ void test_new_render_target() {
     program_unistr_mat(program, "u_projection", camera->projMat);
 
     //inst_model
-    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    quad_t* quad = quad_new();
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
-    inst_model_t* inst_model = inst_model_new(mesh, texture, S*S);
 
     while (display->running) {
         float delta;
@@ -601,26 +595,13 @@ void test_new_render_target() {
         if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
 
         //render
-        for (int x = 0; x < S; ++x) {
-            for (int y = 0; y < S; ++y) {
-                vec3 _pos = {x * 2, 0, y * 2};
-                vec3 _rot = {SDL_GetTicks() / 300.f * x, SDL_GetTicks() / 100.0f, 360.0f - (SDL_GetTicks() / 300.f)};
-                float _s = 0.3f;
-                model_mat_mat(inst_model->mats[y * S + x], _pos, _rot, _s);
-            }
-        }
 
-        vec3_print(camera->pos);
-
-        inst_model_update(inst_model);
-        render_inst_model(inst_model, program);
 
         display_show(display);
     }
 
-    inst_model_free(inst_model);
+    quad_free(quad);
     texture_free(texture);
-    mesh_free(mesh);
     camera_free(camera);
     program_free(program);
     display_free(display);
@@ -628,7 +609,7 @@ void test_new_render_target() {
 
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_new_render_target();
+    test_quad();
 
     return 0;
 }
