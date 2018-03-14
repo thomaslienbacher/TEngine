@@ -11,7 +11,7 @@
 #include "utils.h"
 #include "filehelper.h"
 
-program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
+program_t* program_news(const char *vertexSrc, const char *fragmentSrc) {
     program_t* program = calloc(1, sizeof(program_t));
 
     program->id = glCreateProgram();
@@ -19,12 +19,9 @@ program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
     GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
     //vertex shader
-    unsigned long vertexLen = 0;
-    char* vertexSrc = NULL;
-    fadv_info(vertexShd, &vertexLen, &vertexSrc);
-    glShaderSource(vertex, 1, (const char**)&vertexSrc, (const GLint*)&vertexLen);
+    unsigned long vertexLen = strlen(vertexSrc);
+    glShaderSource(vertex, 1, &vertexSrc, (const GLint*)&vertexLen);
     glCompileShader(vertex);
-    free(vertexSrc);
 
     GLint isCompiled = 0;
     glGetShaderiv(vertex, GL_COMPILE_STATUS, &isCompiled);
@@ -39,12 +36,9 @@ program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
     }
 
     //fragment shader
-    unsigned long fragmentLen = 0;
-    char* fragmentSrc = NULL;
-    fadv_info(fragmentShd, &fragmentLen, &fragmentSrc);
-    glShaderSource(fragment, 1, (const char**)&fragmentSrc, (const GLint*)&fragmentLen);
+    unsigned long fragmentLen = strlen(fragmentSrc);
+    glShaderSource(fragment, 1, &fragmentSrc, (const GLint*)&fragmentLen);
     glCompileShader(fragment);
-    free(fragmentSrc);
 
     isCompiled = 0;
     glGetShaderiv(fragment, GL_COMPILE_STATUS, &isCompiled);
@@ -82,9 +76,19 @@ program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
     return program;
 }
 
-program_t* program_new(const char *vertexShd, const char *fragmentShd) {
-    FILE *vertex = fadv_open(vertexShd, "r");
-    FILE *fragment = fadv_open(fragmentShd, "r");
+program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
+    char* vertexSrc = fadv_contents(vertexShd);
+    char* fragmentSrc = fadv_contents(fragmentShd);
+    program_t *program = program_news(vertexSrc, fragmentSrc);
+    free(vertexSrc);
+    free(fragmentSrc);
+
+    return program;
+}
+
+program_t* program_new(const char *vertexFile, const char *fragmenFile) {
+    FILE *vertex = fadv_open(vertexFile, "r");
+    FILE *fragment = fadv_open(fragmenFile, "r");
     program_t *program = program_newf(vertex, fragment);
     fadv_close(vertex);
     fadv_close(fragment);

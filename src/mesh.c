@@ -6,14 +6,12 @@
  * version: 1.1
  */
 
-#include "quad.h"
+
 #include "mesh.h"
-//#include "master.h"
+#include "master.h"
 #include "utils.h"
 #include "filehelper.h"
 #include "tinyobj_loader_c.h"
-
-#define QUAD_SIZE 6
 
 mesh_t* mesh_newobjf(FILE *objFile){
     //obj parsing
@@ -182,6 +180,7 @@ quad_t* quad_new() {
     glGenBuffers(1, &quad->vbo);
     glBindBuffer(GL_ARRAY_BUFFER, quad->vbo);
     glBufferData(GL_ARRAY_BUFFER, QUAD_SIZE * 2 * sizeof(float), QUAD_VERTICES, GL_STATIC_DRAW);
+    glVertexAttribPointer(POSITION_INDEX, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
     return quad;
 }

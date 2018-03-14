@@ -6,7 +6,6 @@
  * version: 1.1
  */
 
-#include "inst_model.h"
 #include <stdlib.h>
 #include "model.h"
 
@@ -103,4 +102,21 @@ void inst_model_free(inst_model_t* inst_model) {
     glDeleteBuffers(4, inst_model->matVbos);
     free(inst_model->mats);
     free(inst_model);
+}
+
+quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, float height) {
+    quad_model_t* quad_model = calloc(1, sizeof(quad_model_t));
+    quad_model->quad = quad_new();
+    quad_model->texture = texture;
+    quad_model->dim[0] = x;
+    quad_model->dim[1] = y;
+    quad_model->dim[2] = width;
+    quad_model->dim[3] = height;
+
+    return quad_model;
+}
+
+void quad_model_free(quad_model_t* quad_model) {
+    quad_free(quad_model->quad);
+    free(quad_model);
 }

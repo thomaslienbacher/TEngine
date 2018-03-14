@@ -561,7 +561,7 @@ void test_quad() {
     //display
     const int WIDTH = 640;
     const int HEIGHT = 480;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
     display_set_icon(display, "data/icon.png");
 
     //program
@@ -572,9 +572,9 @@ void test_quad() {
     camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
     program_unistr_mat(program, "u_projection", camera->projMat);
 
-    //inst_model
-    quad_t* quad = quad_new();
+    //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
+    quad_model_t* quad_model = quad_model_new(texture, 0.5f, 0.5f, 0.5f, 0.5f);
 
     while (display->running) {
         float delta;
@@ -595,12 +595,12 @@ void test_quad() {
         if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
 
         //render
-
+        render_quad(quad_model);
 
         display_show(display);
     }
 
-    quad_free(quad);
+    quad_model_free(quad_model);
     texture_free(texture);
     camera_free(camera);
     program_free(program);

@@ -20,6 +20,7 @@ extern "C" {
 #define TEXCOORD_INDEX 1
 #define NORMAL_INDEX 2
 #define MODELICOL1_INDEX 3
+#define QUAD_SIZE 6
 
 typedef struct {
     GLuint vao;

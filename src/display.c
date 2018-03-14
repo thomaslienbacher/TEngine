@@ -85,6 +85,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     }
 #endif
 
+    _render_init();
+
     return display;
 }
 
@@ -141,6 +143,8 @@ void display_show(display_t* display){
 }
 
 void display_free(display_t* display){
+    _render_quit();
+
     if(display->icon != 0) SDL_FreeSurface(display->icon);
     SDL_GL_MakeCurrent(display->window, NULL);
     SDL_DestroyWindow(display->window);

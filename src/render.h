@@ -20,12 +20,18 @@ extern "C" {
 #include "model.h"
 
 extern vec4 CLEAR_COLOR;
+extern const char* QUAD_VERTEX_SHADER;
+extern const char* QUAD_FRAGMENT_SHADER;
+extern program_t* QUAD_SHADER;
 
+void _render_init();
+void _render_quit();
 void render_begin();
 void render_model(model_t* model);
 void render_same_model(model_t* model);
 void render_instanced_dyn(model_t *model, program_t *program, int count, mat4x4 *mats);//creates a new buffer and removes it afterwards
 void render_inst_model(inst_model_t* inst_model, program_t *program);
+void render_quad(quad_model_t* quad_model);
 void render_end();
 
 #ifdef __cplusplus
