@@ -12,6 +12,7 @@
 #include "utils.h"
 #include "filehelper.h"
 #include "render.h"
+#include "framebuffer.h"
 
 static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
                       GLenum severity, GLsizei length, const GLchar* message, const void* userParam) {
@@ -35,8 +36,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0); //to disable aa both need to be set to 0
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0); //anti aliasing
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); //to disable aa both need to be set to 0
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); //anti aliasing
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
 
 #ifdef DEBUG_BUILD
@@ -53,6 +54,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
         height = dm.h;
     }
 
+    display->width = width;
+    display->height = height;
     display->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
     display->glContext = SDL_GL_CreateContext(display->window);
 
@@ -86,6 +89,10 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
 #endif
 
     _render_init();
+
+    display->renderTarget = framebuffer_new(renderWidth, renderHeight);
+    framebuffer_bind(display->renderTarget);
+    display->quad_model = quad_model_new(display->renderTarget->texture, 0, 0, 1, 1);
 
     return display;
 }
@@ -132,19 +139,27 @@ void display_prepare(display_t* display, float* delta){
     Uint32 now = SDL_GetTicks();
     *delta = (float)(now - display->lastTick) / 1000.f;
     display->lastTick = now;
+
+    framebuffer_bind(display->renderTarget);
+    framebuffer_clear(display->renderTarget);
 }
 
 void display_as_target(display_t* display) {
-    //TODO: implement used when framebuffer render target is implemented
+    framebuffer_bind(display->renderTarget);
 }
 
 void display_show(display_t* display){
+    framebuffer_bind(NULL);
+    glViewport(0, 0, display->width, display->height);
+    render_quad(display->quad_model);
     SDL_GL_SwapWindow(display->window);
 }
 
 void display_free(display_t* display){
     _render_quit();
 
+    quad_model_free(display->quad_model);
+    framebuffer_free(display->renderTarget);
     if(display->icon != 0) SDL_FreeSurface(display->icon);
     SDL_GL_MakeCurrent(display->window, NULL);
     SDL_DestroyWindow(display->window);

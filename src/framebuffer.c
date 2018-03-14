@@ -28,8 +28,8 @@ framebuffer_t* framebuffer_new(int width, int height) {
     glGenTextures(1, &texture->id);
     glBindTexture(GL_TEXTURE_2D, texture->id);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
     //depth attachment
     GLuint depth;
@@ -55,13 +55,12 @@ void framebuffer_bind(framebuffer_t* framebuffer) {
     if(framebuffer == NULL) {
         if(bound) {
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
-            dprintf("unbound\n", 0);
             bound = 0;
         }
     }
     else if(framebuffer->id != bound) {
         glBindFramebuffer(GL_FRAMEBUFFER, framebuffer->id);
-        dprintf("bound: %d\n", framebuffer->id);
+        glViewport(0, 0, framebuffer->width, framebuffer->height);
         bound = framebuffer->id;
     }
 }

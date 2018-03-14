@@ -607,9 +607,62 @@ void test_quad() {
     display_free(display);
 }
 
+void test_new_viewport() {
+    //display
+    const int WIDTH = 800;
+    const int HEIGHT = 640;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, WIDTH / 4, HEIGHT / 4);
+    display_set_icon(display, "data/icon.png");
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    program_unistr_mat(program, "u_projection", camera->projMat);
+
+    //quad_model
+    texture_t *texture = texture_new("data/gun.png", GL_LINEAR, 4);
+    mesh_t *mesh = mesh_newobj("data/gun.obj");
+    model_t *model = model_new(mesh, texture);
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control(camera);
+        program_unistr_mat(program, "u_view", camera->viewMat);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //render
+        program_unistr_mat(program, "u_model", model->mat);
+        program_use(program);
+        render_model(model);
+
+        display_show(display);
+    }
+
+    model_free(model);
+    mesh_free(mesh);
+    texture_free(texture);
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_quad();
+    test_new_viewport();
 
     return 0;
 }

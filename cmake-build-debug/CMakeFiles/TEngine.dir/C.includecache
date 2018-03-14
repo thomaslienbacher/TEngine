@@ -599,6 +599,8 @@ filehelper.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 render.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+framebuffer.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
 stdio.h
@@ -607,6 +609,8 @@ master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 framebuffer.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
+model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c
 stdlib.h

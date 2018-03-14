@@ -16,6 +16,7 @@ extern "C" {
 #include <stdio.h>
 #include "master.h"
 #include "framebuffer.h"
+#include "model.h"
 
 typedef struct {
     SDL_Window *window;
@@ -25,6 +26,10 @@ typedef struct {
     char running;
     char hasFocus;
     Uint32 lastTick;
+    framebuffer_t* renderTarget;
+    quad_model_t* quad_model;
+    int width;
+    int height;
 } display_t;
 
 display_t *display_new(const char *title, int width, int height, char fullscreen, int renderWidth, int renderHeight);
