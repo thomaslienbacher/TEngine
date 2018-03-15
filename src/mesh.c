@@ -101,6 +101,7 @@ mesh_t* mesh_newobjf(FILE *objFile){
     free(vertices);
     free(texcoords);
     free(normals);
+    free(indices);
 
     return mesh;
 }
@@ -124,7 +125,6 @@ mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned in
                      float* vertices, float* texcoords, float* normals){
     mesh_t* mesh = calloc(1, sizeof(mesh_t));
 
-    mesh->elements = indices;
     mesh->numElements = numIndices;
 
     //opengl upload
@@ -167,7 +167,6 @@ void mesh_free(mesh_t* mesh){
     mesh_bind(NULL);
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(4, mesh->vbos);
-    free(mesh->elements);
     free(mesh);
 }
 

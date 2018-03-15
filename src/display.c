@@ -144,7 +144,7 @@ void display_prepare(display_t* display, float* delta){
     framebuffer_clear(display->renderTarget);
 }
 
-void display_as_target(display_t* display) {
+inline void display_as_target(display_t* display) {
     framebuffer_bind(display->renderTarget);
 }
 

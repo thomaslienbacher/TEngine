@@ -22,7 +22,7 @@ framebuffer_t* framebuffer_new(int width, int height) {
 
     //opengl
     glGenFramebuffers(1, &framebuffer->id);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer->id);
+    framebuffer_bind(framebuffer);
 
     //texture
     glGenTextures(1, &texture->id);

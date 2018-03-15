@@ -72,12 +72,35 @@ static inline void vec##n##_cpy(vec##n dst, const vec##n src) \
     for(i=0; i<n; ++i) \
         dst[i] = src[i]; \
 } \
+static inline void vec##n##_zero(vec##n dst) \
+{ \
+    int i; \
+    for(i=0; i<n; ++i) \
+        dst[i] = 0; \
+} \
 void vec##n##_print(const vec##n v);
-
 
 LINMATH_H_DEFINE_VEC(2)
 LINMATH_H_DEFINE_VEC(3)
 LINMATH_H_DEFINE_VEC(4)
+
+static inline void vec2_set(vec2 dst, float x, float y) {
+    dst[0] = x;
+    dst[1] = y;
+}
+
+static inline void vec3_set(vec3 dst, float x, float y, float z) {
+    dst[0] = x;
+    dst[1] = y;
+    dst[2] = z;
+}
+
+static inline void vec4_set(vec4 dst, float x, float y, float z, float w) {
+    dst[0] = x;
+    dst[1] = y;
+    dst[2] = z;
+    dst[3] = w;
+}
 
 extern const vec2 VEC2_ZERO;
 extern const vec3 VEC3_ZERO;

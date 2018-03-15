@@ -611,8 +611,13 @@ void test_new_viewport() {
     //display
     const int WIDTH = 800;
     const int HEIGHT = 640;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, WIDTH / 4, HEIGHT / 4);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, WIDTH / 2, HEIGHT / 2);
     display_set_icon(display, "data/icon.png");
+
+    CLEAR_COLOR[0] = 0.1f;
+    CLEAR_COLOR[1] = 0.1f;
+    CLEAR_COLOR[2] = 0.1f;
+    CLEAR_COLOR[3] = 0.1f;
 
     //program
     program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
@@ -623,7 +628,7 @@ void test_new_viewport() {
     program_unistr_mat(program, "u_projection", camera->projMat);
 
     //quad_model
-    texture_t *texture = texture_new("data/gun.png", GL_LINEAR, 4);
+    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
     mesh_t *mesh = mesh_newobj("data/gun.obj");
     model_t *model = model_new(mesh, texture);
 
@@ -663,6 +668,13 @@ void test_new_viewport() {
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
     test_new_viewport();
+
+    vec3 v;
+    vec3_zero(v);
+    vec3_print(v);
+
+    vec3_set(v, 11, 22, 33);
+    vec3_print(v);
 
     return 0;
 }

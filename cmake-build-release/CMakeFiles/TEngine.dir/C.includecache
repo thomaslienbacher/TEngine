@@ -597,12 +597,20 @@ utils.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 filehelper.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
+render.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
+framebuffer.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/display.h
 stdio.h
 -
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
+framebuffer.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
+model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.c
 stdlib.h
@@ -625,22 +633,14 @@ texture.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
 utils.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
+render.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
 master.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 texture.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/texture.h
-
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.c
-stdlib.h
--
-inst_model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
-
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
-model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.c
 stdlib.h
@@ -705,16 +705,8 @@ render.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 light.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/light.h
-filehelper.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
 vector.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/vector.h
-model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
-framebuffer.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/framebuffer.h
-inst_model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 SDL2/SDL.h
@@ -727,6 +719,8 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.c
 mesh.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
+master.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
 utils.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
 filehelper.h
@@ -779,8 +773,10 @@ C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.c
 render.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
-inst_model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
+model.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
+mesh.h
+C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/render.h
 master.h
@@ -793,8 +789,6 @@ program.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/program.h
 model.h
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/model.h
-inst_model.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/inst_model.h
 
 C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tengine_math.c
 tengine_math.h

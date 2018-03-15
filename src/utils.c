@@ -30,8 +30,8 @@ static void post_die(FILE* errfile, const char* date, const char* time){
     glGetIntegerv(GL_NUM_EXTENSIONS, &numExtensions);
     fprintf(errfile, "Num of extensions: %d\n", numExtensions);
 
-    for(unsigned int i = 0; i < numExtensions; i++){
-        fprintf(errfile, "   %s\n", glGetStringi(GL_EXTENSIONS, i));
+    for(int i = 0; i < numExtensions; i++){
+        fprintf(errfile, "   %s\n", glGetStringi(GL_EXTENSIONS, (GLuint)i));
     }
 #endif
 

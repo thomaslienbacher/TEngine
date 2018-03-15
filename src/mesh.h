@@ -26,7 +26,6 @@ typedef struct {
     GLuint vao;
     GLuint vbos[4];
     unsigned int numElements;
-    unsigned int* elements;
 } mesh_t;
 
 typedef struct {
