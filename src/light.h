@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 26.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_LIGHT_H
 #define TENGINE_LIGHT_H
 
@@ -17,7 +13,7 @@ extern "C" {
 #include "tengine_math.h"
 #include "program.h"
 
-typedef struct {
+typedef struct _light_s {
     vec3 color;
     vec3 pos;
     float strength; //if set to 0 light will not be calculated
@@ -27,7 +23,7 @@ typedef struct {
     int strengthLoc;
 } light_t;
 
-typedef struct {
+typedef struct _lightengine_s {
     int numLights;
     light_t** lights;
     unsigned char* ids;//0 = not used, 1 = used

@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 22.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #include "render.h"
 #include "model.h"
 #include "mesh.h"

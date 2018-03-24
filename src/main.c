@@ -156,7 +156,7 @@ void test_render() {
     display_free(display);
 }
 
-void print_vec(vector *vec) {
+void print_vec(vector_t *vec) {
     for (int j = 0; j < vec->size; ++j) {
         int *d = ((int *) vector_get(vec, j));
         printf("%d -> %p -> ", j, d);
@@ -166,7 +166,7 @@ void print_vec(vector *vec) {
 }
 
 void test_vector() {
-    vector *vec = vector_new(10);
+    vector_t *vec = vector_new(10);
 
     for (int i = 0; i < 200; ++i) {
         int *d = malloc(sizeof(int));

@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_program_H
 #define TENGINE_program_H
 
@@ -17,7 +13,7 @@ extern "C" {
 #include "master.h"
 #include "tengine_math.h"
 
-typedef struct {
+typedef struct _program_s {
     GLuint id;
     //uniform cache
 } program_t;

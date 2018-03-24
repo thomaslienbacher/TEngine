@@ -3,8 +3,6 @@
 
 /**
  * original: https://github.com/datenwolf/linmath.h
- * version: 1.2
- *
  */
 
 #ifdef __cplusplus

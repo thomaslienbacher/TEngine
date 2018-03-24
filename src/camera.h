@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_CAMERA_H
 #define TENGINE_CAMERA_H
 
@@ -16,7 +12,7 @@ extern "C" {
 #include "master.h"
 #include "tengine_math.h"
 
-typedef struct {
+typedef struct _camera_s {
     mat4x4 projMat;
     mat4x4 viewMat;
     vec3 pos;

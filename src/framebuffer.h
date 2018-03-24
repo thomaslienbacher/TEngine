@@ -12,7 +12,7 @@ extern "C" {
 #include "master.h"
 #include "texture.h"
 
-typedef struct {
+typedef struct _framebuffer_s{
     texture_t* texture;
     int width;
     int height;

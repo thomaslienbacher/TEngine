@@ -6,15 +6,15 @@
 #include "vector.h"
 #include "utils.h"
 
-vector* vector_new(size_t capacity){
-    vector* vec = calloc(1, sizeof(vector));
+vector_t* vector_new(size_t capacity){
+    vector_t* vec = calloc(1, sizeof(vector_t));
     vec->array = calloc(capacity, sizeof(void*));
     vec->size = capacity;
 
     return vec;
 }
 
-void vector_push(vector* vec, void* data){
+void vector_push(vector_t* vec, void* data){
     int nPos = -1;
 
     for (unsigned int i = 0; i < vec->size; ++i) {
@@ -36,21 +36,21 @@ void vector_push(vector* vec, void* data){
 
 #define POS_CHECK(x) if((x) < 0 || 0 >= vec->size) dief("Vector: position out of bounds: %d", (x))
 
-void* vector_remove(vector* vec, int pos) {
+void* vector_remove(vector_t* vec, int pos) {
     POS_CHECK(pos);
     void* data = vec->array[pos];
     vec->array[pos] = NULL;
     return data;
 }
 
-void* vector_get(vector* vec, int pos) {
+void* vector_get(vector_t* vec, int pos) {
     POS_CHECK(pos);
     return vec->array[pos];
 }
 
 #undef POS_CHECK
 
-void vector_trim(vector* vec){
+void vector_trim(vector_t* vec){
     size_t newSize = vec->size;
 
     for (unsigned int i = 0; i < vec->size; ++i) {
@@ -72,7 +72,7 @@ void vector_trim(vector* vec){
     vec->size = newSize;
 }
 
-void vector_free(vector* vec) {
+void vector_free(vector_t* vec) {
     free(vec->array);
     free(vec);
 }

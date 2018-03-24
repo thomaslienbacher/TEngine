@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_MESH_H
 #define TENGINE_MESH_H
 
@@ -22,13 +18,13 @@ extern "C" {
 #define MODELICOL1_INDEX 3
 #define QUAD_SIZE 6
 
-typedef struct {
+typedef struct _mesh_s {
     GLuint vao;
     GLuint vbos[4];
     unsigned int numElements;
 } mesh_t;
 
-typedef struct {
+typedef struct _quad_s {
     GLuint vao;
     GLuint vbo;
 } quad_t;

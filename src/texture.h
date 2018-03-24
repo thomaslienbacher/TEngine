@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 25.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_TEXTURE_H
 #define TENGINE_TEXTURE_H
 
@@ -16,7 +12,7 @@ extern "C" {
 #include <stdio.h>
 #include "master.h"
 
-typedef struct {
+typedef struct _texture_s {
     int width;
     int height;
     GLuint id;

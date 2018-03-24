@@ -2,11 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
-
 #include "mesh.h"
 #include "master.h"
 #include "utils.h"

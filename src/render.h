@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 22.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_RENDER_H
 #define TENGINE_RENDER_H
 

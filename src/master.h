@@ -5,10 +5,6 @@
 #ifndef TENGINE_MASTER_H
 #define TENGINE_MASTER_H
 
-/**
- * version: 1.1
- */
-
 #ifdef __cplusplus
 extern "C" {
 #endif

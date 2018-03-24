@@ -9,18 +9,17 @@
 extern "C" {
 #endif
 
-
-typedef struct {
+typedef struct _vector_s {
     void** array;
     size_t size;
-} vector;
+} vector_t;
 
-vector* vector_new(size_t capacity);
-void vector_push(vector* vec, void* data);
-void* vector_remove(vector* vec, int pos);
-void* vector_get(vector* vec, int pos);
-void vector_trim(vector* vec);
-void vector_free(vector* vec);
+vector_t* vector_new(size_t capacity);
+void vector_push(vector_t* vec, void* data);
+void* vector_remove(vector_t* vec, int pos);
+void* vector_get(vector_t* vec, int pos);
+void vector_trim(vector_t* vec);
+void vector_free(vector_t* vec);
 
 #ifdef __cplusplus
 }

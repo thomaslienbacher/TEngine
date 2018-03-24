@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 30.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_FILEHELPER_H
 #define TENGINE_FILEHELPER_H
 

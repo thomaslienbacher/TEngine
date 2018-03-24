@@ -54,12 +54,12 @@ static unsigned int bound = 0;
 void framebuffer_bind(framebuffer_t* framebuffer) {
     if(framebuffer == NULL) {
         if(bound) {
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
             bound = 0;
         }
     }
     else if(framebuffer->id != bound) {
-        glBindFramebuffer(GL_FRAMEBUFFER, framebuffer->id);
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, framebuffer->id);
         glViewport(0, 0, framebuffer->width, framebuffer->height);
         bound = framebuffer->id;
     }

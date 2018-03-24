@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_DISPLAY_H
 #define TENGINE_DISPLAY_H
 
@@ -18,7 +14,7 @@ extern "C" {
 #include "framebuffer.h"
 #include "model.h"
 
-typedef struct {
+typedef struct _display_s {
     SDL_Window *window;
     SDL_Event events;
     SDL_GLContext glContext;

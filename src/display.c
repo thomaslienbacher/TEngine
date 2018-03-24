@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-/**
- * version: 1.2
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "display.h"
@@ -151,7 +147,10 @@ void display_show(display_t* display){
     framebuffer_bind(NULL);
     glViewport(0, 0, display->width, display->height);
 
-    glBindFramebuffer(GL_READ_FRAMEBUFFER, display->renderTarget->id);
+    GLint curReadFbo;
+    glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &curReadFbo);
+
+    if(curReadFbo != display->renderTarget->id) glBindFramebuffer(GL_READ_FRAMEBUFFER, display->renderTarget->id);
     glBlitFramebuffer(0, 0, display->renderTarget->width, display->renderTarget->height,
                       0, 0, display->width, display->height, GL_COLOR_BUFFER_BIT, GL_LINEAR);
 

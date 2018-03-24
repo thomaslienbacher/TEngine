@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 25.01.2018.
 //
 
-/**
- * version: 1.1
- */
-
 #ifndef TENGINE_MODEL_H
 #define TENGINE_MODEL_H
 
@@ -19,7 +15,7 @@ extern "C" {
 #include "mesh.h"
 #include "texture.h"
 
-typedef struct {
+typedef struct _model_s {
     mesh_t* mesh;
     texture_t* texture;
     mat4x4 mat;
@@ -28,7 +24,7 @@ typedef struct {
     float scale;
 } model_t;
 
-typedef struct {
+typedef struct _inst_model_s {
     mesh_t* mesh;
     texture_t* texture;
     int count;
@@ -36,7 +32,7 @@ typedef struct {
     unsigned int matVbos[4];
 } inst_model_t;
 
-typedef struct {
+typedef struct _quad_model_s {
     quad_t* quad;
     texture_t* texture;
     vec4 dim;//x, y, width, height

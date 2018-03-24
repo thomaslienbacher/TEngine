@@ -2,10 +2,6 @@
 // Created by Thomas Lienbacher on 05.02.2018.
 //
 
-/**
- * version: 1.3
- */
-
 #include "tengine_math.h"
 #include "utils.h"
 
