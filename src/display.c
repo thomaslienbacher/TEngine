@@ -36,8 +36,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1); //to disable aa both need to be set to 0
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); //anti aliasing
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 0); //to disable aa both need to be set to 0
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 0); //anti aliasing
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
 
 #ifdef DEBUG_BUILD
@@ -92,7 +92,6 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
 
     display->renderTarget = framebuffer_new(renderWidth, renderHeight);
     framebuffer_bind(display->renderTarget);
-    display->quad_model = quad_model_new(display->renderTarget->texture, 0, 0, 1, 1);
 
     return display;
 }
@@ -151,14 +150,17 @@ inline void display_as_target(display_t* display) {
 void display_show(display_t* display){
     framebuffer_bind(NULL);
     glViewport(0, 0, display->width, display->height);
-    render_quad(display->quad_model);
+
+    glBindFramebuffer(GL_READ_FRAMEBUFFER, display->renderTarget->id);
+    glBlitFramebuffer(0, 0, display->renderTarget->width, display->renderTarget->height,
+                      0, 0, display->width, display->height, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+
     SDL_GL_SwapWindow(display->window);
 }
 
 void display_free(display_t* display){
     _render_quit();
 
-    quad_model_free(display->quad_model);
     framebuffer_free(display->renderTarget);
     if(display->icon != 0) SDL_FreeSurface(display->icon);
     SDL_GL_MakeCurrent(display->window, NULL);

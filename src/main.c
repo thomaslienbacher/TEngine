@@ -611,7 +611,7 @@ void test_new_viewport() {
     //display
     const int WIDTH = 800;
     const int HEIGHT = 640;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, WIDTH / 2, HEIGHT / 2);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, WIDTH, HEIGHT);
     display_set_icon(display, "data/icon.png");
 
     CLEAR_COLOR[0] = 0.1f;
@@ -720,7 +720,7 @@ void test_tex_speed() {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_tex_speed();
+    test_new_viewport();
 
     return 0;
 }

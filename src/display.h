@@ -27,7 +27,6 @@ typedef struct {
     char hasFocus;
     Uint32 lastTick;
     framebuffer_t* renderTarget;
-    quad_model_t* quad_model;
     int width;
     int height;
 } display_t;
