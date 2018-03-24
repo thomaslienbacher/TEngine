@@ -666,15 +666,61 @@ void test_new_viewport() {
     display_free(display);
 }
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_new_viewport();
-
+void test_math() {
     vec3 v;
     vec3_zero(v);
     vec3_print(v);
 
     vec3_set(v, 11, 22, 33);
     vec3_print(v);
+}
+
+void test_tex_speed() {
+    //display
+    const int WIDTH = 640;
+    const int HEIGHT = 480;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 100, 100);
+
+#define TEX_NUM 1
+
+    Uint32 start = SDL_GetTicks();
+
+    texture_t* texs[TEX_NUM];
+
+    for (int i = 0; i < TEX_NUM; ++i) {
+        texs[i] = texture_new("data/large.png", GL_LINEAR, 1);
+    }
+
+    for (int i = 0; i < TEX_NUM; ++i) {
+        texture_free(texs[i]);
+    }
+
+    printf("time: %d\n", SDL_GetTicks() - start);
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    program_unistr_mat(program, "u_projection", camera->projMat);
+
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta);
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+        display_show(display);
+    }
+
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
+    test_tex_speed();
 
     return 0;
 }

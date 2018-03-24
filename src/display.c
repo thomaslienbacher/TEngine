@@ -28,7 +28,7 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     display_t* display = calloc(1, sizeof(display_t));
     display->running = 1;
     display->hasFocus = 1;
-    display->lastTick = SDL_GetTicks();
+    display->lastTick = 0;
 
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
 

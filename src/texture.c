@@ -25,6 +25,7 @@ texture_t* texture_newf(FILE *texFile, GLenum filter, float aniso){
     fadv_info(texFile, &fileLen, &fileData);
 
     error = lodepng_decode32(&image, &width, &height, (unsigned char*)fileData, fileLen);
+
     free(fileData);
     if(error) dief("Loading Texture: %s", lodepng_error_text(error));
 
