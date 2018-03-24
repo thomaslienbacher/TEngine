@@ -48,7 +48,7 @@ void test_render() {
     //display
     const int WIDTH = 1200;
     const int HEIGHT = 500;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0);
     display_set_icon(display, "data/icon.png");
 
     //program
@@ -225,7 +225,7 @@ void test_instanced_model() {
     //display
     const int WIDTH = 1280;
     const int HEIGHT = 720;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0);
 
     print_display_modes();
 
@@ -343,7 +343,7 @@ void test_instanced_model_new() {
     //display
     const int WIDTH = 1280;
     const int HEIGHT = 720;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0);
 
     print_display_modes();
 
@@ -472,7 +472,7 @@ void test_screen() {
     //display
     const int WIDTH = 640;
     const int HEIGHT = 480;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0);
     display_set_icon(display, "data/icon.png");
     print_display_modes();
 
@@ -561,7 +561,7 @@ void test_quad() {
     //display
     const int WIDTH = 640;
     const int HEIGHT = 480;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0, 0);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0);
     display_set_icon(display, "data/icon.png");
 
     //program
@@ -611,7 +611,7 @@ void test_new_viewport() {
     //display
     const int WIDTH = 800;
     const int HEIGHT = 640;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, WIDTH, HEIGHT);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, 0.3f);
     display_set_icon(display, "data/icon.png");
 
     CLEAR_COLOR[0] = 0.1f;
@@ -624,7 +624,7 @@ void test_new_viewport() {
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) WIDTH / HEIGHT, 0.1f, 200);
+    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
     program_unistr_mat(program, "u_projection", camera->projMat);
 
     //quad_model
@@ -651,9 +651,13 @@ void test_new_viewport() {
         if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
 
         //render
-        program_unistr_mat(program, "u_model", model->mat);
         program_use(program);
-        render_model(model);
+
+        for (int i = 0; i < 4; ++i) {
+            model_mat(model, (float[]){i * 2, 0, 0}, (float[]){0,0,0}, 1.0f/(i+1));
+            program_unistr_mat(program, "u_model", model->mat);
+            render_model(model);
+        }
 
         display_show(display);
     }
@@ -679,7 +683,7 @@ void test_tex_speed() {
     //display
     const int WIDTH = 640;
     const int HEIGHT = 480;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 100, 100);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, 0);
 
 #define TEX_NUM 1
 

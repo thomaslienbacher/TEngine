@@ -20,7 +20,7 @@ static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
     }
 }
 
-display_t *display_new(const char *title, int width, int height, char fullscreen, int renderWidth, int renderHeight) {
+display_t *display_new(const char *title, int width, int height, char fullscreen, float renderSize) {
     display_t* display = calloc(1, sizeof(display_t));
     display->running = 1;
     display->hasFocus = 1;
@@ -86,7 +86,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
 
     _render_init();
 
-    display->renderTarget = framebuffer_new(renderWidth, renderHeight);
+    if(renderSize <= 0) dief("Display: renderSize is too small: %f", renderSize);
+    display->renderTarget = framebuffer_new((int)lroundf(width * renderSize), (int)lroundf(height * renderSize));
     framebuffer_bind(display->renderTarget);
 
     return display;
