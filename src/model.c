@@ -94,7 +94,6 @@ void inst_model_update(inst_model_t* inst_model) {
 }
 
 void inst_model_free(inst_model_t* inst_model) {
-    mesh_bind(inst_model->mesh);
     glDeleteBuffers(4, inst_model->matVbos);
     free(inst_model->mats);
     free(inst_model);

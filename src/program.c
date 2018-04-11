@@ -160,6 +160,6 @@ void program_unipos_mat(program_t *program, int loc, mat4x4 m){
 
 
 void program_free(program_t* program){
-    program_use(NULL);
     glDeleteProgram(program->id);
+    free(program);
 }

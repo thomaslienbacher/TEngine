@@ -41,6 +41,10 @@ void cam_control(camera_t *camera) {
     if (kb[SDL_SCANCODE_O]) zr -= r;
     //printf("rot: %f %f %f\n", xr, yr, zr);
 
+    if (kb[SDL_SCANCODE_R]) {
+        xr = yr = zr = 0;
+    }
+
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
 }
 
@@ -611,7 +615,7 @@ void test_new_viewport() {
     //display
     const int WIDTH = 800;
     const int HEIGHT = 640;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, 0.3f);
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, 0.4f);
     display_set_icon(display, "data/icon.png");
 
     CLEAR_COLOR[0] = 0.1f;
@@ -653,11 +657,16 @@ void test_new_viewport() {
         //render
         program_use(program);
 
-        for (int i = 0; i < 4; ++i) {
-            model_mat(model, (float[]){i * 2, 0, 0}, (float[]){0,0,0}, 1.0f/(i+1));
-            program_unistr_mat(program, "u_model", model->mat);
-            render_model(model);
+        for (int x = 0; x < 4; ++x) {
+            for (int y = 0; y < 4; ++y) {
+                for (int z = 0; z < 4; ++z) {
+                    model_mat(model, (float[]){x * 3, y * 3, z * 3}, (float[]){0,0,0}, 0.8f);
+                    program_unistr_mat(program, "u_model", model->mat);
+                    render_model(model);
+                }
+            }
         }
+
 
         display_show(display);
     }

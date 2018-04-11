@@ -159,7 +159,6 @@ void mesh_bind(mesh_t* mesh){
 }
 
 void mesh_free(mesh_t* mesh){
-    mesh_bind(NULL);
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(4, mesh->vbos);
     free(mesh);
@@ -180,7 +179,6 @@ quad_t* quad_new() {
 }
 
 void quad_free(quad_t* quad) {
-    mesh_bind(NULL);
     glDeleteVertexArrays(1, &quad->vao);
     glDeleteBuffers(1, &quad->vbo);
     free(quad);
