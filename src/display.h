@@ -30,7 +30,7 @@ typedef struct _display_s {
 display_t *display_new(const char *title, int width, int height, char fullscreen, float renderSize);
 void display_set_iconf(display_t *display, FILE *icon);
 void display_set_icon(display_t *display, const char* icon);
-void display_prepare(display_t* display, float* delta);
+void display_prepare(display_t *display, float *delta, float renderSize);
 void display_as_target(display_t* display);
 void display_show(display_t* display);
 void display_free(display_t* display);

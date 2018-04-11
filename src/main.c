@@ -48,6 +48,7 @@ void cam_control(camera_t *camera) {
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
 }
 
+//deprecated
 void test_render() {
     //display
     const int WIDTH = 1200;
@@ -91,7 +92,7 @@ void test_render() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, 0);
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
         SDL_SetWindowTitle(display->window, title);
@@ -225,6 +226,7 @@ void print_display_modes() {
     }
 }
 
+//deprecated
 void test_instanced_model() {
     //display
     const int WIDTH = 1280;
@@ -259,7 +261,7 @@ void test_instanced_model() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, 0);
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
         SDL_SetWindowTitle(display->window, title);
@@ -343,6 +345,7 @@ void test_instanced_model() {
     display_free(display);
 }
 
+//deprecated
 void test_instanced_model_new() {
     //display
     const int WIDTH = 1280;
@@ -377,7 +380,7 @@ void test_instanced_model_new() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, 0);
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
         SDL_SetWindowTitle(display->window, title);
@@ -472,6 +475,7 @@ void print_fb() {
     dprintf("fb: draw: %d read: %d\n", drawFboId, readFboId);
 }
 
+//deprecated
 void test_screen() {
     //display
     const int WIDTH = 640;
@@ -501,7 +505,7 @@ void test_screen() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, 0);
 
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
@@ -561,6 +565,7 @@ void test_screen() {
     display_free(display);
 }
 
+//deprecated
 void test_quad() {
     //display
     const int WIDTH = 640;
@@ -582,7 +587,7 @@ void test_quad() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, 0);
 
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
@@ -615,7 +620,8 @@ void test_new_viewport() {
     //display
     const int WIDTH = 800;
     const int HEIGHT = 640;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, 0.4f);
+    float renderSize = 2.2f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 1, renderSize);
     display_set_icon(display, "data/icon.png");
 
     CLEAR_COLOR[0] = 0.1f;
@@ -629,7 +635,6 @@ void test_new_viewport() {
 
     //camera
     camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
-    program_unistr_mat(program, "u_projection", camera->projMat);
 
     //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
@@ -638,7 +643,7 @@ void test_new_viewport() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, renderSize);
 
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
@@ -647,12 +652,21 @@ void test_new_viewport() {
         const Uint8 *kb = SDL_GetKeyboardState(NULL);
 
         cam_control(camera);
-        program_unistr_mat(program, "u_view", camera->viewMat);
+        mat4x4 projview;
+        mat4x4_mul(projview, camera->projMat, camera->viewMat);
+        program_unistr_mat(program, "u_projview", projview);
 
         //input
         if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        if (kb[SDL_SCANCODE_T]) renderSize -= 0.005f;
+        if (kb[SDL_SCANCODE_G]) renderSize += 0.005f;
+
+        if(renderSize < 0.005f) renderSize = 0.005f;
+
+        dprintf("rs: %f\n", renderSize);
 
         //render
         program_use(program);
@@ -666,7 +680,6 @@ void test_new_viewport() {
                 }
             }
         }
-
 
         display_show(display);
     }
@@ -688,6 +701,7 @@ void test_math() {
     vec3_print(v);
 }
 
+//deprecated
 void test_tex_speed() {
     //display
     const int WIDTH = 640;
@@ -721,7 +735,7 @@ void test_tex_speed() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta);
+        display_prepare(display, &delta, 0);
         const Uint8 *kb = SDL_GetKeyboardState(NULL);
         if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
         display_show(display);

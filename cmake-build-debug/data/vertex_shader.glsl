@@ -14,8 +14,7 @@ const int c_numLights = 4;
 
 uniform float u_instanced = 0;
 uniform mat4 u_model;
-uniform mat4 u_view;
-uniform mat4 u_projection;
+uniform mat4 u_projview;
 uniform vec3 u_lightpositions[c_numLights];
 
 out vec2 v_texcoord;
@@ -37,7 +36,7 @@ void main() {
         v_normal = normalize((u_model * vec4(i_normal, 0.0)).xyz);
     }
 
-    gl_Position = u_projection * u_view * worldPos;
+    gl_Position = u_projview * worldPos;
     v_texcoord = i_texcoord;
 
 

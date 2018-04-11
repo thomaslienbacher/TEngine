@@ -14,6 +14,8 @@ extern "C" {
 
 typedef struct _framebuffer_s{
     texture_t* texture;
+    int originalWidth;
+    int originalHeight;
     int width;
     int height;
     GLuint id;

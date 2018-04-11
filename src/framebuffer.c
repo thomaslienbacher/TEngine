@@ -12,6 +12,8 @@ framebuffer_t* framebuffer_new(int width, int height) {
     framebuffer_t* framebuffer = calloc(1, sizeof(framebuffer_t));
     framebuffer->width = width;
     framebuffer->height = height;
+    framebuffer->originalWidth = width;
+    framebuffer->originalHeight = height;
 
     //texture
     texture_t* texture = calloc(1, sizeof(texture_t));
@@ -60,6 +62,13 @@ void framebuffer_bind(framebuffer_t* framebuffer) {
     }
     else if(framebuffer->id != bound) {
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, framebuffer->id);
+
+        if(framebuffer->width > framebuffer->originalWidth || framebuffer->height > framebuffer->originalHeight) {
+            dief("Framebuffer: size bigger than originalsize: %d > %d || %d > %d",
+                 framebuffer->width, framebuffer->originalWidth,
+                 framebuffer->height, framebuffer->originalHeight);
+        }
+
         glViewport(0, 0, framebuffer->width, framebuffer->height);
         bound = framebuffer->id;
     }

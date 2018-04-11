@@ -118,7 +118,7 @@ void display_set_icon(display_t *display, const char* icon) {
     fadv_close(f);
 }
 
-void display_prepare(display_t* display, float* delta){
+void display_prepare(display_t *display, float *delta, float renderSize) {
     while (SDL_PollEvent(&display->events)) {
         if (display->events.type == SDL_QUIT) {
             display->running = 0;
@@ -135,6 +135,10 @@ void display_prepare(display_t* display, float* delta){
     Uint32 now = SDL_GetTicks();
     *delta = (float)(now - display->lastTick) / 1000.f;
     display->lastTick = now;
+
+    if(renderSize <= 0) dief("Display: renderSize is too small: %f", renderSize);
+    display->renderTarget->width = (int)lroundf(display->width * renderSize);
+    display->renderTarget->height = (int)lroundf(display->height * renderSize);
 
     framebuffer_bind(display->renderTarget);
     framebuffer_clear(display->renderTarget);
