@@ -809,9 +809,12 @@ void test_tex_wrap() {
         //render
         program_use(program);
 
-        for (int x = 0; x < 4; ++x) {
-            for (int z = 0; z < 4; ++z) {
-                model_mat(model, (float[]) {x * 5, -1, z * 5}, (float[]) {-90.0f, 0, 0}, 0.7f);
+        static float rot = 0;
+        rot += delta * 2;
+
+        for (int x = -5; x < 5; ++x) {
+            for (int z = -5; z < 5; ++z) {
+                model_mat(model, (float[]) {x * 5, sinf(rot + x + z) * 2, z * 5}, (float[]) {-90.0f, 0, 0}, 0.82f);
                 program_unistr_mat(program, "u_model", model->mat);
                 render_model(model);
             }
