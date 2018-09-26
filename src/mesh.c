@@ -78,6 +78,10 @@ mesh_t* mesh_newobjf(FILE *objFile){
             texcoords[2*vertexIndex] = attrib.texcoords[2*attrib.faces[indicesIndex].vt_idx];
             texcoords[2*vertexIndex+1] = 1.0f - attrib.texcoords[2*attrib.faces[indicesIndex].vt_idx+1];
 
+            //TODO: remove
+            texcoords[2*vertexIndex] *= 2;
+            texcoords[2*vertexIndex+1] *= 2;
+
             normals[3*vertexIndex] = attrib.normals[3*attrib.faces[indicesIndex].vn_idx];
             normals[3*vertexIndex+1] = attrib.normals[3*attrib.faces[indicesIndex].vn_idx+1];
             normals[3*vertexIndex+2] = attrib.normals[3*attrib.faces[indicesIndex].vn_idx+2];

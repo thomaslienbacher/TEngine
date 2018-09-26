@@ -58,6 +58,12 @@ texture_t* texture_new(const char *file, GLenum filter, float aniso) {
 
 static unsigned int bound = 0;
 
+void texture_wrap(texture_t* texture, GLint wrap) {
+    texture_bind(texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap);
+}
+
 void texture_bind(texture_t* texture){
     if(texture == NULL){
         if(bound) {

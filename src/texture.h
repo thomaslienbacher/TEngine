@@ -21,6 +21,7 @@ typedef struct _texture_s {
 
 texture_t* texture_newf(FILE *file, GLenum filter, float aniso);
 texture_t* texture_new(const char *file, GLenum filter, float aniso);
+void texture_wrap(texture_t* texture, GLint wrap);
 void texture_bind(texture_t* texture);
 void texture_free(texture_t* texture);
 
