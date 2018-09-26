@@ -142,8 +142,10 @@ mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned in
 
 static unsigned int bound = 0;
 
-static float QUAD_VERTICES[] = {0, 0, 1, 0, 1, 1,
-                                0, 0, 1, 1, 0, 1};
+static float QUAD_VERTICES[] = {-1, -1, 1, -1, 1, 1,
+                                -1, -1, 1, 1, -1, 1};
+static float QUAD_UVS[] = {0, 0, 1, 0, 1, 1,
+                           0, 0, 1, 1, 0, 1};
 
 void mesh_bind(mesh_t* mesh){
     if(mesh == NULL){
@@ -170,16 +172,15 @@ quad_t* quad_new() {
     glGenVertexArrays(1, &quad->vao);
     glBindVertexArray(quad->vao);
 
-    glGenBuffers(1, &quad->vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, quad->vbo);
-    glBufferData(GL_ARRAY_BUFFER, QUAD_SIZE * 2 * sizeof(float), QUAD_VERTICES, GL_STATIC_DRAW);
-    glVertexAttribPointer(POSITION_INDEX, 2, GL_FLOAT, GL_FALSE, 0, 0);
+    glGenBuffers(2, quad->vbo);
+    mesh_add_vbo((mesh_t*) quad, 0, 2, QUAD_VERTICES, QUAD_SIZE*2, POSITION_INDEX);
+    mesh_add_vbo((mesh_t*) quad, 1, 2, QUAD_UVS, QUAD_SIZE*2, TEXCOORD_INDEX);
 
     return quad;
 }
 
 void quad_free(quad_t* quad) {
     glDeleteVertexArrays(1, &quad->vao);
-    glDeleteBuffers(1, &quad->vbo);
+    glDeleteBuffers(2, quad->vbo);
     free(quad);
 }

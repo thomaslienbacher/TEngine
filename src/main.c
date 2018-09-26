@@ -831,8 +831,63 @@ void test_tex_wrap() {
     display_free(display);
 }
 
+void quad_testing() {
+    //display
+    const int WIDTH = 800;
+    const int HEIGHT = 640;
+    float renderSize = 1.2f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
+    display_set_icon(display, "data/icon.png");
+
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.5f;
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
+
+    //quad_model
+    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
+    texture_wrap(texture, GL_MIRRORED_REPEAT);
+    quad_model_t *quad = quad_model_new(texture, -0.5, 0, 0.5, 0.5);
+
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta, renderSize);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control(camera);
+        mat4x4 projview;
+        mat4x4_mul(projview, camera->projMat, camera->viewMat);
+        program_unistr_mat(program, "u_projview", projview);
+
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //render
+        program_use(program);
+
+        render_quad(quad);
+
+        display_show(display);
+    }
+
+    quad_model_free(quad);
+    texture_free(texture);
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_tex_wrap();
+    quad_testing();
 
     return 0;
 }

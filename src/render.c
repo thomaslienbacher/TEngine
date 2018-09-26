@@ -12,20 +12,15 @@ const char* QUAD_VERTEX_SHADER = R"(
 #version 330
 
 layout(location = 0) in vec2 i_vertex;
+layout(location = 1) in vec2 i_texcoord;
 
-uniform vec4 u_transform;//x, y, width, height
+uniform mat4 u_transform;
 
 out vec2 v_texcoord;
 
 void main() {
-    vec4 p = vec4(i_vertex, 0, 1);
-    p.x *= u_transform.z * 2;
-    p.y *= u_transform.w * 2;
-    p.x += u_transform.x - 1 * u_transform.z;
-    p.y += u_transform.y - 1 * u_transform.w;
-
-    gl_Position = p;
-    v_texcoord = i_vertex;
+    gl_Position = u_transform * vec4(i_vertex, 0, 1);
+    v_texcoord = i_texcoord;
 }
 )";
 
@@ -45,12 +40,12 @@ void main(){
 
 program_t* QUAD_SHADER = NULL;
 
-//users should call this
-void _render_init() {
+//users should not call this
+void _render_init_quadshader() {
     QUAD_SHADER = program_news(QUAD_VERTEX_SHADER, QUAD_FRAGMENT_SHADER);
 }
 
-void _render_quit() {
+void _render_quit_quadshader() {
     program_free(QUAD_SHADER);
 }
 
@@ -146,14 +141,26 @@ void render_inst_model(inst_model_t* inst_model, program_t *program) {
 void render_quad(quad_model_t* quad_model) {
     mesh_bind((mesh_t*)quad_model->quad);
     texture_bind(quad_model->texture);
-    program_unistr_vec4(QUAD_SHADER, "u_transform", quad_model->dim);
+
+    static mat4x4 u_transform;
+    static mat4x4 scaleMat;
+    mat4x4_identity(scaleMat);
+    mat4x4_scale_aniso(scaleMat, scaleMat, quad_model->dim[2], quad_model->dim[3], 1);
+
+    static mat4x4 translateMat;
+    mat4x4_translate(translateMat, quad_model->dim[0], quad_model->dim[1], 0);
+
+    mat4x4_mul(u_transform, translateMat, scaleMat);
+    program_unistr_mat(QUAD_SHADER, "u_transform", u_transform);
 
     glEnableVertexAttribArray(POSITION_INDEX);
+    glEnableVertexAttribArray(TEXCOORD_INDEX);
     glActiveTexture(GL_TEXTURE0);
 
     glDrawArrays(GL_TRIANGLES, 0, QUAD_SIZE);
 
     glDisableVertexAttribArray(POSITION_INDEX);
+    glDisableVertexAttribArray(TEXCOORD_INDEX);
 }
 
 void render_end(){

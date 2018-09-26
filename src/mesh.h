@@ -26,7 +26,7 @@ typedef struct _mesh_s {
 
 typedef struct _quad_s {
     GLuint vao;
-    GLuint vbo;
+    GLuint vbo[2];//vertices, texcoords
 } quad_t;
 
 mesh_t* mesh_newobjf(FILE *objFile);

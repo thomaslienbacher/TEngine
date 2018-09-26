@@ -75,7 +75,7 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
 #ifdef DEBUG_BUILD
     if(strstr((char*)glGetString(GL_VENDOR), "NVIDIA")) { //I can't get debug output to work on nvidia so I'll guess
         dprintf("Your graphics card vendor is %s.\n"
-                        "I'm sorry but I can't get debug output to work with their GPUs.", (char*)glGetString(GL_VENDOR));
+                        "For reason debug output doesn't work with their GPUs.\n", (char*) glGetString(GL_VENDOR));
     }
     else {
         glEnable(GL_DEBUG_OUTPUT);
@@ -84,7 +84,7 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     }
 #endif
 
-    _render_init();
+    _render_init_quadshader();
 
     if(renderSize <= 0) dief("Display: renderSize is too small: %f", renderSize);
     display->renderTarget = framebuffer_new((int)lroundf(width * renderSize), (int)lroundf(height * renderSize));
@@ -163,7 +163,7 @@ void display_show(display_t* display){
 }
 
 void display_free(display_t* display){
-    _render_quit();
+    _render_quit_quadshader();
 
     framebuffer_free(display->renderTarget);
     if(display->icon != 0) SDL_FreeSurface(display->icon);

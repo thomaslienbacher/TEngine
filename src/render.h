@@ -20,8 +20,8 @@ extern const char* QUAD_VERTEX_SHADER;
 extern const char* QUAD_FRAGMENT_SHADER;
 extern program_t* QUAD_SHADER;
 
-void _render_init();//TODO: rename
-void _render_quit();
+void _render_init_quadshader();
+void _render_quit_quadshader();
 void render_begin();
 void render_model(model_t* model);
 void render_same_model(model_t* model);
