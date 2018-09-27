@@ -1,4 +1,4 @@
-"E:\Programme\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" E:\Thomas\Repositories\TEngine
+"C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine"
 -- Configuring done
 -- Generating done
--- Build files have been written to: E:/Thomas/Repositories/TEngine/cmake-build-debug
+-- Build files have been written to: C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/cmake-build-debug

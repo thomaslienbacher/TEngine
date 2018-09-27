@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <windows.h>
 #include <time.h>
@@ -11,6 +10,7 @@
 #include "render.h"
 #include "light.h"
 #include "vector.h"
+
 
 void cam_control(camera_t *camera) {
     const Uint8 *kb = SDL_GetKeyboardState(NULL);
@@ -47,6 +47,8 @@ void cam_control(camera_t *camera) {
 
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
 }
+
+#ifdef  __REMOVE_FROM_COMPILATION__
 
 //deprecated
 void test_render() {
@@ -831,11 +833,13 @@ void test_tex_wrap() {
     display_free(display);
 }
 
+#endif
+
 void quad_testing() {
     //display
     const int WIDTH = 800;
     const int HEIGHT = 640;
-    float renderSize = 1.2f;
+    float renderSize = 1.0f;
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
     display_set_icon(display, "data/icon.png");
 
@@ -849,10 +853,8 @@ void quad_testing() {
     camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
 
     //quad_model
-    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
-    texture_wrap(texture, GL_MIRRORED_REPEAT);
-    quad_model_t *quad = quad_model_new(texture, -0.5, 0, 0.5, 0.5);
-
+    texture_t *texture = texture_new("data/large.png", GL_LINEAR, 1);
+    quad_model_t *quad = quad_model_new(texture, 0, 0, 1, 1);
 
     while (display->running) {
         float delta;

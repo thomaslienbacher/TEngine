@@ -144,8 +144,8 @@ static unsigned int bound = 0;
 
 static float QUAD_VERTICES[] = {-1, -1, 1, -1, 1, 1,
                                 -1, -1, 1, 1, -1, 1};
-static float QUAD_UVS[] = {0, 0, 1, 0, 1, 1,
-                           0, 0, 1, 1, 0, 1};
+static float QUAD_UVS[] = {0, 1, 1, 1, 1, 0,
+                           0, 1, 1, 0, 0, 0};
 
 void mesh_bind(mesh_t* mesh){
     if(mesh == NULL){
