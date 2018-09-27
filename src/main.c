@@ -838,7 +838,7 @@ void test_tex_wrap() {
 void quad_testing() {
     //display
     const int WIDTH = 800;
-    const int HEIGHT = 640;
+    const int HEIGHT = 800;
     float renderSize = 1.0f;
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
     display_set_icon(display, "data/icon.png");
@@ -854,7 +854,7 @@ void quad_testing() {
 
     //quad_model
     texture_t *texture = texture_new("data/large.png", GL_LINEAR, 1);
-    quad_model_t *quad = quad_model_new(texture, 0, 0, 1, 1);
+    quad_model_t *quad = quad_model_new(texture, 1, 1, 0.8, 0.8, 45);
 
     while (display->running) {
         float delta;
@@ -875,6 +875,13 @@ void quad_testing() {
 
         //render
         program_use(program);
+
+        static float time = 0;
+        time += delta;
+
+        quad->dim[0] = sinf(time) / 2;
+        quad->dim[1] = sinf(time) / 2;
+        quad->rot = cosf(time) * 30;
 
         render_quad(quad);
 

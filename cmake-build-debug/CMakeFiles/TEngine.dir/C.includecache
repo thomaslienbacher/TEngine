@@ -574,11 +574,37 @@ close_code.h
 
 ../dependencies/sdl2/include/SDL2/close_code.h
 
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
+E:/Thomas/Repositories/TEngine/src/camera.h
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+tengine_math.h
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
+
+E:/Thomas/Repositories/TEngine/src/display.h
 stdio.h
 -
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+framebuffer.h
+E:/Thomas/Repositories/TEngine/src/framebuffer.h
+model.h
+E:/Thomas/Repositories/TEngine/src/model.h
 
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
+E:/Thomas/Repositories/TEngine/src/framebuffer.h
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+texture.h
+E:/Thomas/Repositories/TEngine/src/texture.h
+
+E:/Thomas/Repositories/TEngine/src/light.h
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+tengine_math.h
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
+program.h
+E:/Thomas/Repositories/TEngine/src/program.h
+
+E:/Thomas/Repositories/TEngine/src/lodepng.h
 string.h
 -
 vector
@@ -586,49 +612,97 @@ vector
 string
 -
 lodepng.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
+E:/Thomas/Repositories/TEngine/src/lodepng.h
 iostream
 -
 lodepng.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
+E:/Thomas/Repositories/TEngine/src/lodepng.h
 
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
-SDL2/SDL.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/SDL2/SDL.h
-glew.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/glew.h
-lodepng.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/lodepng.h
-
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.c
-mesh.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
+E:/Thomas/Repositories/TEngine/src/main.c
+stdio.h
+-
+windows.h
+-
+time.h
+-
+tengine_math.h
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
 master.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/master.h
-utils.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
-filehelper.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/filehelper.h
-tinyobj_loader_c.h
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tinyobj_loader_c.h
+E:/Thomas/Repositories/TEngine/src/master.h
+display.h
+E:/Thomas/Repositories/TEngine/src/display.h
+program.h
+E:/Thomas/Repositories/TEngine/src/program.h
+camera.h
+E:/Thomas/Repositories/TEngine/src/camera.h
+mesh.h
+E:/Thomas/Repositories/TEngine/src/mesh.h
+render.h
+E:/Thomas/Repositories/TEngine/src/render.h
+light.h
+E:/Thomas/Repositories/TEngine/src/light.h
+vector.h
+E:/Thomas/Repositories/TEngine/src/vector.h
 
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/mesh.h
+E:/Thomas/Repositories/TEngine/src/master.h
+SDL2/SDL.h
+E:/Thomas/Repositories/TEngine/src/SDL2/SDL.h
+glew.h
+E:/Thomas/Repositories/TEngine/src/glew.h
+lodepng.h
+E:/Thomas/Repositories/TEngine/src/lodepng.h
+
+E:/Thomas/Repositories/TEngine/src/mesh.h
 GL/glew.h
 -
 stdio.h
 -
 
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/tinyobj_loader_c.h
-stdlib.h
--
+E:/Thomas/Repositories/TEngine/src/model.h
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+tengine_math.h
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
+utils.h
+E:/Thomas/Repositories/TEngine/src/utils.h
+mesh.h
+E:/Thomas/Repositories/TEngine/src/mesh.h
+texture.h
+E:/Thomas/Repositories/TEngine/src/texture.h
+
+E:/Thomas/Repositories/TEngine/src/program.h
 stdio.h
 -
-assert.h
--
-string.h
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+tengine_math.h
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
+
+E:/Thomas/Repositories/TEngine/src/render.h
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+mesh.h
+E:/Thomas/Repositories/TEngine/src/mesh.h
+tengine_math.h
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
+program.h
+E:/Thomas/Repositories/TEngine/src/program.h
+model.h
+E:/Thomas/Repositories/TEngine/src/model.h
+
+E:/Thomas/Repositories/TEngine/src/tengine_math.h
+math.h
 -
 
-C:/Eigene Dateien/Programmieren/C/CLion-Workspace/TEngine/src/utils.h
+E:/Thomas/Repositories/TEngine/src/texture.h
 stdio.h
 -
+master.h
+E:/Thomas/Repositories/TEngine/src/master.h
+
+E:/Thomas/Repositories/TEngine/src/utils.h
+stdio.h
+-
+
+E:/Thomas/Repositories/TEngine/src/vector.h
 

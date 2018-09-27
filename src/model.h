@@ -36,6 +36,7 @@ typedef struct _quad_model_s {
     quad_t* quad;
     texture_t* texture;
     vec4 dim;//x, y, width, height
+    float rot;
 } quad_model_t;
 
 model_t* model_new(mesh_t* mesh, texture_t* texture);
@@ -47,7 +48,7 @@ inst_model_t* inst_model_new(mesh_t* mesh, texture_t* texture, int count);
 void inst_model_update(inst_model_t* inst_model);//pushes mats into the buffer
 void inst_model_free(inst_model_t* inst_model);
 
-quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, float height);
+quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, float height, float rot);
 void quad_model_free(quad_model_t* quad_model);
 
 #ifdef __cplusplus

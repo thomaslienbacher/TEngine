@@ -99,7 +99,7 @@ void inst_model_free(inst_model_t* inst_model) {
     free(inst_model);
 }
 
-quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, float height) {
+quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, float height, float rot) {
     quad_model_t* quad_model = calloc(1, sizeof(quad_model_t));
     quad_model->quad = quad_new();
     quad_model->texture = texture;
@@ -107,6 +107,7 @@ quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, 
     quad_model->dim[1] = y;
     quad_model->dim[2] = width;
     quad_model->dim[3] = height;
+    quad_model->rot = rot;
 
     return quad_model;
 }

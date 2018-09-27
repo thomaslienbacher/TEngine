@@ -143,6 +143,7 @@ void render_quad(quad_model_t* quad_model) {
     texture_bind(quad_model->texture);
 
     static mat4x4 u_transform;
+
     static mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, quad_model->dim[2], quad_model->dim[3], 1);
@@ -150,7 +151,14 @@ void render_quad(quad_model_t* quad_model) {
     static mat4x4 translateMat;
     mat4x4_translate(translateMat, quad_model->dim[0], quad_model->dim[1], 0);
 
-    mat4x4_mul(u_transform, translateMat, scaleMat);
+    static mat4x4 rotateMat;
+    mat4x4_identity(rotateMat);
+    mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
+
+    mat4x4_identity(u_transform);
+    mat4x4_mul(u_transform, scaleMat, translateMat);
+    mat4x4_mul(u_transform, u_transform, rotateMat);
+
     program_unistr_mat(QUAD_SHADER, "u_transform", u_transform);
 
     glEnableVertexAttribArray(POSITION_INDEX);
