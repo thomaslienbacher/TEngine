@@ -142,10 +142,11 @@ mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned in
 
 static unsigned int bound = 0;
 
-static float QUAD_VERTICES[] = {-1, -1, 1, -1, 1, 1,
-                                -1, -1, 1, 1, -1, 1};
-static float QUAD_UVS[] = {0, 1, 1, 1, 1, 0,
-                           0, 1, 1, 0, 0, 0};
+static const float QUAD_VERTICES[] = {-1, -1, 1, -1, 1, 1,
+                                      -1, -1, 1, 1, -1, 1};
+
+static const float QUAD_UVS[] = {0, 1, 1, 1, 1, 0,
+                                 0, 1, 1, 0, 0, 0};
 
 void mesh_bind(mesh_t* mesh){
     if(mesh == NULL){

@@ -114,7 +114,7 @@ void render_inst_model(inst_model_t* inst_model, program_t *program) {
     texture_bind(inst_model->texture);
 
     //enable instancing
-    int loc = program_getunipos(program, "u_instanced");
+    const int loc = program_getunipos(program, "u_instanced");
     program_unipos_f(program, loc, 1);
 
     glEnableVertexAttribArray(POSITION_INDEX);
