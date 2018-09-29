@@ -1,1 +1,0 @@
-C:/MinGW/lib/libopengl32.a ../dependencies/glew/lib/libGLEW_2.dll.a ../dependencies/sdl2/lib/libSDL2main.a ../dependencies/sdl2/lib/libSDL2.dll.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

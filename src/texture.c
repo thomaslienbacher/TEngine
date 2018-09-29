@@ -16,7 +16,7 @@ texture_t* texture_newf(FILE *texFile, GLenum filter, float aniso){
     unsigned char* image;
     unsigned width, height;
 
-    unsigned long fileLen = 0;
+    size_t fileLen = 0;
     char* fileData = NULL;
     fadv_info(texFile, &fileLen, &fileData);
 

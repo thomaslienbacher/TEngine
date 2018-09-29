@@ -73,7 +73,7 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     glCullFace(GL_BACK);
 
 #ifdef DEBUG_BUILD
-    if(strstr((char*)glGetString(GL_VENDOR), "NVIDIA")) { //I can't get debug output to work on nvidia so I'll guess
+    if(strstr((char*)glGetString(GL_VENDOR), "NVIDIA")) { //I can't get debug output to work on nvidia...
         dprintf("Your graphics card vendor is %s.\n"
                         "For reason debug output doesn't work with their GPUs.\n", (char*) glGetString(GL_VENDOR));
     }
@@ -98,7 +98,7 @@ void display_set_iconf(display_t *display, FILE *icon){
     unsigned char* image;
     unsigned width, height;
 
-    unsigned long fileLen = 0;
+    size_t fileLen = 0;
     char* fileData = NULL;
     fadv_info(icon, &fileLen, &fileData);
 
@@ -155,7 +155,7 @@ void display_show(display_t* display){
     GLint curReadFbo;
     glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &curReadFbo);
 
-    if(curReadFbo != display->renderTarget->id) glBindFramebuffer(GL_READ_FRAMEBUFFER, display->renderTarget->id);
+    if((GLuint)curReadFbo != display->renderTarget->id) glBindFramebuffer(GL_READ_FRAMEBUFFER, display->renderTarget->id);
     glBlitFramebuffer(0, 0, display->renderTarget->width, display->renderTarget->height,
                       0, 0, display->width, display->height, GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
