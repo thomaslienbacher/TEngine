@@ -14,9 +14,9 @@ extern "C" {
 //fadv = file advanced
 
 FILE* fadv_open(const char* filename, const char* arg);
-unsigned long fadv_length(FILE* f);
+size_t fadv_length(FILE* f);
 char* fadv_contents(FILE* f);
-void fadv_info(FILE* f, unsigned long* length, char** data);
+void fadv_info(FILE* f, size_t* length, char** data);
 void fadv_close(FILE* f);
 
 #ifdef __cplusplus

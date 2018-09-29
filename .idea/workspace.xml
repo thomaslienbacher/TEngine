@@ -73,33 +73,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="c" value="4" />
+          <entry key="c" value="5" />
           <entry key="glsl" value="5" />
-          <entry key="h" value="6" />
+          <entry key="h" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="GLSL shader file" value="5" />
-          <entry key="ObjectiveC" value="10" />
+          <entry key="ObjectiveC" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="1195" />
+          <entry key="c" value="1283" />
           <entry key="h" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="1312" />
+          <entry key="ObjectiveC" value="1400" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
@@ -108,20 +108,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model.c">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/filehelper.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            <state relative-caret-position="674">
+              <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model.h">
+        <entry file="file://$PROJECT_DIR$/src/filehelper.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="288">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/MinGW/lib/gcc/mingw32/5.3.0/include/stddef.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="215" column="22" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/MinGW/include/stdio.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="703" column="40" selection-start-line="703" selection-start-column="40" selection-end-line="703" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -131,15 +149,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2844">
               <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tengine_math.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2466">
-              <caret line="137" column="13" selection-start-line="137" selection-start-column="13" selection-end-line="137" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -176,15 +185,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
               <caret line="29" column="99" selection-start-line="29" selection-start-column="99" selection-end-line="29" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/render.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -240,8 +240,6 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/vector.c" />
         <option value="$PROJECT_DIR$/src/camera.h" />
-        <option value="$PROJECT_DIR$/src/filehelper.c" />
-        <option value="$PROJECT_DIR$/src/filehelper.h" />
         <option value="$PROJECT_DIR$/src/light.c" />
         <option value="$PROJECT_DIR$/src/light.h" />
         <option value="$PROJECT_DIR$/src/master.h" />
@@ -267,6 +265,8 @@
         <option value="$PROJECT_DIR$/src/display.h" />
         <option value="$PROJECT_DIR$/src/display.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
+        <option value="$PROJECT_DIR$/src/filehelper.c" />
+        <option value="$PROJECT_DIR$/src/filehelper.h" />
       </list>
     </option>
   </component>
@@ -274,7 +274,7 @@
     <scope name="MySource" pattern="file:src/light.c||file:src/light.h||file:src/display.h||file:src/camera.h||file:src/camera.c||file:src/display.c||file:src/main.c||file:src/master.h||file:src/mesh.c||file:src/mesh.h||file:src/model.c||file:src/model.h||file:src/program.c||file:src/program.h||file:src/render.c||file:src/render.h||file:src/texture.c||file:src/texture.h||file:src/utils.c||file:src/utils.h" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="683" />
     <option name="width" value="683" />
     <option name="height" value="728" />
@@ -529,13 +529,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dependencies/sdl2/include/SDL2/SDL_stdinc.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="251" column="25" selection-start-line="251" selection-start-column="25" selection-end-line="251" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dependencies/sdl2/include/SDL2/SDL_log.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -561,13 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/MinGW/include/stdio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="261" column="40" selection-start-line="261" selection-start-column="40" selection-end-line="261" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -608,13 +594,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/camera.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/filehelper.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
@@ -817,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/filehelper.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/display.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -849,6 +821,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="860" column="52" selection-start-line="860" selection-start-column="52" selection-end-line="860" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/MinGW/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="703" column="40" selection-start-line="703" selection-start-column="40" selection-end-line="703" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/MinGW/lib/gcc/mingw32/5.3.0/include/stddef.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="215" column="22" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filehelper.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filehelper.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
         </state>
       </provider>
     </entry>

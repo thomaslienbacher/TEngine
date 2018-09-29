@@ -14,28 +14,31 @@ FILE* fadv_open(const char* filename, const char* arg){
     return f;
 }
 
-unsigned long fadv_length(FILE* f){
+size_t fadv_length(FILE* f){
     NULL_KILL(f);
     fseek(f, 0, SEEK_END);
-    unsigned long len = (unsigned long)ftell(f);
+    long len = ftell(f);
+    if(len == -1) die("File: ftell returned -1");
     rewind(f);
-    return len;
+    return (size_t)len;
 }
 
 char* fadv_contents(FILE* f){
     NULL_KILL(f);
     rewind(f);
-    unsigned long len = fadv_length(f);
+    size_t len = fadv_length(f);
     char* contents = malloc(len + 1);
     fread(contents, len, 1, f);
     contents[len] = 0;
     return contents;
 }
 
-void fadv_info(FILE* f, unsigned long* length, char** data){
+void fadv_info(FILE* f, size_t* length, char** data){
     NULL_KILL(f);
     fseek(f, 0, SEEK_END);
-    *length = (unsigned long)ftell(f);
+    long len = ftell(f);
+    if(len == -1) die("File: ftell returned -1");
+    *length = (size_t) len;
     rewind(f);
     *data = malloc(*length + 1);
     fread(*data, *length, 1, f);
