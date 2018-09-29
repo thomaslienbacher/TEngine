@@ -73,26 +73,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="c" value="3" />
+          <entry key="c" value="4" />
           <entry key="glsl" value="5" />
-          <entry key="h" value="5" />
+          <entry key="h" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="GLSL shader file" value="5" />
-          <entry key="ObjectiveC" value="8" />
+          <entry key="ObjectiveC" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="c" value="1195" />
-          <entry key="h" value="102" />
+          <entry key="h" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="1297" />
+          <entry key="ObjectiveC" value="1312" />
         </counts>
       </usages-collector>
     </session>
@@ -102,17 +102,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="835" column="6" lean-forward="true" selection-start-line="835" selection-start-column="6" selection-end-line="835" selection-end-column="6" />
+            <state relative-caret-position="540">
+              <caret line="860" column="52" selection-start-line="860" selection-start-column="52" selection-end-line="860" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/filehelper.c">
+        <entry file="file://$PROJECT_DIR$/src/model.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="792">
+              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -129,8 +129,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/render.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2088">
-              <caret line="116" column="10" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
+            <state relative-caret-position="2844">
+              <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tengine_math.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2466">
+              <caret line="137" column="13" selection-start-line="137" selection-start-column="13" selection-end-line="137" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -138,8 +147,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mesh.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2592">
-              <caret line="144" column="12" selection-start-line="144" selection-start-column="7" selection-end-line="144" selection-end-column="12" />
+            <state relative-caret-position="3204">
+              <caret line="179" column="16" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/display.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="89" column="112" selection-start-line="89" selection-start-column="112" selection-end-line="89" selection-end-column="112" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/framebuffer.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/display.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="29" column="99" selection-start-line="29" selection-start-column="99" selection-end-line="29" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/render.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -211,16 +256,16 @@
         <option value="$PROJECT_DIR$/cmake-build-debug/data/vertex_shader.glsl" />
         <option value="$PROJECT_DIR$/src/framebuffer.h" />
         <option value="$PROJECT_DIR$/src/framebuffer.c" />
-        <option value="$PROJECT_DIR$/src/display.h" />
         <option value="$PROJECT_DIR$/src/texture.c" />
         <option value="$PROJECT_DIR$/src/texture.h" />
         <option value="$PROJECT_DIR$/src/render.h" />
-        <option value="$PROJECT_DIR$/src/display.c" />
         <option value="$PROJECT_DIR$/src/mesh.h" />
         <option value="$PROJECT_DIR$/src/model.h" />
         <option value="$PROJECT_DIR$/src/model.c" />
         <option value="$PROJECT_DIR$/src/mesh.c" />
         <option value="$PROJECT_DIR$/src/render.c" />
+        <option value="$PROJECT_DIR$/src/display.h" />
+        <option value="$PROJECT_DIR$/src/display.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
       </list>
     </option>
@@ -229,7 +274,7 @@
     <scope name="MySource" pattern="file:src/light.c||file:src/light.h||file:src/display.h||file:src/camera.h||file:src/camera.c||file:src/display.c||file:src/main.c||file:src/master.h||file:src/mesh.c||file:src/mesh.h||file:src/model.c||file:src/model.h||file:src/program.c||file:src/program.h||file:src/render.c||file:src/render.h||file:src/texture.c||file:src/texture.h||file:src/utils.c||file:src/utils.h" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="683" />
     <option name="width" value="683" />
     <option name="height" value="728" />
@@ -438,10 +483,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2473525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897655" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -639,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/framebuffer.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/framebuffer.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -674,13 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/display.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/program.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2844">
@@ -706,13 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/display.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="77" column="91" selection-start-line="77" selection-start-column="91" selection-end-line="77" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -760,15 +784,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tengine_math.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
+        <state relative-caret-position="2466">
           <caret line="137" column="13" selection-start-line="137" selection-start-column="13" selection-end-line="137" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        <state relative-caret-position="792">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -781,15 +805,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/render.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2088">
-          <caret line="116" column="10" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
+        <state relative-caret-position="2844">
+          <caret line="158" column="52" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mesh.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2592">
-          <caret line="144" column="12" selection-start-line="144" selection-start-column="7" selection-end-line="144" selection-end-column="12" />
+        <state relative-caret-position="3204">
+          <caret line="179" column="16" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -800,10 +824,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/display.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="29" column="99" selection-start-line="29" selection-start-column="99" selection-end-line="29" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/framebuffer.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/display.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="89" column="112" selection-start-line="89" selection-start-column="112" selection-end-line="89" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="835" column="6" lean-forward="true" selection-start-line="835" selection-start-column="6" selection-end-line="835" selection-end-column="6" />
+        <state relative-caret-position="540">
+          <caret line="860" column="52" selection-start-line="860" selection-start-column="52" selection-end-line="860" selection-end-column="52" />
         </state>
       </provider>
     </entry>

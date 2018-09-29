@@ -20,7 +20,7 @@ static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
     }
 }
 
-display_t *display_new(const char *title, int width, int height, char fullscreen, float renderSize) {
+display_t *display_new(const char *title, int width, int height, char fullscreen, float renderScale) {
     display_t* display = calloc(1, sizeof(display_t));
     display->running = 1;
     display->hasFocus = 1;
@@ -86,8 +86,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
 
     _render_init_quadshader();
 
-    if(renderSize <= 0) dief("Display: renderSize is too small: %f", renderSize);
-    display->renderTarget = framebuffer_new((int)lroundf(width * renderSize), (int)lroundf(height * renderSize));
+    if(renderScale <= 0) dief("Display: renderSize is too small: %f", renderScale);
+    display->renderTarget = framebuffer_new((int)lroundf(width * renderScale), (int)lroundf(height * renderScale));
     framebuffer_bind(display->renderTarget);
 
     return display;
@@ -118,7 +118,7 @@ void display_set_icon(display_t *display, const char* icon) {
     fadv_close(f);
 }
 
-void display_prepare(display_t *display, float *delta, float renderSize) {
+void display_prepare(display_t *display, float *delta, float renderScale) {
     while (SDL_PollEvent(&display->events)) {
         if (display->events.type == SDL_QUIT) {
             display->running = 0;
@@ -136,9 +136,9 @@ void display_prepare(display_t *display, float *delta, float renderSize) {
     *delta = (float)(now - display->lastTick) / 1000.f;
     display->lastTick = now;
 
-    if(renderSize <= 0) dief("Display: renderSize is too small: %f", renderSize);
-    display->renderTarget->width = (int)lroundf(display->width * renderSize);
-    display->renderTarget->height = (int)lroundf(display->height * renderSize);
+    if(renderScale <= 0) dief("Display: renderSize is too small: %f", renderScale);
+    display->renderTarget->width = (int)lroundf(display->width * renderScale);
+    display->renderTarget->height = (int)lroundf(display->height * renderScale);
 
     framebuffer_bind(display->renderTarget);
     framebuffer_clear(display->renderTarget);

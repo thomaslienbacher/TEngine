@@ -839,8 +839,8 @@ void quad_testing() {
     //display
     const int WIDTH = 700;
     const int HEIGHT = 700;
-    float renderSize = 1.0f;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
+    float renderScale = 1.0f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderScale);
     display_set_icon(display, "data/icon.png");
 
     CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.5f;
@@ -858,7 +858,7 @@ void quad_testing() {
 
     while (display->running) {
         float delta;
-        display_prepare(display, &delta, renderSize);
+        display_prepare(display, &delta, renderScale);
 
         char title[100];
         sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
