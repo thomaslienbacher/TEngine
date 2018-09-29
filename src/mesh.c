@@ -17,7 +17,7 @@ mesh_t* mesh_newobjf(FILE *objFile){
     size_t num_materials;
 
     char* temp = NULL;
-    unsigned long data_len = 0;
+    size_t data_len = 0;
     fadv_info(objFile, &data_len, &temp);
     char* data = malloc(data_len + 3);
     strcpy(data, temp);
@@ -109,7 +109,7 @@ mesh_t* mesh_newobj(const char *objFile) {
     return mesh;
 }
 
-static void mesh_add_vbo(mesh_t* mesh, int vbo, int size, float* data, unsigned int len, unsigned int index){
+static void mesh_add_vbo(mesh_t* mesh, int vbo, int size, const float* data, unsigned int len, unsigned int index){
     glBindBuffer(GL_ARRAY_BUFFER, mesh->vbos[vbo]);
     glBufferData(GL_ARRAY_BUFFER, len * sizeof(float), data, GL_STATIC_DRAW);
     glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, 0, 0);

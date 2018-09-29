@@ -49,19 +49,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "E:\Programme\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "E:\Programme\CLion 2018.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine"
+CMAKE_SOURCE_DIR = E:\Thomas\Repositories\TEngine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\cmake-build-release"
+CMAKE_BINARY_DIR = E:\Thomas\Repositories\TEngine\cmake-build-release
 
 #=============================================================================
 # Target rules for target CMakeFiles/TEngine.dir
@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\cm
 CMakeFiles/TEngine.dir/all:
 	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/depend
 	$(MAKE) -f CMakeFiles\TEngine.dir\build.make CMakeFiles/TEngine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\cmake-build-release\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target TEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\Thomas\Repositories\TEngine\cmake-build-release\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target TEngine"
 .PHONY : CMakeFiles/TEngine.dir/all
 
 # Include target in all.
@@ -80,9 +80,9 @@ all: CMakeFiles/TEngine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TEngine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\cmake-build-release\CMakeFiles" 16
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Thomas\Repositories\TEngine\cmake-build-release\CMakeFiles 16
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/TEngine.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Eigene Dateien\Programmieren\C\CLion-Workspace\TEngine\cmake-build-release\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Thomas\Repositories\TEngine\cmake-build-release\CMakeFiles 0
 .PHONY : CMakeFiles/TEngine.dir/rule
 
 # Convenience name for target.
