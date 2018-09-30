@@ -142,16 +142,16 @@ void render_quad(quad_model_t* quad_model) {
     mesh_bind((mesh_t*)quad_model->quad);
     texture_bind(quad_model->texture);
 
-    static mat4x4 u_transform;
+    mat4x4 u_transform;
 
-    static mat4x4 scaleMat;
+    mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, quad_model->dim[2], quad_model->dim[3], 1);
 
-    static mat4x4 translateMat;
+    mat4x4 translateMat;
     mat4x4_translate(translateMat, quad_model->dim[0], quad_model->dim[1], 0);
 
-    static mat4x4 rotateMat;
+    mat4x4 rotateMat;
     mat4x4_identity(rotateMat);
     mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
 

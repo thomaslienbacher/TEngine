@@ -76,6 +76,13 @@ static inline void vec##n##_zero(vec##n dst) \
     for(i=0; i<n; ++i) \
         dst[i] = 0; \
 } \
+static inline float vec##n##_dot(vec##n a, vec##n b) \
+{ \
+    float result = 0;\
+    for (int i = 0; i < n; i++)\
+        result += a[i] * b[i];\
+    return result;\
+} \
 void vec##n##_print(const vec##n v);
 
 LINMATH_H_DEFINE_VEC(2)

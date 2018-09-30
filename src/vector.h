@@ -9,6 +9,8 @@
 extern "C" {
 #endif
 
+#include <stdlib.h>
+
 typedef struct _vector_s {
     void** array;
     size_t size;
