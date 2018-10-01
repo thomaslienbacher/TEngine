@@ -947,16 +947,19 @@ void frustum_testing() {//display
         //render
         program_use(program);
 
-        const int N = 10;
+        static float time = 0;
+        time += delta;
+
+        const int N = 15;
         int drawn = 0;
 
         for (int x = -N; x < N; ++x) {
             for (int y = -N; y < N; ++y) {
                 for (int z = -N; z < N; ++z) {
-                    vec3 p = {x * 1.3f, y * 1.3f, z * 1.3f};
+                    vec3 p = {x * 5.3f, y * 5.3f, z * 5.3f};
 
-                    if(frustum_ispoint(frustum, p)) {
-                        model_mat(model, p, (float[]) {0, 0, 0}, 1.0f);
+                    if(frustum_issphere(frustum, p, 1.0f)) {
+                        model_mat(model, p, (float[]) {0, 0, 0}, 0.8f);
                         program_unistr_mat(program, "u_model", model->mat);
                         render_model(model);
                         drawn++;
