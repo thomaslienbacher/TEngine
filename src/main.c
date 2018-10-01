@@ -942,7 +942,7 @@ void frustum_testing() {//display
 
         //frustum
         frustum_t frustum;
-        frustum_projview(frustum, camera->projMat, camera->viewMat);
+        frustum_projview(frustum, projview);
 
         //render
         program_use(program);
