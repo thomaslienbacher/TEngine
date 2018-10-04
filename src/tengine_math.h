@@ -47,10 +47,10 @@ static inline float vec##n##_len(vec##n const v) \
 { \
     return sqrtf(vec##n##_mul_inner(v,v)); \
 } \
-static inline void vec##n##_norm(vec##n r, vec##n const v) \
+static inline void vec##n##_norm(vec##n r, vec##n const v) /** if the length of the vector is 0 nothing changes*/ \
 { \
-    float k = 1.0 / vec##n##_len(v); \
-    vec##n##_scale(r, v, k); \
+    float k = vec##n##_len(v); \
+    if(k != 0) vec##n##_scale(r, v, 1.0 / k); \
 } \
 static inline void vec##n##_min(vec##n r, vec##n a, vec##n b) \
 { \
@@ -92,6 +92,26 @@ LINMATH_H_DEFINE_VEC(4)
 static inline void vec2_set(vec2 dst, float x, float y) {
     dst[0] = x;
     dst[1] = y;
+}
+
+static inline float vec2_angle(vec2 v) {
+    return atan2f(v[0], v[1]);
+}
+
+/**
+ * angle in RAD
+ */
+static inline void vec2_set_ang(vec2 dst, const vec2 src, float ang) {
+    vec2 cpy;//what if dst and src are the same thing, i know its not as efficient but whatever
+    vec2_cpy(cpy, src);
+    dst[0] = src[0] * cosf(ang) + src[1] * sinf(ang);
+    dst[1] = src[0] * sinf(ang) - src[1] * cosf(ang);
+}
+
+static inline void float2_set_ang(float *x, float *y, float ang) {
+    float xc = *x, yc = *y;
+    *x = xc * cosf(ang) + yc * sinf(ang);
+    *y = xc * sinf(ang) - yc * cosf(ang);
 }
 
 static inline void vec3_set(vec3 dst, float x, float y, float z) {

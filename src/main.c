@@ -981,8 +981,17 @@ void frustum_testing() {//display
     display_free(display);
 }
 
+void check_bug_fixes() {
+    //vector norm len = 0 bug
+    vec3 v = {0, 1, 1};
+    vec3_print(v);
+    vec3_norm(v, v);
+    vec3_print(v);
+
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    frustum_testing();
+    check_bug_fixes();
 
     return 0;
 }
