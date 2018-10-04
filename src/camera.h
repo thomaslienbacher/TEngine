@@ -21,7 +21,7 @@ typedef struct _camera_s {
 
 camera_t* camera_new(float fov, float aspect, float near, float far);
 void camera_view(camera_t* camera, vec3 pos, float pitch, float yaw, float roll);
-void camera_lookat(camera_t *camera, vec3 pos, vec3 direction);//sets the view matrix
+void camera_lookto(camera_t *camera, vec3 pos, vec3 direction);//sets the view matrix
 void camera_free(camera_t* camera);
 
 #ifdef __cplusplus

@@ -93,7 +93,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="2766" />
+          <entry key="c" value="2768" />
           <entry key="glsl" value="1" />
           <entry key="h" value="1226" />
         </counts>
@@ -102,7 +102,7 @@
         <counts>
           <entry key="Doxygen file" value="1" />
           <entry key="GLSL shader file" value="1" />
-          <entry key="ObjectiveC" value="3991" />
+          <entry key="ObjectiveC" value="3993" />
         </counts>
       </usages-collector>
     </session>
@@ -151,8 +151,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/camera.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+            <state relative-caret-position="308">
+              <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -246,7 +246,7 @@
     <scope name="MySource" pattern="file:src/light.c||file:src/light.h||file:src/display.h||file:src/camera.h||file:src/camera.c||file:src/display.c||file:src/main.c||file:src/master.h||file:src/mesh.c||file:src/mesh.h||file:src/model.c||file:src/model.h||file:src/program.c||file:src/program.h||file:src/render.c||file:src/render.h||file:src/texture.c||file:src/texture.h||file:src/utils.c||file:src/utils.h" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -458,12 +458,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2196162" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2196162" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44802344" visible="true" weight="0.33802816" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.44802344" visible="true" weight="0.33802816" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4714495" weight="0.3916849" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -851,8 +851,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/camera.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        <state relative-caret-position="308">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
         </state>
       </provider>
     </entry>

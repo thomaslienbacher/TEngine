@@ -39,7 +39,7 @@ void camera_view(camera_t* camera, vec3 pos, float pitch, float yaw, float roll)
     camera->pitch = pitch;
 }
 
-void camera_lookat(camera_t *camera, vec3 pos, vec3 direction) {
+void camera_lookto(camera_t *camera, vec3 pos, vec3 direction) {
     vec3 center;
     vec3_add(center, pos, direction);
     mat4x4_look_at(camera->viewMat, pos, center, VEC3_UNITY);
