@@ -101,17 +101,17 @@ static inline float vec2_angle(vec2 v) {
 /**
  * angle in RAD
  */
-static inline void vec2_set_ang(vec2 dst, const vec2 src, float ang) {
+static inline void vec2_rot(vec2 dst, const vec2 src, float ang) {
     vec2 cpy;//what if dst and src are the same thing, i know its not as efficient but whatever
     vec2_cpy(cpy, src);
-    dst[0] = src[0] * cosf(ang) + src[1] * sinf(ang);
-    dst[1] = src[0] * sinf(ang) - src[1] * cosf(ang);
+    dst[0] = cpy[0] * cosf(ang) - cpy[1] * sinf(ang);
+    dst[1] = cpy[0] * sinf(ang) + cpy[1] * cosf(ang);
 }
 
-static inline void float2_set_ang(float *x, float *y, float ang) {
+static inline void float2_rot(float *x, float *y, float ang) {
     float xc = *x, yc = *y;
-    *x = xc * cosf(ang) + yc * sinf(ang);
-    *y = xc * sinf(ang) - yc * cosf(ang);
+    *x = xc * cosf(ang) - yc * sinf(ang);
+    *y = xc * sinf(ang) + yc * cosf(ang);
 }
 
 static inline void vec3_set(vec3 dst, float x, float y, float z) {
