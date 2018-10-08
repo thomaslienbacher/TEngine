@@ -958,7 +958,7 @@ void frustum_testing() {//display
                 for (int z = -N; z < N; ++z) {
                     vec3 p = {x * 5.3f, y * 5.3f, z * 5.3f};
 
-                    if(frustum_issphere(frustum, p, 1.0f)) {
+                    if (frustum_issphere(frustum, p, 1.0f)) {
                         model_mat(model, p, (float[]) {0, 0, 0}, 0.8f);
                         program_unistr_mat(program, "u_model", model->mat);
                         render_model(model);
@@ -1000,8 +1000,131 @@ void check_bug_fixes() {
 
 }
 
+void control_lookto(vec3 pos, vec3 lookto, float delta) {
+    const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+    static float la = 0;
+    la += kb[SDL_SCANCODE_E] * delta * M_2_PI;
+    la -= kb[SDL_SCANCODE_Q] * delta * M_2_PI;
+
+    static float vert = 0;
+    vert += kb[SDL_SCANCODE_R] * delta;
+    vert -= kb[SDL_SCANCODE_F] * delta;
+
+    lookto[0] = cosf(la);
+    lookto[1] = vert;
+    lookto[2] = sinf(la);
+
+    float ang = atan2f(lookto[2], lookto[0]);
+
+    vec3 move = {0};
+
+    move[0] += kb[SDL_SCANCODE_W];
+    move[0] -= kb[SDL_SCANCODE_S];
+
+    move[2] += kb[SDL_SCANCODE_A];
+    move[2] -= kb[SDL_SCANCODE_D];
+
+    vec3_norm(move, move);
+
+    vec3 nmove;
+    nmove[0] = (cosf(la) * move[0] - sinf(la) * move[2]) * delta * 3;
+    nmove[2] = (sinf(la) * move[0] + cosf(la) * move[2]) * delta * 3;
+
+    vec3_add(pos, pos, nmove);
+}
+
+void test_camera_lookto() {
+    const int WIDTH = 1000;
+    const int HEIGHT = 500;
+    float renderSize = 1.1f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
+    display_set_icon(display, "data/icon.png");
+
+    CLEAR_COLOR[0] = 0.1f;
+    CLEAR_COLOR[1] = 0.1f;
+    CLEAR_COLOR[2] = 0.1f;
+    CLEAR_COLOR[3] = 0.1f;
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.5f, 200);
+
+    //quad_model
+    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
+    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    model_t *model = model_new(mesh, texture);
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta, renderSize);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        static vec3 pos = {0};
+        static vec3 lookto = {0};
+        control_lookto(pos, lookto, delta);
+
+        camera_lookto(camera, pos, lookto);
+
+        mat4x4 projview;
+        mat4x4_mul(projview, camera->projMat, camera->viewMat);
+        program_unistr_mat(program, "u_projview", projview);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //frustum
+        frustum_t frustum;
+        frustum_projview(frustum, projview);
+
+        //render
+        program_use(program);
+
+        static float time = 0;
+        time += delta;
+
+        const int N = 15;
+        int drawn = 0;
+
+        for (int x = -N; x < N; ++x) {
+            for (int z = -N; z < N; ++z) {
+                vec3 p = {x * 4.f, -2, z * 4.f};
+
+                if (frustum_issphere(frustum, p, 1.0f)) {
+                    model_mat(model, p, (float[]) {0, 0, 0}, 0.8f);
+                    program_unistr_mat(program, "u_model", model->mat);
+                    render_model(model);
+                    drawn++;
+                }
+            }
+
+        }
+
+        printf("drawn: %d\n", drawn);
+
+        display_show(display);
+    }
+
+    model_free(model);
+    mesh_free(mesh);
+    texture_free(texture);
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    check_bug_fixes();
+    test_camera_lookto();
 
     return 0;
 }
