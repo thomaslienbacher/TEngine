@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-#include "SDL2/SDL.h"
+#include <SDL2/SDL.h>
 //#undef main
-#include "glew.h"
+#include <glew.h>
 #define LODEPNG_NO_COMPILE_CPP
 #include "lodepng.h"
 

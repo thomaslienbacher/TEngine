@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include <GL/glew.h>
+#include "master.h"
 #include <stdio.h>
 
 #define POSITION_INDEX 0

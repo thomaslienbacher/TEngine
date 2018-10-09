@@ -1037,7 +1037,7 @@ void control_lookto(vec3 pos, vec3 lookto, float delta) {
 void test_camera_lookto() {
     const int WIDTH = 1000;
     const int HEIGHT = 500;
-    float renderSize = 1.1f;
+    float renderSize = 1.0f;
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
     display_set_icon(display, "data/icon.png");
 
