@@ -515,27 +515,6 @@ static inline void mat4x4_get_trans(vec3 dst, mat4x4 m){
     dst[2] = m[3][2];
 }
 
-/**
- * https://stackoverflow.com/questions/15022630/how-to-calculate-the-angle-from-rotation-matrix
- *
- * warning: this has very low precision use with caution
- */
-static inline void _mat4x4_get_rotate(vec3 dst, mat4x4 m){
-    dst[0] = (float) atan2(m[1][2], m[2][2]) * RAD_2_DEG;
-    dst[1] = (float) -atan2(-m[0][2], hypot(m[1][2], m[2][2])) * RAD_2_DEG;
-    dst[2] = (float) atan2(m[0][1], m[0][0]) * RAD_2_DEG;
-}
-
-/**
- * @param dst stores the average scale in here = (sx + sy + sz) / 3
- * @param m
- *
- * warning: this has very low precision use with caution
- */
-static inline void _mat4x4_get_scale(float* dst, mat4x4 m){
-    *dst = (m[0][0] + m[1][1] + m[2][2]) / 3;
-}
-
 void mat4x4_print(const mat4x4 mat);
 
 typedef float quat[4];

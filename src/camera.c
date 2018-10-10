@@ -18,7 +18,7 @@ camera_t* camera_new(float fov, float aspect, float near, float far){
     return camera;
 }
 
-void camera_view(camera_t* camera, vec3 pos, float pitch, float yaw){
+void camera_view(camera_t *camera, vec3 pos, float pitch, float yaw) {
     mat4x4 rotateMat;
     mat4x4_identity(rotateMat);
     mat4x4_rotate(rotateMat, rotateMat, 1, 0, 0, pitch * DEG_2_RAD);

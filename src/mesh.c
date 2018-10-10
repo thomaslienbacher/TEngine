@@ -2,6 +2,7 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
+#include <stdlib.h>
 #include "mesh.h"
 #include "master.h"
 #include "utils.h"

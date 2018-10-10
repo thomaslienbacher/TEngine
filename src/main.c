@@ -1130,17 +1130,14 @@ void test_new_camera() {
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
     display_set_icon(display, "data/icon.png");
 
-    CLEAR_COLOR[0] = 0.1f;
-    CLEAR_COLOR[1] = 0.1f;
-    CLEAR_COLOR[2] = 0.1f;
-    CLEAR_COLOR[3] = 0.1f;
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.2f;
 
     //program
     program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.5f, 200);
+    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.07f, 100);
 
     //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
@@ -1178,8 +1175,7 @@ void test_new_camera() {
         static float time = 0;
         time += delta;
 
-        const int N = 15;
-        int drawn = 0;
+        const int N = 5;
 
         for (int x = -N; x < N; ++x) {
             for (int z = -N; z < N; ++z) {
@@ -1189,13 +1185,10 @@ void test_new_camera() {
                     model_mat(model, p, (float[]) {0, 0, 0}, 0.8f);
                     program_unistr_mat(program, "u_model", model->mat);
                     render_model(model);
-                    drawn++;
                 }
             }
 
         }
-
-        printf("drawn: %d\n", drawn);
 
         display_show(display);
     }
