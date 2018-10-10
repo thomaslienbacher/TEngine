@@ -12,6 +12,7 @@
 #include "vector.h"
 #include "frustum.h"
 
+#ifdef  __REMOVE_FROM_COMPILATION__
 
 void cam_control(camera_t *camera) {
     const Uint8 *kb = SDL_GetKeyboardState(NULL);
@@ -49,7 +50,7 @@ void cam_control(camera_t *camera) {
     camera_view(camera, pos, rot[0], rot[1], rot[2]);
 }
 
-#ifdef  __REMOVE_FROM_COMPILATION__
+
 
 //deprecated
 void test_render() {
@@ -894,7 +895,7 @@ void quad_testing() {
     display_free(display);
 }
 
-#endif
+
 
 void frustum_testing() {//display
     const int WIDTH = 1600;
@@ -1123,8 +1124,131 @@ void test_camera_lookto() {
     display_free(display);
 }
 
+#endif
+
+void cam_control_quat(camera_t *camera, float delta) {
+    const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+    static float x = 0;
+    static float y = 0;
+    static float z = 0;
+    vec3 pos = {x, y, z};
+    float a = 0.05f;
+    if (kb[SDL_SCANCODE_W]) z -= a;
+    if (kb[SDL_SCANCODE_S]) z += a;
+    if (kb[SDL_SCANCODE_A]) x -= a;
+    if (kb[SDL_SCANCODE_D]) x += a;
+    if (kb[SDL_SCANCODE_Q]) y += a;
+    if (kb[SDL_SCANCODE_E]) y -= a;
+    //printf("pos: %f %f %f\n", x, y, z);
+
+    static float xr = 0;
+    static float yr = 0;
+    static float zr = 0;
+    vec3 rot = {xr, yr, zr};
+    float r = 30.f * delta;
+    if (kb[SDL_SCANCODE_I]) xr -= r;
+    if (kb[SDL_SCANCODE_K]) xr += r;
+    if (kb[SDL_SCANCODE_J]) yr -= r;
+    if (kb[SDL_SCANCODE_L]) yr += r;
+    if (kb[SDL_SCANCODE_U]) zr += r;
+    if (kb[SDL_SCANCODE_O]) zr -= r;
+    //printf("rot: %f %f %f\n", xr, yr, zr);
+
+    if (kb[SDL_SCANCODE_R]) {
+        xr = yr = zr = 0;
+    }
+
+    camera_view_euler(camera, pos, rot[0], rot[1], rot[2]);
+}
+
+//quaternion testing
+void test_quat_camera() {
+    const int WIDTH = 1000;
+    const int HEIGHT = 500;
+    float renderSize = 1.0f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
+    display_set_icon(display, "data/icon.png");
+
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.2f;
+
+    //program
+    program_t *program = program_new("data/vertex_shader.glsl", "data/fragment_shader.glsl");
+    program_use(program);
+
+    //camera
+    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
+
+    //quad_model
+    texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
+    mesh_t *mesh = mesh_newobj("data/ico.obj");
+    model_t *model = model_new(mesh, texture);
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta, renderSize);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        cam_control_quat(camera, delta);
+
+        mat4x4 projview;
+        mat4x4_mul(projview, camera->projMat, camera->viewMat);
+        program_unistr_mat(program, "u_projview", projview);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //frustum
+        frustum_t frustum;
+        frustum_projview(frustum, projview);
+
+        //render
+        program_use(program);
+
+        static float time = 0;
+        time += delta;
+
+        const int N = 1;
+
+        static vec3 rot = {0};
+
+        rot[0] += (kb[SDL_SCANCODE_5] + -kb[SDL_SCANCODE_2]) * 30 * delta;
+        rot[1] += (kb[SDL_SCANCODE_1] + -kb[SDL_SCANCODE_3]) * 30 * delta;
+        rot[2] += (kb[SDL_SCANCODE_4] + -kb[SDL_SCANCODE_6]) * 30 * delta;
+
+        for (int x = -N; x < N; ++x) {
+            for (int z = -N; z < N; ++z) {
+                vec3 p = {x * 7.f, -1, z * 7.f};
+
+                if (frustum_issphere(frustum, p, 2.0f)) {
+                    model_mat(model, p, rot, 0.8f);
+                    program_unistr_mat(program, "u_model", model->mat);
+                    render_model(model);
+                }
+            }
+
+        }
+
+        display_show(display);
+    }
+
+    model_free(model);
+    mesh_free(mesh);
+    texture_free(texture);
+    camera_free(camera);
+    program_free(program);
+    display_free(display);
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_camera_lookto();
+    test_quat_camera();
 
     return 0;
 }
