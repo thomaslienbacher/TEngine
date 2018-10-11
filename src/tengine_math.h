@@ -15,6 +15,20 @@ extern "C" {
 #define RAD_2_DEG 57.295779513f
 #define DEG_2_RAD 0.01745329252f
 
+#define FM_E		2.7182818284590452f
+#define FM_LOG2E 	1.4426950408889634f
+#define FM_LOG10E	0.4342944819032518f
+#define FM_LN2		0.6931471805599453f
+#define FM_LN10		2.3025850929940456f
+#define FM_PI		3.1415926535897932f
+#define FM_PI_2		1.5707963267948966f
+#define FM_PI_4		0.7853981633974483f
+#define FM_1_PI		0.3183098861837906f
+#define FM_2_PI		0.6366197723675813f
+#define FM_2_SQRTPI	1.1283791670955125f
+#define FM_SQRT2 	1.4142135623730950f
+#define FM_SQRT1_2	0.7071067811865475f
+
 #define LINMATH_H_DEFINE_VEC(n) \
 typedef float vec##n[n]; \
 static inline void vec##n##_add(vec##n r, vec##n const a, vec##n const b) \
