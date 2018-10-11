@@ -1106,7 +1106,7 @@ void cam_control(camera_t *camera, float delta) {
     static float yr = 0;
     static float zr = 0;
     vec3 rot = {xr, yr, zr};
-    float r = 20.0f * delta;
+    float r = FM_PI_2 * RAD_2_DEG * delta;
     if (kb[SDL_SCANCODE_I]) xr -= r;
     if (kb[SDL_SCANCODE_K]) xr += r;
     if (kb[SDL_SCANCODE_J]) yr -= r;
@@ -1123,7 +1123,7 @@ void cam_control(camera_t *camera, float delta) {
 }
 
 
-void test_new_camera() {
+void test_new_camera_and_all_axis_scaling() {
     const int WIDTH = 1000;
     const int HEIGHT = 500;
     float renderSize = 1.0f;
@@ -1174,6 +1174,8 @@ void test_new_camera() {
 
         static float time = 0;
         time += delta;
+        float sin = (sinf(time * 0.8f) + 1) / 2.0f + 0.5f;
+        float cos = (cosf(time * 0.5f) + 1) / 2.0f + 0.5f;
 
         const int N = 5;
 
@@ -1182,7 +1184,7 @@ void test_new_camera() {
                 vec3 p = {x * 4.f, -2, z * 4.f};
 
                 if (frustum_issphere(frustum, p, 1.0f)) {
-                    model_mat(model, p, (float[]) {0, 0, 0}, 0.8f);
+                    model_matd_as(model->mat, p, (float[]) {0, 0, 0}, (float[]) {sin,cos,sin*cos});
                     program_unistr_mat(program, "u_model", model->mat);
                     render_model(model);
                 }
@@ -1203,7 +1205,7 @@ void test_new_camera() {
 
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_new_camera();
+    test_new_camera_and_all_axis_scaling();
 
     return 0;
 }

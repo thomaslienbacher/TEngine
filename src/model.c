@@ -9,9 +9,9 @@ model_t* model_new(mesh_t* mesh, texture_t* texture){
     model_t* model = calloc(1, sizeof(model_t));
     model->mesh = mesh;
     model->texture = texture;
-    model->scale = 1.0f;
+    vec3_set(model->scale, 1.f, 1.f, 1.f);
 
-    model_mat(model, model->pos, model->rot, model->scale);
+    model_mat(model, model->pos, model->rot, *model->scale);
 
     return model;
 }
@@ -36,10 +36,50 @@ void model_mat(model_t* model, const vec3 pos, const vec3 rot, float scale){
     mat4x4_mul(model->mat, model->mat, rotateMat);
 }
 
-void model_mat_mat(mat4x4 mat, const vec3 pos, const vec3 rot, float scale){
+void model_mat_as(model_t* model, const vec3 pos, const vec3 rot, const vec3 scale){
+    mat4x4 scaleMat;
+    mat4x4_identity(scaleMat);
+    mat4x4_scale_aniso(scaleMat, scaleMat, scale[0], scale[1], scale[2]);
+
+    mat4x4 rotateMat;
+    mat4x4_identity(rotateMat);
+    mat4x4_rotate_Y(rotateMat, rotateMat, rot[1] * DEG_2_RAD);
+    mat4x4_rotate_Z(rotateMat, rotateMat, rot[2] * DEG_2_RAD);
+    mat4x4_rotate_X(rotateMat, rotateMat, rot[0] * DEG_2_RAD);
+
+    mat4x4 translateMat;
+    mat4x4_translate(translateMat, pos[0], pos[1], pos[2]);
+
+    mat4x4_identity(model->mat);
+    mat4x4_mul(model->mat, model->mat, translateMat);
+    mat4x4_mul(model->mat, model->mat, scaleMat);
+    mat4x4_mul(model->mat, model->mat, rotateMat);
+}
+
+void model_matd(mat4x4 mat, const vec3 pos, const vec3 rot, float scale){
     mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, scale, scale, scale);
+
+    mat4x4 rotateMat;
+    mat4x4_identity(rotateMat);
+    mat4x4_rotate_Y(rotateMat, rotateMat, rot[1] * DEG_2_RAD);
+    mat4x4_rotate_Z(rotateMat, rotateMat, rot[2] * DEG_2_RAD);
+    mat4x4_rotate_X(rotateMat, rotateMat, rot[0] * DEG_2_RAD);
+
+    mat4x4 translateMat;
+    mat4x4_translate(translateMat, pos[0], pos[1], pos[2]);
+
+    mat4x4_identity(mat);
+    mat4x4_mul(mat, mat, translateMat);
+    mat4x4_mul(mat, mat, scaleMat);
+    mat4x4_mul(mat, mat, rotateMat);
+}
+
+void model_matd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 scale){
+    mat4x4 scaleMat;
+    mat4x4_identity(scaleMat);
+    mat4x4_scale_aniso(scaleMat, scaleMat, scale[0], scale[1], scale[2]);
 
     mat4x4 rotateMat;
     mat4x4_identity(rotateMat);
