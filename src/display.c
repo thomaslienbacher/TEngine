@@ -20,7 +20,7 @@ static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
     }
 }
 
-display_t *display_new(const char *title, int width, int height, char fullscreen, float renderScale) {
+display_t *display_new(const char *title, int width, int height, char fullscreen, float renderScale, char vsync) {
     display_t* display = calloc(1, sizeof(display_t));
     display->running = 1;
     display->lastTick = 0;
@@ -57,7 +57,7 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     display->glContext = SDL_GL_CreateContext(display->window);
 
     SDL_GL_MakeCurrent(display->window, display->glContext);
-    SDL_GL_SetSwapInterval(1); // vsync
+    SDL_GL_SetSwapInterval(vsync); // vsync
 
     glewExperimental = GL_TRUE;
     GLenum err = glewInit();

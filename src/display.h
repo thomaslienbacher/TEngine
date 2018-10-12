@@ -27,7 +27,7 @@ typedef struct _display_s {
     int height;
 } display_t;
 
-display_t *display_new(const char *title, int width, int height, char fullscreen, float renderScale);
+display_t *display_new(const char *title, int width, int height, char fullscreen, float renderScale, char vsync);
 void display_set_iconf(display_t *display, FILE *icon);
 void display_set_icon(display_t *display, const char* icon);
 void display_prepare(display_t *display, float *delta, float renderScale);

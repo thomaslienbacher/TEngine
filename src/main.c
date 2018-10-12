@@ -1124,10 +1124,10 @@ void cam_control(camera_t *camera, float delta) {
 
 
 void test_new_camera_and_all_axis_scaling() {
-    const int WIDTH = 1000;
-    const int HEIGHT = 500;
-    float renderSize = 1.0f;
-    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize);
+    const int WIDTH = 1600;
+    const int HEIGHT = 900;
+    float renderSize = 2.0f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize, 1);
     display_set_icon(display, "data/icon.png");
 
     CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.2f;
