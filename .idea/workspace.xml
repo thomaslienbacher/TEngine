@@ -85,11 +85,11 @@
     <session id="-1780659025">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.17" value="2" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -98,15 +98,18 @@
           <entry key="c" value="55" />
           <entry key="glsl" value="9" />
           <entry key="h" value="35" />
+          <entry key="log" value="1" />
           <entry key="obj" value="1" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CMakeLists.txt" value="1" />
           <entry key="Disassembly" value="1" />
           <entry key="GLSL shader file" value="9" />
           <entry key="ObjectiveC" value="90" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -115,10 +118,12 @@
           <entry key="glsl" value="1" />
           <entry key="h" value="1240" />
           <entry key="m" value="9" />
+          <entry key="txt" value="134" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="CMakeLists.txt" value="134" />
           <entry key="Doxygen file" value="1" />
           <entry key="GLSL shader file" value="1" />
           <entry key="ObjectiveC" value="4396" />
@@ -128,7 +133,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -140,10 +145,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/display.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="1062">
               <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding>
                 <element signature="e#54#72#0" expanded="true" />
@@ -224,7 +238,6 @@
         <option value="$PROJECT_DIR$/src/quad.c" />
         <option value="$PROJECT_DIR$/src/inst_model.h" />
         <option value="$PROJECT_DIR$/src/shaders.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/vector.c" />
         <option value="$PROJECT_DIR$/src/light.c" />
         <option value="$PROJECT_DIR$/src/light.h" />
@@ -256,6 +269,7 @@
         <option value="$PROJECT_DIR$/src/model.c" />
         <option value="$PROJECT_DIR$/src/display.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -307,6 +321,12 @@
               <item name="TEngine" type="b2602c69:ProjectViewProjectNode" />
               <item name="TEngine" type="462c0819:PsiDirectoryNode" />
               <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+              <item name="CMakeFiles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TEngine" type="b2602c69:ProjectViewProjectNode" />
@@ -485,7 +505,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29744136" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18976545" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -499,7 +519,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5285505" side_tool="true" weight="0.39308175" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.32827735" />
+      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Serial Monitor" order="12" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.68385416" visible="true" weight="0.3284055" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
@@ -556,22 +576,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dependencies/glew/include/glew.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="912" column="22" selection-start-line="912" selection-start-column="22" selection-end-line="912" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/data/large.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/light.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -847,6 +853,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="1129" column="78" selection-start-line="1129" selection-start-column="78" selection-end-line="1129" selection-end-column="78" />
+          <folding>
+            <element signature="e#302#32055#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/display.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+          <folding>
+            <element signature="e#54#72#0" expanded="true" />
+            <element signature="e#1598#1654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/framebuffer.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
@@ -861,24 +888,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/display.c">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-          <folding>
-            <element signature="e#54#72#0" expanded="true" />
-            <element signature="e#1598#1654#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-4381" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.c">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="1129" column="78" selection-start-line="1129" selection-start-column="78" selection-end-line="1129" selection-end-column="78" />
-          <folding>
-            <element signature="e#302#32055#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="236">
+          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
         </state>
       </provider>
     </entry>
