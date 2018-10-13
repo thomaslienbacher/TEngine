@@ -8,7 +8,7 @@
 
 vec4 CLEAR_COLOR = {0, 0, 0, 0};
 
-const char* QUAD_VERTEX_SHADER = R"(
+static const char* QUAD_VERTEX_SHADER = R"(
 #version 330
 
 layout(location = 0) in vec2 i_vertex;
@@ -24,7 +24,7 @@ void main() {
 }
 )";
 
-const char* QUAD_FRAGMENT_SHADER = R"(
+static const char* QUAD_FRAGMENT_SHADER = R"(
 #version 330
 
 in vec2 v_texcoord;
@@ -38,11 +38,13 @@ void main(){
 }
 )";
 
-program_t* QUAD_SHADER = NULL;
+static program_t* QUAD_SHADER = NULL;
+static int QUAD_SHADER_MAT_LOC = -1;
 
 //users should not call this
 void _render_init_quadshader() {
     QUAD_SHADER = program_news(QUAD_VERTEX_SHADER, QUAD_FRAGMENT_SHADER);
+    QUAD_SHADER_MAT_LOC = program_getunipos(QUAD_SHADER, "u_transform");
 }
 
 void _render_quit_quadshader() {
@@ -153,13 +155,13 @@ void render_quad(quad_model_t* quad_model) {
 
     mat4x4 rotateMat;
     mat4x4_identity(rotateMat);
-    mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
+    if(quad_model->rot != 0) mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
 
     mat4x4_identity(u_transform);
     mat4x4_mul(u_transform, scaleMat, translateMat);
     mat4x4_mul(u_transform, u_transform, rotateMat);
 
-    program_unistr_mat(QUAD_SHADER, "u_transform", u_transform);
+    program_unipos_mat(QUAD_SHADER, QUAD_SHADER_MAT_LOC, u_transform);
 
     glEnableVertexAttribArray(POSITION_INDEX);
     glEnableVertexAttribArray(TEXCOORD_INDEX);

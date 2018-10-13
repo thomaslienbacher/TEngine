@@ -96,7 +96,7 @@ void model_transformd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 
     mat4x4_mul(mat, mat, rotateMat);
 }
 
-void model_free(model_t* model){
+void model_free(model_t *model) {
     free(model);
 }
 

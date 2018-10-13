@@ -1251,7 +1251,7 @@ void test_text_rendering() {
         sprintf(buf, "time: %f", time);
         text = text_new(font, buf);
 
-        text_transform(text, (float[]) {-text->width / 2, 0}, 3.0f);
+        text_transform(text, (float[]) {-text->width / 2, 0}, 1.0f);
         program_unistr_mat(program, "u_transform", text->mat);
         render_text(text);
 

@@ -17,9 +17,6 @@ extern "C" {
 #include "text.h"
 
 extern vec4 CLEAR_COLOR;
-extern const char* QUAD_VERTEX_SHADER;
-extern const char* QUAD_FRAGMENT_SHADER;
-extern program_t* QUAD_SHADER;
 
 void _render_init_quadshader();
 void _render_quit_quadshader();
