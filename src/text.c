@@ -29,7 +29,7 @@ font_t* font_newf(FILE *dataFile, FILE *bmpFile){
         //chars
         if(sscanf(line, "Char %d Base Width,%d", &c, &cWidth) == 2) {
             if(c < font->startChar){
-                printf("continue: %d\n", c);
+                //printf("continue: %d\n", c);
                 continue;
             }
 
@@ -75,4 +75,22 @@ void font_free(font_t* font){
     texture_free(font->texture);
     free(font->chars);
     free(font);
+}
+
+text_t *text_new(font_t* font, const char* str){
+    text_t* text = calloc(1, sizeof(text_t));
+
+
+
+    return text;
+}
+
+void text_transform(text_t *text, vec2 pos, float rot, float scale){
+
+}
+
+void text_free(text_t *text){
+    glDeleteVertexArrays(1, &text->vao);
+    glDeleteBuffers(2, text->vbo);
+    free(text);
 }
