@@ -14,35 +14,33 @@ extern "C" {
 #include "texture.h"
 #include "tengine_math.h"
 
-typedef struct {
+typedef struct _fontchar_s {
     float xadvance; //x advance
     float tx, ty, tw, th;//uv coords of char
 } fontchar_t;
 
-//TODO: store everything as floats in opengl viewspace coords
 typedef struct _font_s {
     texture_t *texture;
     int startChar;
-    int height;
+    float height;
     fontchar_t *chars;
     int cellHeight;
     int cellWidth;
     float xScale, yScale;//int data to opengl data
 } font_t;
 
-font_t *font_newf(FILE *dataFile, FILE *bmpFile);
-font_t *font_new(const char *dataFile, const char *bmpFile);
-void font_free(font_t *font);
-
-
 typedef struct _text_s {
     GLuint vao;
     GLuint vbos[2];//vertices, texcoords
     GLuint numVertices;
     texture_t *texture;
-    mat4x4 model;
+    mat4x4 mat;
     float width, height;
 } text_t;
+
+font_t *font_newf(FILE *dataFile, FILE *bmpFile);
+font_t *font_new(const char *dataFile, const char *bmpFile);
+void font_free(font_t *font);
 
 text_t *text_new(font_t* font, const char* str);
 void text_transform(text_t *text, vec2 pos, float scale);

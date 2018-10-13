@@ -9,7 +9,6 @@
 #include "mesh.h"
 #include "utils.h"
 
-//TODO: optimize
 font_t *font_newf(FILE *dataFile, FILE *bmpFile) {
     font_t *font = calloc(1, sizeof(font_t));
 
@@ -21,6 +20,7 @@ font_t *font_newf(FILE *dataFile, FILE *bmpFile) {
     char line[128];
     int c = 0;
     int cWidth;
+    int tmpHeight;
 
     //get header metadata
     for (int i = 0; i < 8; ++i) {
@@ -29,8 +29,10 @@ font_t *font_newf(FILE *dataFile, FILE *bmpFile) {
         sscanf(line, "Cell Width,%d", &font->cellWidth);
         sscanf(line, "Cell Height,%d", &font->cellHeight);
         sscanf(line, "Start Char,%d", &font->startChar);
-        sscanf(line, "Font Height,%d", &font->height);
+        sscanf(line, "Font Height,%d", &tmpHeight);
     }
+
+    font->height = (float) tmpHeight * font->yScale;
 
     while (fgets(line, sizeof(line), dataFile)) {
         if (sscanf(line, "Char %d Base Width,%d", &c, &cWidth) == 2) {
@@ -85,41 +87,40 @@ text_t *text_new(font_t *font, const char *str) {
     float *texcoords = calloc(numVertices * 2, sizeof(float));
 
     //generate font data
-    int pos = 0;
-    int pos2 = 0;
+    int pa = 0;
+    int pb = 0;
     float curX = 0;
-    float height = (float) font->height * font->yScale;
 
     for (int i = 0; i < len; ++i) {
         fontchar_t fc = font->chars[str[i]];
 
-        vertices[pos++] = curX;
-        vertices[pos++] = 0;
-        vertices[pos++] = curX + fc.xadvance;
-        vertices[pos++] = 0;
-        vertices[pos++] = curX + fc.xadvance;
-        vertices[pos++] = height;
+        vertices[pa++] = curX;
+        vertices[pa++] = 0;
+        vertices[pa++] = curX + fc.xadvance;
+        vertices[pa++] = 0;
+        vertices[pa++] = curX + fc.xadvance;
+        vertices[pa++] = font->height;
 
-        vertices[pos++] = curX;
-        vertices[pos++] = 0;
-        vertices[pos++] = curX + fc.xadvance;
-        vertices[pos++] = height;
-        vertices[pos++] = curX;
-        vertices[pos++] = height;
+        vertices[pa++] = curX;
+        vertices[pa++] = 0;
+        vertices[pa++] = curX + fc.xadvance;
+        vertices[pa++] = font->height;
+        vertices[pa++] = curX;
+        vertices[pa++] = font->height;
 
-        texcoords[pos2++] = fc.tx;
-        texcoords[pos2++] = fc.ty + fc.th;
-        texcoords[pos2++] = fc.tx + fc.tw;
-        texcoords[pos2++] = fc.ty + fc.th;
-        texcoords[pos2++] = fc.tx + fc.tw;
-        texcoords[pos2++] = fc.ty;
+        texcoords[pb++] = fc.tx;
+        texcoords[pb++] = fc.ty + fc.th;
+        texcoords[pb++] = fc.tx + fc.tw;
+        texcoords[pb++] = fc.ty + fc.th;
+        texcoords[pb++] = fc.tx + fc.tw;
+        texcoords[pb++] = fc.ty;
 
-        texcoords[pos2++] = fc.tx;
-        texcoords[pos2++] = fc.ty + fc.th;
-        texcoords[pos2++] = fc.tx + fc.tw;
-        texcoords[pos2++] = fc.ty;
-        texcoords[pos2++] = fc.tx;
-        texcoords[pos2++] = fc.ty;
+        texcoords[pb++] = fc.tx;
+        texcoords[pb++] = fc.ty + fc.th;
+        texcoords[pb++] = fc.tx + fc.tw;
+        texcoords[pb++] = fc.ty;
+        texcoords[pb++] = fc.tx;
+        texcoords[pb++] = fc.ty;
 
         curX += fc.xadvance;
     }
@@ -137,7 +138,7 @@ text_t *text_new(font_t *font, const char *str) {
     text->numVertices = numVertices;
     text->texture = font->texture;
     text->width = curX;
-    text->height = height;
+    text->height = font->height;
 
     return text;
 }
@@ -150,8 +151,8 @@ void text_transform(text_t *text, vec2 pos, float scale) {
     mat4x4 translateMat;
     mat4x4_translate(translateMat, pos[0], pos[1], 0);
 
-    mat4x4_identity(text->model);
-    mat4x4_mul(text->model, scaleMat, translateMat);
+    mat4x4_identity(text->mat);
+    mat4x4_mul(text->mat, scaleMat, translateMat);
 }
 
 void text_free(text_t *text) {

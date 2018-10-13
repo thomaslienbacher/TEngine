@@ -11,12 +11,12 @@ model_t* model_new(mesh_t* mesh, texture_t* texture){
     model->texture = texture;
     vec3_set(model->scale, 1.f, 1.f, 1.f);
 
-    model_mat(model, model->pos, model->rot, *model->scale);
+    model_transform(model, model->pos, model->rot, *model->scale);
 
     return model;
 }
 
-void model_mat(model_t* model, const vec3 pos, const vec3 rot, float scale){
+void model_transform(model_t *model, const vec3 pos, const vec3 rot, float scale){
     mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, scale, scale, scale);
@@ -36,7 +36,7 @@ void model_mat(model_t* model, const vec3 pos, const vec3 rot, float scale){
     mat4x4_mul(model->mat, model->mat, rotateMat);
 }
 
-void model_mat_as(model_t* model, const vec3 pos, const vec3 rot, const vec3 scale){
+void model_transform_as(model_t *model, const vec3 pos, const vec3 rot, const vec3 scale){
     mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, scale[0], scale[1], scale[2]);
@@ -56,7 +56,7 @@ void model_mat_as(model_t* model, const vec3 pos, const vec3 rot, const vec3 sca
     mat4x4_mul(model->mat, model->mat, rotateMat);
 }
 
-void model_matd(mat4x4 mat, const vec3 pos, const vec3 rot, float scale){
+void model_transformd(mat4x4 mat, const vec3 pos, const vec3 rot, float scale){
     mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, scale, scale, scale);
@@ -76,7 +76,7 @@ void model_matd(mat4x4 mat, const vec3 pos, const vec3 rot, float scale){
     mat4x4_mul(mat, mat, rotateMat);
 }
 
-void model_matd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 scale){
+void model_transformd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 scale){
     mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, scale[0], scale[1], scale[2]);

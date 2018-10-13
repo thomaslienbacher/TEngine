@@ -1185,7 +1185,7 @@ void test_new_camera_and_all_axis_scaling() {
                 vec3 p = {x * 4.f, -2, z * 4.f};
 
                 if (frustum_issphere(frustum, p, 1.0f)) {
-                    model_matd_as(model->mat, p, (float[]) {0, 0, 0}, (float[]) {sin,cos,sin*cos});
+                    model_transformd_as(model->mat, p, (float[]) {0, 0, 0}, (float[]) {sin, cos, sin * cos});
                     program_unistr_mat(program, "u_model", model->mat);
                     render_model(model);
                 }
@@ -1211,7 +1211,7 @@ void test_text_rendering() {
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize, 1);
     display_set_icon(display, "data/icon.png");
 
-    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.0f;
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.3f;
 
     //program
     program_t *program = program_new("data/font_vs.glsl", "data/font_fs.glsl");
@@ -1221,7 +1221,7 @@ void test_text_rendering() {
     font_t *font = font_new("data/consolas_32.csv", "data/consolas_32.png");
 
     //text
-    text_t* text = text_new(font, "Thomas [0] = {;:_1234567890}; 0xABCDEF");
+    text_t* text = text_new(font, "");
 
     while (display->running) {
         float delta;
@@ -1245,8 +1245,14 @@ void test_text_rendering() {
         time += delta;
 
         //render text
-        text_transform(text, (float[]) {-text->width / 2, 0}, 1.0f);
-        program_unistr_mat(program, "u_transform", text->model);
+        text_free(text);
+
+        char buf[100];
+        sprintf(buf, "time: %f", time);
+        text = text_new(font, buf);
+
+        text_transform(text, (float[]) {-text->width / 2, 0}, 3.0f);
+        program_unistr_mat(program, "u_transform", text->mat);
         render_text(text);
 
         display_show(display);
