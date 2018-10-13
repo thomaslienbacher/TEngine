@@ -7,13 +7,16 @@
 #include "text.h"
 #include "filehelper.h"
 #include "mesh.h"
+#include "utils.h"
 
-//TODO: scanning performance is super bad
-font_t* font_newf(FILE *dataFile, FILE *bmpFile){
-    font_t* font = calloc(1, sizeof(font_t));
+//TODO: optimize
+font_t *font_newf(FILE *dataFile, FILE *bmpFile) {
+    font_t *font = calloc(1, sizeof(font_t));
 
     font->texture = texture_newf(bmpFile, GL_LINEAR, 1.0f);
     font->chars = calloc(256, sizeof(fontchar_t));
+    font->xScale = 1.0f / (float) font->texture->width;
+    font->yScale = 1.0f / (float) font->texture->height;
 
     char line[128];
     int c = 0;
@@ -21,51 +24,43 @@ font_t* font_newf(FILE *dataFile, FILE *bmpFile){
 
     //get header metadata
     for (int i = 0; i < 8; ++i) {
+        if(!fgets(line, sizeof(line), dataFile)) die("Text: error reading file!");
 
-    }
-
-    while(fgets(line, sizeof(line), dataFile)) {
-        //metadata
         sscanf(line, "Cell Width,%d", &font->cellWidth);
         sscanf(line, "Cell Height,%d", &font->cellHeight);
         sscanf(line, "Start Char,%d", &font->startChar);
         sscanf(line, "Font Height,%d", &font->height);
+    }
 
-        //chars
-        if(sscanf(line, "Char %d Base Width,%d", &c, &cWidth) == 2) {
-            if(c < font->startChar){
+    while (fgets(line, sizeof(line), dataFile)) {
+        if (sscanf(line, "Char %d Base Width,%d", &c, &cWidth) == 2) {
+            if (c < font->startChar) {
                 continue;
             }
 
-            font->chars[c].width = cWidth;//global offset is added when building mesh
+            int charNum = (c - font->startChar);
+            font->chars[c].xadvance = (float) cWidth * font->xScale;
 
-            float th = 1.0f / ((float)font->texture->height / (float) font->cellHeight);
-            font->chars[c].tw = 1.0f / ((float)font->texture->width / (float) cWidth);
+            float th = (float) font->cellHeight * font->yScale;
+            font->chars[c].tw = (float) cWidth * font->xScale;
             font->chars[c].th = th;
 
-            int row = (c-font->startChar) / (font->texture->width / font->cellWidth);
-            int col = (c-font->startChar) % (font->texture->width / font->cellWidth);
+            //TODO: do i use width or heigth ??
+            int row = charNum / (font->texture->width / font->cellWidth);
+            int col = charNum % (font->texture->width / font->cellWidth);
 
-            font->chars[c].tx = (float) col * (1.0f / ((float)font->texture->width / (float) font->cellWidth));
+            font->chars[c].tx = (float) col * (float) font->cellWidth * font->xScale;
             font->chars[c].ty = (float) row * th;
 
-            //printf("%c - cs: %d, row: %d, col: %d\n", c, (c-font->startChar), row, col);
+            if(c == 255) break;
         }
 
     }
 
-    font->xScale = 1.0f / (float)font->texture->width;
-    font->yScale = 1.0f / (float)font->texture->height;
-
-    /*printf("font: \n");
-    printf("cell: %d x %d\n", font->cellWidth, font->cellHeight);
-    printf("start: %d\n", font->startChar);
-    printf("height: %d\n", font->height);*/
-
     return font;
 }
 
-font_t* font_new(const char *dataFile, const char *bmpFile){
+font_t *font_new(const char *dataFile, const char *bmpFile) {
     FILE *dFile = fadv_open(dataFile, "r");
     FILE *bFile = fadv_open(bmpFile, "rb");
     font_t *font = font_newf(dFile, bFile);
@@ -75,14 +70,14 @@ font_t* font_new(const char *dataFile, const char *bmpFile){
     return font;
 }
 
-void font_free(font_t* font){
+void font_free(font_t *font) {
     texture_free(font->texture);
     free(font->chars);
     free(font);
 }
 
-text_t *text_new(font_t* font, const char* str){
-    text_t* text = calloc(1, sizeof(text_t));
+text_t *text_new(font_t *font, const char *str) {
+    text_t *text = calloc(1, sizeof(text_t));
 
     size_t len = strlen(str);
     unsigned int numVertices = len * 6;
@@ -97,18 +92,17 @@ text_t *text_new(font_t* font, const char* str){
 
     for (int i = 0; i < len; ++i) {
         fontchar_t fc = font->chars[str[i]];
-        float w = (float) fc.width * font->xScale;
 
         vertices[pos++] = curX;
         vertices[pos++] = 0;
-        vertices[pos++] = curX + w;
+        vertices[pos++] = curX + fc.xadvance;
         vertices[pos++] = 0;
-        vertices[pos++] = curX + w;
+        vertices[pos++] = curX + fc.xadvance;
         vertices[pos++] = height;
 
         vertices[pos++] = curX;
         vertices[pos++] = 0;
-        vertices[pos++] = curX + w;
+        vertices[pos++] = curX + fc.xadvance;
         vertices[pos++] = height;
         vertices[pos++] = curX;
         vertices[pos++] = height;
@@ -127,7 +121,7 @@ text_t *text_new(font_t* font, const char* str){
         texcoords[pos2++] = fc.tx;
         texcoords[pos2++] = fc.ty;
 
-        curX += w;
+        curX += fc.xadvance;
     }
 
     glGenVertexArrays(1, &text->vao);
@@ -160,7 +154,7 @@ void text_transform(text_t *text, vec2 pos, float scale) {
     mat4x4_mul(text->model, scaleMat, translateMat);
 }
 
-void text_free(text_t *text){
+void text_free(text_t *text) {
     glDeleteVertexArrays(1, &text->vao);
     glDeleteBuffers(2, text->vbos);
     free(text);

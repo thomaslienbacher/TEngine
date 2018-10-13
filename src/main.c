@@ -604,7 +604,7 @@ void test_new_viewport() {
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
+    camera_t *camera = camera_new(80, (float) display->xadvance / display->height, 0.1f, 200);
 
     //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
@@ -736,7 +736,7 @@ void test_tex_wrap() {
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
+    camera_t *camera = camera_new(80, (float) display->xadvance / display->height, 0.1f, 200);
 
     //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
@@ -813,7 +813,7 @@ void quad_testing() {
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
+    camera_t *camera = camera_new(80, (float) display->xadvance / display->height, 0.1f, 200);
 
     //quad_model
     texture_t *texture = texture_new("data/large.png", GL_NEAREST, 1);
@@ -875,7 +875,7 @@ void frustum_testing() {//display
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.1f, 200);
+    camera_t *camera = camera_new(80, (float) display->xadvance / display->height, 0.1f, 200);
 
     //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);
@@ -1013,7 +1013,7 @@ void test_camera_lookto() {
     program_use(program);
 
     //camera
-    camera_t *camera = camera_new(80, (float) display->width / display->height, 0.5f, 200);
+    camera_t *camera = camera_new(80, (float) display->xadvance / display->height, 0.5f, 200);
 
     //quad_model
     texture_t *texture = texture_new("data/gun.png", GL_NEAREST, 1);

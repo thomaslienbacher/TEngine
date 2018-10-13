@@ -15,7 +15,7 @@ extern "C" {
 #include "tengine_math.h"
 
 typedef struct {
-    int width;
+    float xadvance; //x advance
     float tx, ty, tw, th;//uv coords of char
 } fontchar_t;
 
