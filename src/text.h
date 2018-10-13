@@ -15,11 +15,11 @@ extern "C" {
 #include "tengine_math.h"
 
 typedef struct {
-    char c; //TODO: is this needed??
     int width;
     float tx, ty, tw, th;//uv coords of char
 } fontchar_t;
 
+//TODO: store everything as floats in opengl viewspace coords
 typedef struct _font_s {
     texture_t *texture;
     int startChar;
@@ -27,7 +27,6 @@ typedef struct _font_s {
     fontchar_t *chars;
     int cellHeight;
     int cellWidth;
-    int globalWidthOffset;
     float xScale, yScale;//int data to opengl data
 } font_t;
 
@@ -42,10 +41,11 @@ typedef struct _text_s {
     GLuint numVertices;
     texture_t *texture;
     mat4x4 model;
+    float width, height;
 } text_t;
 
 text_t *text_new(font_t* font, const char* str);
-void text_transform(text_t *text, vec2 pos, float rot, float scale);
+void text_transform(text_t *text, vec2 pos, float scale);
 void text_free(text_t *text);
 
 #ifdef __cplusplus

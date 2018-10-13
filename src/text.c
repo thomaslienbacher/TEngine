@@ -19,24 +19,25 @@ font_t* font_newf(FILE *dataFile, FILE *bmpFile){
     int c = 0;
     int cWidth;
 
+    //get header metadata
+    for (int i = 0; i < 8; ++i) {
+
+    }
+
     while(fgets(line, sizeof(line), dataFile)) {
         //metadata
         sscanf(line, "Cell Width,%d", &font->cellWidth);
         sscanf(line, "Cell Height,%d", &font->cellHeight);
         sscanf(line, "Start Char,%d", &font->startChar);
         sscanf(line, "Font Height,%d", &font->height);
-        sscanf(line, "Global Width Offset,%d", &font->globalWidthOffset);//TODO: use this
 
         //chars
         if(sscanf(line, "Char %d Base Width,%d", &c, &cWidth) == 2) {
             if(c < font->startChar){
-                //printf("continue: %d\n", c);
                 continue;
             }
 
-            font->chars[c].c = (char)c;
             font->chars[c].width = cWidth;//global offset is added when building mesh
-            //printf("cw: %d\n", cWidth);
 
             float th = 1.0f / ((float)font->texture->height / (float) font->cellHeight);
             font->chars[c].tw = 1.0f / ((float)font->texture->width / (float) cWidth);
@@ -59,8 +60,7 @@ font_t* font_newf(FILE *dataFile, FILE *bmpFile){
     /*printf("font: \n");
     printf("cell: %d x %d\n", font->cellWidth, font->cellHeight);
     printf("start: %d\n", font->startChar);
-    printf("height: %d\n", font->height);
-    printf("gwo: %d\n", font->globalWidthOffset);*/
+    printf("height: %d\n", font->height);*/
 
     return font;
 }
@@ -93,31 +93,25 @@ text_t *text_new(font_t* font, const char* str){
     int pos = 0;
     int pos2 = 0;
     float curX = 0;
-    float h = (float) font->height * font->yScale;
-    printf("h: %f\n\n", h);
+    float height = (float) font->height * font->yScale;
 
     for (int i = 0; i < len; ++i) {
-        int c = str[i];
-        fontchar_t fc = font->chars[c];
+        fontchar_t fc = font->chars[str[i]];
         float w = (float) fc.width * font->xScale;
-        printf("w: %f\n", w);
 
         vertices[pos++] = curX;
         vertices[pos++] = 0;
         vertices[pos++] = curX + w;
         vertices[pos++] = 0;
         vertices[pos++] = curX + w;
-        vertices[pos++] = h;
+        vertices[pos++] = height;
 
         vertices[pos++] = curX;
         vertices[pos++] = 0;
         vertices[pos++] = curX + w;
-        vertices[pos++] = h;
+        vertices[pos++] = height;
         vertices[pos++] = curX;
-        vertices[pos++] = h;
-
-        //QUAD_VERTICES[] = {-1,-1,  1,-1,  1,1,  -1,-1,  1,1,  -1,1};
-        //QUAD_UVS[] = {0,1,  1,1,  1,0,  0,1,  1,0,  0,0};
+        vertices[pos++] = height;
 
         texcoords[pos2++] = fc.tx;
         texcoords[pos2++] = fc.ty + fc.th;
@@ -133,13 +127,8 @@ text_t *text_new(font_t* font, const char* str){
         texcoords[pos2++] = fc.tx;
         texcoords[pos2++] = fc.ty;
 
-        curX += w + (font->globalWidthOffset * font->xScale);
+        curX += w;
     }
-
-    /*for (int j = 0; j < numVertices; j++) {
-       printf("v: %f %f\t uv: %f %f\n", vertices[2*j], vertices[2*j+1], texcoords[2+j], texcoords[2*j+1]);
-       if((j+1) % 3 == 0) printf("\n");
-    }*/
 
     glGenVertexArrays(1, &text->vao);
     glBindVertexArray(text->vao);
@@ -153,11 +142,13 @@ text_t *text_new(font_t* font, const char* str){
 
     text->numVertices = numVertices;
     text->texture = font->texture;
+    text->width = curX;
+    text->height = height;
 
     return text;
 }
 
-void text_transform(text_t *text, vec2 pos, float rot, float scale){
+void text_transform(text_t *text, vec2 pos, float scale) {
     mat4x4 scaleMat;
     mat4x4_identity(scaleMat);
     mat4x4_scale_aniso(scaleMat, scaleMat, scale, scale, 1);
@@ -165,13 +156,8 @@ void text_transform(text_t *text, vec2 pos, float rot, float scale){
     mat4x4 translateMat;
     mat4x4_translate(translateMat, pos[0], pos[1], 0);
 
-    mat4x4 rotateMat;
-    mat4x4_identity(rotateMat);
-    mat4x4_rotate_Z(rotateMat, rotateMat, -rot * DEG_2_RAD);
-
     mat4x4_identity(text->model);
     mat4x4_mul(text->model, scaleMat, translateMat);
-    mat4x4_mul(text->model, text->model, rotateMat);
 }
 
 void text_free(text_t *text){

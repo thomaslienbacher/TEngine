@@ -1211,7 +1211,7 @@ void test_text_rendering() {
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize, 1);
     display_set_icon(display, "data/icon.png");
 
-    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.5f;
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.0f;
 
     //program
     program_t *program = program_new("data/font_vs.glsl", "data/font_fs.glsl");
@@ -1221,9 +1221,7 @@ void test_text_rendering() {
     font_t *font = font_new("data/consolas_32.csv", "data/consolas_32.png");
 
     //text
-    text_t* text = text_new(font, "Thomas [0] = {;:_1234567890}");
-    texture_wrap(text->texture, GL_CLAMP_TO_EDGE);
-    text_transform(text, (float[]){-0.5f, 0}, 0, 2.0f);
+    text_t* text = text_new(font, "Thomas [0] = {;:_1234567890}; 0xABCDEF");
 
     while (display->running) {
         float delta;
@@ -1247,6 +1245,7 @@ void test_text_rendering() {
         time += delta;
 
         //render text
+        text_transform(text, (float[]) {-text->width / 2, 0}, 1.0f);
         program_unistr_mat(program, "u_transform", text->model);
         render_text(text);
 
