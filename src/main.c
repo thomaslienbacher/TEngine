@@ -11,6 +11,7 @@
 #include "light.h"
 #include "vector.h"
 #include "frustum.h"
+#include "text.h"
 
 #ifdef  __REMOVE_FROM_COMPILATION__
 
@@ -1203,9 +1204,57 @@ void test_new_camera_and_all_axis_scaling() {
     display_free(display);
 }
 
+void test_text_rendering() {
+    const int WIDTH = 1600;
+    const int HEIGHT = 900;
+    float renderSize = 1.0f;
+    display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize, 1);
+    display_set_icon(display, "data/icon.png");
+
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.2f;
+
+    //program
+    program_t *program = program_new("data/font_vs.glsl", "data/font_fs.glsl");
+    program_use(program);
+
+    //font
+    font_t *font = font_new("data/consolas_32.csv", "data/consolas_32.png");
+
+    while (display->running) {
+        float delta;
+        display_prepare(display, &delta, renderSize);
+
+        char title[100];
+        sprintf(title, "OpenGL FPS: %f %f", 1.0f / delta, delta);
+        SDL_SetWindowTitle(display->window, title);
+
+        const Uint8 *kb = SDL_GetKeyboardState(NULL);
+
+        //input
+        if (kb[SDL_SCANCODE_TAB]) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        if (kb[SDL_SCANCODE_ESCAPE]) display->running = 0;
+
+        //render
+        program_use(program);
+
+        static float time = 0;
+        time += delta;
+
+        //render text
+
+
+        display_show(display);
+    }
+
+    font_free(font);
+    program_free(program);
+    display_free(display);
+}
+
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdParam, int iCmdShow) {
-    test_new_camera_and_all_axis_scaling();
+    test_text_rendering();
 
     return 0;
 }

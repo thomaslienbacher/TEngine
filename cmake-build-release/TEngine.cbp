@@ -160,6 +160,12 @@
 		<Unit filename="E:/Thomas/Repositories/TEngine/src/tengine_math.h">
 			<Option target="TEngine"/>
 		</Unit>
+		<Unit filename="E:/Thomas/Repositories/TEngine/src/text.c">
+			<Option target="TEngine"/>
+		</Unit>
+		<Unit filename="E:/Thomas/Repositories/TEngine/src/text.h">
+			<Option target="TEngine"/>
+		</Unit>
 		<Unit filename="E:/Thomas/Repositories/TEngine/src/texture.c">
 			<Option target="TEngine"/>
 		</Unit>

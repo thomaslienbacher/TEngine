@@ -28,7 +28,7 @@ endif()
 
 message("Building TEngine as " ${BUILD_USAGE})
 
-set(SOURCES src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c src/vector.c src/vector.h src/framebuffer.c src/framebuffer.h src/frustum.c src/frustum.h)
+set(SOURCES src/model.c src/texture.c src/render.c src/tinyobj_loader_c.h src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c src/vector.c src/vector.h src/framebuffer.c src/framebuffer.h src/frustum.c src/frustum.h src/text.c src/text.h)
 
 if(${BUILD_USAGE} STREQUAL TestApp)
     add_executable(TEngine src/main.c ${SOURCES})
