@@ -110,8 +110,8 @@ mesh_t* mesh_newobj(const char *objFile) {
     return mesh;
 }
 
-static void mesh_add_vbo(mesh_t* mesh, int vbo, int size, const float* data, unsigned int len, unsigned int index){
-    glBindBuffer(GL_ARRAY_BUFFER, mesh->vbos[vbo]);
+void vao_add_vbo(GLuint *vbos, int vbo, int size, const float *data, unsigned int len, unsigned int index){
+    glBindBuffer(GL_ARRAY_BUFFER, vbos[vbo]);
     glBufferData(GL_ARRAY_BUFFER, len * sizeof(float), data, GL_STATIC_DRAW);
     glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, 0, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -131,9 +131,9 @@ mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned in
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->vbos[0]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, numIndices * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
-    mesh_add_vbo(mesh, 1, 3, vertices, numVertices*3, POSITION_INDEX);
-    mesh_add_vbo(mesh, 2, 2, texcoords, numVertices*2, TEXCOORD_INDEX);
-    mesh_add_vbo(mesh, 3, 3, normals, numVertices*3, NORMAL_INDEX);
+    vao_add_vbo(mesh->vbos, 1, 3, vertices, numVertices * 3, POSITION_INDEX);
+    vao_add_vbo(mesh->vbos, 2, 2, texcoords, numVertices * 2, TEXCOORD_INDEX);
+    vao_add_vbo(mesh->vbos, 3, 3, normals, numVertices * 3, NORMAL_INDEX);
 
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -162,6 +162,19 @@ void mesh_bind(mesh_t* mesh){
     }
 }
 
+void vao_bind(GLuint vao) {
+    if(vao == 0){
+        if(bound) {
+            glBindVertexArray(0);
+            bound = 0;
+        }
+    }
+    else if(vao != bound) {
+        glBindVertexArray(vao);
+        bound = vao;
+    }
+}
+
 void mesh_free(mesh_t* mesh){
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(4, mesh->vbos);
@@ -174,15 +187,15 @@ quad_t* quad_new() {
     glGenVertexArrays(1, &quad->vao);
     glBindVertexArray(quad->vao);
 
-    glGenBuffers(2, quad->vbo);
-    mesh_add_vbo((mesh_t*) quad, 0, 2, QUAD_VERTICES, QUAD_SIZE*2, POSITION_INDEX);
-    mesh_add_vbo((mesh_t*) quad, 1, 2, QUAD_UVS, QUAD_SIZE*2, TEXCOORD_INDEX);
+    glGenBuffers(2, quad->vbos);
+    vao_add_vbo(quad->vbos, 0, 2, QUAD_VERTICES, QUAD_SIZE * 2, POSITION_INDEX);
+    vao_add_vbo(quad->vbos, 1, 2, QUAD_UVS, QUAD_SIZE * 2, TEXCOORD_INDEX);
 
     return quad;
 }
 
 void quad_free(quad_t* quad) {
     glDeleteVertexArrays(1, &quad->vao);
-    glDeleteBuffers(2, quad->vbo);
+    glDeleteBuffers(2, quad->vbos);
     free(quad);
 }

@@ -1205,13 +1205,13 @@ void test_new_camera_and_all_axis_scaling() {
 }
 
 void test_text_rendering() {
-    const int WIDTH = 1600;
+    const int WIDTH = 900;
     const int HEIGHT = 900;
     float renderSize = 1.0f;
     display_t *display = display_new("OpenGL", WIDTH, HEIGHT, 0, renderSize, 1);
     display_set_icon(display, "data/icon.png");
 
-    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.2f;
+    CLEAR_COLOR[0] = CLEAR_COLOR[1] = CLEAR_COLOR[2] = CLEAR_COLOR[3] = 0.5f;
 
     //program
     program_t *program = program_new("data/font_vs.glsl", "data/font_fs.glsl");
@@ -1219,6 +1219,11 @@ void test_text_rendering() {
 
     //font
     font_t *font = font_new("data/consolas_32.csv", "data/consolas_32.png");
+
+    //text
+    text_t* text = text_new(font, "Thomas [0] = {;:_1234567890}");
+    texture_wrap(text->texture, GL_CLAMP_TO_EDGE);
+    text_transform(text, (float[]){-0.5f, 0}, 0, 2.0f);
 
     while (display->running) {
         float delta;
@@ -1242,11 +1247,13 @@ void test_text_rendering() {
         time += delta;
 
         //render text
-
+        program_unistr_mat(program, "u_transform", text->model);
+        render_text(text);
 
         display_show(display);
     }
 
+    text_free(text);
     font_free(font);
     program_free(program);
     display_free(display);

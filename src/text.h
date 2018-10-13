@@ -28,6 +28,7 @@ typedef struct _font_s {
     int cellHeight;
     int cellWidth;
     int globalWidthOffset;
+    float xScale, yScale;//int data to opengl data
 } font_t;
 
 font_t *font_newf(FILE *dataFile, FILE *bmpFile);
@@ -37,7 +38,9 @@ void font_free(font_t *font);
 
 typedef struct _text_s {
     GLuint vao;
-    GLuint vbo[2];//vertices, texcoords
+    GLuint vbos[2];//vertices, texcoords
+    GLuint numVertices;
+    texture_t *texture;
     mat4x4 model;
 } text_t;
 

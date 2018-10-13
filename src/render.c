@@ -171,6 +171,20 @@ void render_quad(quad_model_t* quad_model) {
     glDisableVertexAttribArray(TEXCOORD_INDEX);
 }
 
+void render_text(text_t *text) {
+    vao_bind(text->vao);
+    texture_bind(text->texture);
+
+    glEnableVertexAttribArray(POSITION_INDEX);
+    glEnableVertexAttribArray(TEXCOORD_INDEX);
+    glActiveTexture(GL_TEXTURE0);
+
+    glDrawArrays(GL_TRIANGLES, 0, text->numVertices);
+
+    glDisableVertexAttribArray(POSITION_INDEX);
+    glDisableVertexAttribArray(TEXCOORD_INDEX);
+}
+
 void render_end(){
     glDisableVertexAttribArray(POSITION_INDEX);
     glDisableVertexAttribArray(TEXCOORD_INDEX);
