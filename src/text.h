@@ -14,6 +14,8 @@ extern "C" {
 #include "texture.h"
 #include "tengine_math.h"
 
+#define FONT_DEFAULT_SCALAR 0.1f
+
 typedef struct _fontchar_s {
     float xadvance; //x advance
     float tx, ty, tw, th;//uv coords of char
@@ -26,7 +28,6 @@ typedef struct _font_s {
     fontchar_t *chars;
     int cellHeight;
     int cellWidth;
-    float xScale, yScale;//int data to opengl data
 } font_t;
 
 typedef struct _text_s {
@@ -38,8 +39,8 @@ typedef struct _text_s {
     float width, height;
 } text_t;
 
-font_t *font_newf(FILE *dataFile, FILE *bmpFile);
-font_t *font_new(const char *dataFile, const char *bmpFile);
+font_t *font_newf(FILE *dataFile, FILE *bmpFile, float scaler);
+font_t *font_new(const char *dataFile, const char *bmpFile, float scaler);
 void font_free(font_t *font);
 
 text_t *text_new(font_t* font, const char* str);

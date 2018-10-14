@@ -1218,10 +1218,15 @@ void test_text_rendering() {
     program_use(program);
 
     //font
-    font_t *font = font_new("data/consolas_32.csv", "data/consolas_32.png");
+    font_t *fontA = font_new("data/consolas_32.csv", "data/consolas_32.png", FONT_DEFAULT_SCALAR);
+    font_t *fontB = font_new("data/franklingb_44.csv", "data/franklingb_44.png", FONT_DEFAULT_SCALAR);
+    font_t *fontC = font_new("data/harrington_55.csv", "data/harrington_55.png", FONT_DEFAULT_SCALAR);
+    //font_t *fontC = font_new("data/broadway_46.csv", "data/broadway_46.png", FONT_DEFAULT_SCALAR);
 
     //text
-    text_t* text = text_new(font, "");
+    text_t* textA = text_new(fontA, "A Thomas 3245 _:;-$o");
+    text_t* textB = text_new(fontB, "B Thomas 3245 _:;-$o");
+    text_t* textC = text_new(fontC, "C Thomas 3245 _:;-$o");
 
     while (display->running) {
         float delta;
@@ -1244,22 +1249,31 @@ void test_text_rendering() {
         static float time = 0;
         time += delta;
 
+        float scale = clampf(sinf(time * 2) + 1, 0.5, 1.5);
+
+        text_transform(textA, (float[]) {-textA->width / 2 * scale, 0.3}, scale);
+        text_transform(textB, (float[]) {-textB->width / 2 * scale, 0}, scale);
+        text_transform(textC, (float[]) {-textC->width / 2 * scale, -0.3f}, scale);
+
         //render text
-        text_free(text);
+        program_unistr_mat(program, "u_transform", textA->mat);
+        render_text(textA);
 
-        char buf[100];
-        sprintf(buf, "time: %f", time);
-        text = text_new(font, buf);
+        program_unistr_mat(program, "u_transform", textB->mat);
+        render_text(textB);
 
-        text_transform(text, (float[]) {-text->width / 2, 0}, 1.0f);
-        program_unistr_mat(program, "u_transform", text->mat);
-        render_text(text);
+        program_unistr_mat(program, "u_transform", textC->mat);
+        render_text(textC);
 
         display_show(display);
     }
 
-    text_free(text);
-    font_free(font);
+    text_free(textA);
+    text_free(textB);
+    text_free(textC);
+    font_free(fontA);
+    font_free(fontB);
+    font_free(fontC);
     program_free(program);
     display_free(display);
 }
