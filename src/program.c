@@ -119,6 +119,12 @@ void program_unistr_f(program_t *program, const char *name, float f){
     glUniform1f(loc, f);
 }
 
+void program_unistr_vec2(program_t *program, const char *name, vec2 v){
+    program_use(program);
+    GLint loc = glGetUniformLocation(program->id, name);
+    glUniform2fv(loc, 1, v);
+}
+
 void program_unistr_vec3(program_t *program, const char *name, vec3 v){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
@@ -141,6 +147,11 @@ void program_unistr_mat(program_t *program, const char *name, mat4x4 m){
 void program_unipos_f(program_t *program, int loc, float f){
     program_use(program);
     glUniform1f(loc, f);
+}
+
+void program_unipos_vec2(program_t *program, int loc, vec2 v){
+    program_use(program);
+    glUniform2fv(loc, 1, v);
 }
 
 void program_unipos_vec3(program_t *program, int loc, vec3 v){
