@@ -107,42 +107,55 @@ void program_use(program_t* program){
     }
 }
 
+#ifdef DEBUG_BUILD
+#define UNI_KILL(loc, str) if(loc < 0) dief("Program: uniform variable: %s not found!", str)
+#else
+#define UNI_KILL(x,y)
+#endif
+
 int program_getunipos(program_t *program, const char *name){
     program_use(program);
-    return glGetUniformLocation(program->id, name);
+    GLint loc = glGetUniformLocation(program->id, name);
+    UNI_KILL(loc, name);
+    return loc;
 }
-
 
 void program_unistr_f(program_t *program, const char *name, float f){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
+    UNI_KILL(loc, name);
     glUniform1f(loc, f);
 }
 
 void program_unistr_vec2(program_t *program, const char *name, vec2 v){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
+    UNI_KILL(loc, name);
     glUniform2fv(loc, 1, v);
 }
 
 void program_unistr_vec3(program_t *program, const char *name, vec3 v){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
+    UNI_KILL(loc, name);
     glUniform3fv(loc, 1, v);
 }
 
 void program_unistr_vec4(program_t *program, const char *name, vec4 v){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
+    UNI_KILL(loc, name);
     glUniform4fv(loc, 1, v);
 }
 
 void program_unistr_mat(program_t *program, const char *name, mat4x4 m){
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
+    UNI_KILL(loc, name);
     glUniformMatrix4fv(loc, 1, GL_FALSE, m[0]);
 }
 
+#undef UNI_KILL
 
 void program_unipos_f(program_t *program, int loc, float f){
     program_use(program);
@@ -168,7 +181,6 @@ void program_unipos_mat(program_t *program, int loc, mat4x4 m){
     program_use(program);
     glUniformMatrix4fv(loc, 1, GL_FALSE, m[0]);
 }
-
 
 void program_free(program_t* program){
     glDeleteProgram(program->id);
