@@ -177,6 +177,8 @@ void render_text(text_t *text) {
     vao_bind(text->vao);
     texture_bind(text->texture);
 
+    glDisable(GL_DEPTH_TEST);
+
     glEnableVertexAttribArray(POSITION_INDEX);
     glEnableVertexAttribArray(TEXCOORD_INDEX);
     glActiveTexture(GL_TEXTURE0);
@@ -185,6 +187,8 @@ void render_text(text_t *text) {
 
     glDisableVertexAttribArray(POSITION_INDEX);
     glDisableVertexAttribArray(TEXCOORD_INDEX);
+
+    glEnable(GL_DEPTH_TEST);
 }
 
 void render_end(){

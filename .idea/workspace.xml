@@ -120,7 +120,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="8305" />
+          <entry key="c" value="8335" />
           <entry key="glsl" value="169" />
           <entry key="h" value="2220" />
           <entry key="m" value="19" />
@@ -132,17 +132,17 @@
           <entry key="CMakeLists.txt" value="134" />
           <entry key="Doxygen file" value="1" />
           <entry key="GLSL shader file" value="169" />
-          <entry key="ObjectiveC" value="10543" />
+          <entry key="ObjectiveC" value="10573" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="440">
               <caret line="1264" column="46" lean-forward="true" selection-start-line="1264" selection-start-column="46" selection-end-line="1264" selection-end-column="46" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -151,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/render.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3157">
-              <caret line="179" selection-start-line="179" selection-end-line="179" />
+            <state relative-caret-position="408">
+              <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -313,7 +313,6 @@
         <option value="$PROJECT_DIR$/src/mesh.c" />
         <option value="$PROJECT_DIR$/src/model.c" />
         <option value="$PROJECT_DIR$/src/model.h" />
-        <option value="$PROJECT_DIR$/src/render.c" />
         <option value="$PROJECT_DIR$/src/render.h" />
         <option value="$PROJECT_DIR$/src/display.c" />
         <option value="$PROJECT_DIR$/src/text.h" />
@@ -322,6 +321,7 @@
         <option value="$PROJECT_DIR$/src/program.h" />
         <option value="$PROJECT_DIR$/src/program.c" />
         <option value="$PROJECT_DIR$/src/main.c" />
+        <option value="$PROJECT_DIR$/src/render.c" />
       </list>
     </option>
   </component>
@@ -938,13 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/render.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3157">
-          <caret line="179" selection-start-line="179" selection-end-line="179" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/program.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -957,11 +950,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="440">
           <caret line="1264" column="46" lean-forward="true" selection-start-line="1264" selection-start-column="46" selection-end-line="1264" selection-end-column="46" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/render.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="190" column="13" selection-start-line="190" selection-start-column="13" selection-end-line="190" selection-end-column="13" />
         </state>
       </provider>
     </entry>
