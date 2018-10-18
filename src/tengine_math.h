@@ -61,6 +61,10 @@ static inline float vec##n##_len(vec##n const v) \
 { \
     return sqrtf(vec##n##_mul_inner(v,v)); \
 } \
+static inline float vec##n##_lens(vec##n const v) \
+{ \
+    return vec##n##_mul_inner(v,v); \
+} \
 static inline void vec##n##_norm(vec##n r, vec##n const v) /** if the length of the vector is 0 nothing changes*/ \
 { \
     float k = vec##n##_len(v); \
@@ -191,6 +195,8 @@ static inline void mat4x4_dup(mat4x4 M, mat4x4 N) {
         for (j = 0; j < 4; ++j)
             M[i][j] = N[i][j];
 }
+
+#define mat4x4_cpy mat4x4_dup
 
 static inline void mat4x4_row(vec4 r, mat4x4 M, int i) {
     int k;
@@ -515,12 +521,6 @@ static inline void mat4x4_look_at(mat4x4 m, vec3 eye, vec3 center, vec3 up) {
     m[3][3] = 1.f;
 
     mat4x4_translate_in_place(m, -eye[0], -eye[1], -eye[2]);
-}
-
-static inline void mat4x4_cpy(mat4x4 a, mat4x4 b){
-    for (int i = 0; i < 4; ++i)
-        for (int j = 0; j < 4; ++j)
-            a[i][j] = b[i][j];
 }
 
 static inline void mat4x4_get_trans(vec3 dst, mat4x4 m){
