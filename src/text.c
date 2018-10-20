@@ -140,6 +140,8 @@ text_t *text_new(font_t *font, const char *str) {
     text->width = curX;
     text->height = font->height;
 
+    mat4x4_identity(text->mat);
+
     return text;
 }
 
