@@ -10,8 +10,8 @@ extern "C" {
 #endif
 
 #include <SDL2/SDL.h>
-//#undef main
-#include <glew.h>
+#include <GL/glew.h>
+
 #define LODEPNG_NO_COMPILE_CPP
 #include "lodepng.h"
 

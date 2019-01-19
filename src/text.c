@@ -9,10 +9,10 @@
 #include "mesh.h"
 #include "utils.h"
 
-font_t *font_newf(FILE *dataFile, FILE *bmpFile, float scaler) {
+font_t *font_newf(FILE *dataFile, FILE *pngFile, float scaler) {
     font_t *font = calloc(1, sizeof(font_t));
 
-    font->texture = texture_newf(bmpFile, GL_LINEAR, 1.0f);
+    font->texture = texture_newf(pngFile, GL_LINEAR, 1.0f);
     font->chars = calloc(256, sizeof(fontchar_t));
     float xScale = 1.0f / (float) font->texture->width;
     float yScale = 1.0f / (float) font->texture->height;
@@ -24,7 +24,7 @@ font_t *font_newf(FILE *dataFile, FILE *bmpFile, float scaler) {
 
     //get header metadata
     for (int i = 0; i < 8; ++i) {
-        if(!fgets(line, sizeof(line), dataFile)) die("Text: error reading file!");
+        if (!fgets(line, sizeof(line), dataFile)) die("Text: error reading file!");
 
         sscanf(line, "Cell Width,%d", &font->cellWidth);
         sscanf(line, "Cell Height,%d", &font->cellHeight);
@@ -54,7 +54,7 @@ font_t *font_newf(FILE *dataFile, FILE *bmpFile, float scaler) {
             font->chars[c].tx = (float) col * (float) font->cellWidth * xScale;
             font->chars[c].ty = (float) row * th;
 
-            if(c == 255) break;
+            if (c == 255) break;
         }
 
     }
@@ -82,7 +82,7 @@ text_t *text_new(font_t *font, const char *str) {
     text_t *text = calloc(1, sizeof(text_t));
 
     size_t len = strlen(str);
-    unsigned int numVertices = len * 6;
+    size_t numVertices = len * 6;
     float *vertices = calloc(numVertices * 2, sizeof(float));
     float *texcoords = calloc(numVertices * 2, sizeof(float));
 

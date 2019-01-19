@@ -7,8 +7,8 @@
 #include "utils.h"
 #include "filehelper.h"
 
-program_t* program_news(const char *vertexSrc, const char *fragmentSrc) {
-    program_t* program = calloc(1, sizeof(program_t));
+program_t *program_news(const char *vertexSrc, const char *fragmentSrc) {
+    program_t *program = calloc(1, sizeof(program_t));
 
     program->id = glCreateProgram();
     GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
@@ -16,35 +16,35 @@ program_t* program_news(const char *vertexSrc, const char *fragmentSrc) {
 
     //vertex shader
     unsigned long vertexLen = strlen(vertexSrc);
-    glShaderSource(vertex, 1, &vertexSrc, (const GLint*)&vertexLen);
+    glShaderSource(vertex, 1, &vertexSrc, (const GLint *) &vertexLen);
     glCompileShader(vertex);
 
     GLint isCompiled = 0;
     glGetShaderiv(vertex, GL_COMPILE_STATUS, &isCompiled);
-    if(isCompiled == GL_FALSE) {
+    if (isCompiled == GL_FALSE) {
         GLint maxLength = 0;
         glGetShaderiv(vertex, GL_INFO_LOG_LENGTH, &maxLength);
 
         char infoLog[maxLength];
         glGetShaderInfoLog(vertex, maxLength, &maxLength, infoLog);
-        infoLog[maxLength-1] = 0;
+        infoLog[maxLength - 1] = 0;
         dief("Vertex Shader: %s", infoLog);
     }
 
     //fragment shader
     unsigned long fragmentLen = strlen(fragmentSrc);
-    glShaderSource(fragment, 1, &fragmentSrc, (const GLint*)&fragmentLen);
+    glShaderSource(fragment, 1, &fragmentSrc, (const GLint *) &fragmentLen);
     glCompileShader(fragment);
 
     isCompiled = 0;
     glGetShaderiv(fragment, GL_COMPILE_STATUS, &isCompiled);
-    if(isCompiled == GL_FALSE) {
+    if (isCompiled == GL_FALSE) {
         GLint maxLength = 0;
         glGetShaderiv(fragment, GL_INFO_LOG_LENGTH, &maxLength);
 
         char infoLog[maxLength];
         glGetShaderInfoLog(fragment, maxLength, &maxLength, infoLog);
-        infoLog[maxLength-1] = 0;
+        infoLog[maxLength - 1] = 0;
         dief("Fragment Shader: %s", infoLog);
     }
 
@@ -62,7 +62,7 @@ program_t* program_news(const char *vertexSrc, const char *fragmentSrc) {
 
         char infoLog[maxLength];
         glGetProgramInfoLog(program->id, maxLength, &maxLength, infoLog);
-        infoLog[maxLength-1] = 0;
+        infoLog[maxLength - 1] = 0;
         dief("Program Link: %s", infoLog);
     }
 
@@ -72,9 +72,9 @@ program_t* program_news(const char *vertexSrc, const char *fragmentSrc) {
     return program;
 }
 
-program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
-    char* vertexSrc = fadv_contents(vertexShd);
-    char* fragmentSrc = fadv_contents(fragmentShd);
+program_t *program_newf(FILE *vertexShd, FILE *fragmentShd) {
+    char *vertexSrc = fadv_contents(vertexShd);
+    char *fragmentSrc = fadv_contents(fragmentShd);
     program_t *program = program_news(vertexSrc, fragmentSrc);
     free(vertexSrc);
     free(fragmentSrc);
@@ -82,7 +82,7 @@ program_t* program_newf(FILE *vertexShd, FILE *fragmentShd){
     return program;
 }
 
-program_t* program_new(const char *vertexFile, const char *fragmenFile) {
+program_t *program_new(const char *vertexFile, const char *fragmenFile) {
     FILE *vertex = fadv_open(vertexFile, "r");
     FILE *fragment = fadv_open(fragmenFile, "r");
     program_t *program = program_newf(vertex, fragment);
@@ -94,14 +94,13 @@ program_t* program_new(const char *vertexFile, const char *fragmenFile) {
 
 static GLuint used = 0;
 
-void program_use(program_t* program){
-    if(program == NULL) {
-        if(used) {
+void program_use(program_t *program) {
+    if (program == NULL) {
+        if (used) {
             glUseProgram(0);
             used = 0;
         }
-    }
-    else if(used != program->id) {
+    } else if (used != program->id) {
         glUseProgram(program->id);
         used = program->id;
     }
@@ -113,42 +112,42 @@ void program_use(program_t* program){
 #define UNI_KILL(x,y)
 #endif
 
-int program_getunipos(program_t *program, const char *name){
+int program_getunipos(program_t *program, const char *name) {
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     UNI_KILL(loc, name);
     return loc;
 }
 
-void program_unistr_f(program_t *program, const char *name, float f){
+void program_unistr_f(program_t *program, const char *name, float f) {
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     UNI_KILL(loc, name);
     glUniform1f(loc, f);
 }
 
-void program_unistr_vec2(program_t *program, const char *name, vec2 v){
+void program_unistr_vec2(program_t *program, const char *name, vec2 v) {
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     UNI_KILL(loc, name);
     glUniform2fv(loc, 1, v);
 }
 
-void program_unistr_vec3(program_t *program, const char *name, vec3 v){
+void program_unistr_vec3(program_t *program, const char *name, vec3 v) {
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     UNI_KILL(loc, name);
     glUniform3fv(loc, 1, v);
 }
 
-void program_unistr_vec4(program_t *program, const char *name, vec4 v){
+void program_unistr_vec4(program_t *program, const char *name, vec4 v) {
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     UNI_KILL(loc, name);
     glUniform4fv(loc, 1, v);
 }
 
-void program_unistr_mat(program_t *program, const char *name, mat4x4 m){
+void program_unistr_mat(program_t *program, const char *name, mat4x4 m) {
     program_use(program);
     GLint loc = glGetUniformLocation(program->id, name);
     UNI_KILL(loc, name);
@@ -157,32 +156,32 @@ void program_unistr_mat(program_t *program, const char *name, mat4x4 m){
 
 #undef UNI_KILL
 
-void program_unipos_f(program_t *program, int loc, float f){
+void program_unipos_f(program_t *program, int loc, float f) {
     program_use(program);
     glUniform1f(loc, f);
 }
 
-void program_unipos_vec2(program_t *program, int loc, vec2 v){
+void program_unipos_vec2(program_t *program, int loc, vec2 v) {
     program_use(program);
     glUniform2fv(loc, 1, v);
 }
 
-void program_unipos_vec3(program_t *program, int loc, vec3 v){
+void program_unipos_vec3(program_t *program, int loc, vec3 v) {
     program_use(program);
     glUniform3fv(loc, 1, v);
 }
 
-void program_unipos_vec4(program_t *program, int loc, vec4 v){
+void program_unipos_vec4(program_t *program, int loc, vec4 v) {
     program_use(program);
     glUniform4fv(loc, 1, v);
 }
 
-void program_unipos_mat(program_t *program, int loc, mat4x4 m){
+void program_unipos_mat(program_t *program, int loc, mat4x4 m) {
     program_use(program);
     glUniformMatrix4fv(loc, 1, GL_FALSE, m[0]);
 }
 
-void program_free(program_t* program){
+void program_free(program_t *program) {
     glDeleteProgram(program->id);
     free(program);
 }

@@ -12,16 +12,21 @@ extern "C" {
 #include <stdlib.h>
 
 typedef struct _vector_s {
-    void** array;
+    void **array;
     size_t size;
 } vector_t;
 
-vector_t* vector_new(size_t capacity);
-void vector_push(vector_t* vec, void* data);
-void* vector_remove(vector_t* vec, int pos);
-void* vector_get(vector_t* vec, int pos);
-void vector_trim(vector_t* vec);
-void vector_free(vector_t* vec);
+vector_t *vector_new(size_t capacity);
+
+void vector_push(vector_t *vec, void *data);
+
+void *vector_remove(vector_t *vec, int pos);
+
+void *vector_get(vector_t *vec, int pos);
+
+void vector_trim(vector_t *vec);
+
+void vector_free(vector_t *vec);
 
 #ifdef __cplusplus
 }

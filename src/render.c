@@ -8,7 +8,7 @@
 
 vec4 CLEAR_COLOR = {0, 0, 0, 0};
 
-static const char* QUAD_VERTEX_SHADER = R"(
+static const char *QUAD_VERTEX_SHADER = R"(
 #version 330
 
 layout(location = 0) in vec2 i_vertex;
@@ -24,7 +24,7 @@ void main() {
 }
 )";
 
-static const char* QUAD_FRAGMENT_SHADER = R"(
+static const char *QUAD_FRAGMENT_SHADER = R"(
 #version 330
 
 in vec2 v_texcoord;
@@ -38,7 +38,7 @@ void main(){
 }
 )";
 
-static program_t* QUAD_SHADER = NULL;
+static program_t *QUAD_SHADER = NULL;
 static int QUAD_SHADER_MAT_LOC = -1;
 
 //users should not call this
@@ -51,14 +51,14 @@ void _render_quit_quadshader() {
     program_free(QUAD_SHADER);
 }
 
-void render_begin(){
+void render_begin() {
     glEnableVertexAttribArray(POSITION_INDEX);
     glEnableVertexAttribArray(TEXCOORD_INDEX);
     glEnableVertexAttribArray(NORMAL_INDEX);
     glActiveTexture(GL_TEXTURE0);
 }
 
-void render_model(model_t* model){
+void render_model(model_t *model) {
     mesh_bind(model->mesh);
     texture_bind(model->texture);
     render_begin();
@@ -66,11 +66,11 @@ void render_model(model_t* model){
     render_end();
 }
 
-void render_same_model(model_t* model){
+void render_same_model(model_t *model) {
     glDrawElements(GL_TRIANGLES, model->mesh->numElements, GL_UNSIGNED_INT, 0);
 }
 
-void render_instanced_dyn(model_t *model, program_t *program, int count, mat4x4 *mats){
+void render_instanced_dyn(model_t *model, program_t *program, int count, mat4x4 *mats) {
     mesh_bind(model->mesh);
     texture_bind(model->texture);
 
@@ -84,7 +84,8 @@ void render_instanced_dyn(model_t *model, program_t *program, int count, mat4x4 
     for (unsigned int i = 0; i < 4; ++i) {
         glBindBuffer(GL_ARRAY_BUFFER, matVbos[i]);
         glBufferData(GL_ARRAY_BUFFER, count * sizeof(float) * 16, mats, GL_STATIC_DRAW);
-        glVertexAttribPointer(MODELICOL1_INDEX + i, 4, GL_FLOAT, GL_FALSE, 16 * sizeof(float), (void*)(4 * i * sizeof(float)));
+        glVertexAttribPointer(MODELICOL1_INDEX + i, 4, GL_FLOAT, GL_FALSE, 16 * sizeof(float),
+                              (void *) (4 * i * sizeof(float)));
         glVertexAttribDivisor(MODELICOL1_INDEX + i, 1);
     }
 
@@ -111,7 +112,7 @@ void render_instanced_dyn(model_t *model, program_t *program, int count, mat4x4 
     program_unipos_f(program, loc, 0);
 }
 
-void render_inst_model(inst_model_t* inst_model, program_t *program) {
+void render_inst_model(inst_model_t *inst_model, program_t *program) {
     mesh_bind(inst_model->mesh);
     texture_bind(inst_model->texture);
 
@@ -140,8 +141,8 @@ void render_inst_model(inst_model_t* inst_model, program_t *program) {
     program_unipos_f(program, loc, 0);
 }
 
-void render_quad(quad_model_t* quad_model) {
-    mesh_bind((mesh_t*)quad_model->quad);
+void render_quad(quad_model_t *quad_model) {
+    mesh_bind((mesh_t *) quad_model->quad);
     texture_bind(quad_model->texture);
 
     mat4x4 u_transform;
@@ -155,7 +156,7 @@ void render_quad(quad_model_t* quad_model) {
 
     mat4x4 rotateMat;
     mat4x4_identity(rotateMat);
-    if(quad_model->rot != 0) mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
+    if (quad_model->rot != 0) mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
 
     mat4x4_identity(u_transform);
     mat4x4_mul(u_transform, scaleMat, translateMat);
@@ -187,7 +188,7 @@ void render_text(text_t *text) {
     glDisableVertexAttribArray(TEXCOORD_INDEX);
 }
 
-void render_end(){
+void render_end() {
     glDisableVertexAttribArray(POSITION_INDEX);
     glDisableVertexAttribArray(TEXCOORD_INDEX);
     glDisableVertexAttribArray(NORMAL_INDEX);

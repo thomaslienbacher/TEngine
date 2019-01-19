@@ -1,8 +1,8 @@
 #ifndef LINMATH_H
 #define LINMATH_H
 
-/**
- * original: https://github.com/datenwolf/linmath.h
+/*
+ * Modified version of: https://github.com/datenwolf/linmath.h
  */
 
 #ifdef __cplusplus
@@ -15,6 +15,7 @@ extern "C" {
 #define RAD_2_DEG 57.295779513f
 #define DEG_2_RAD 0.01745329252f
 
+//float constants
 #define FM_E		2.7182818284590452f
 #define FM_LOG2E 	1.4426950408889634f
 #define FM_LOG10E	0.4342944819032518f

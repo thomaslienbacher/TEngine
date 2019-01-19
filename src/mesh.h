@@ -29,18 +29,26 @@ typedef struct _quad_s {
     GLuint vbos[2];//vertices, texcoords
 } quad_t;
 
-mesh_t* mesh_newobjf(FILE *objFile);
-mesh_t* mesh_newobj(const char *objFile);
-mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned int numVertices,
-                     float* vertices, float* texcoords, float* normals);
-void mesh_bind(mesh_t* mesh);
-void mesh_free(mesh_t* mesh);
+mesh_t *mesh_newobjf(FILE *objFile);
+
+mesh_t *mesh_newobj(const char *objFile);
+
+mesh_t *mesh_newdata(unsigned int numIndices, unsigned int *indices, unsigned int numVertices,
+                     float *vertices, float *texcoords, float *normals);
+
+void mesh_bind(mesh_t *mesh);
+
+void mesh_free(mesh_t *mesh);
+
 
 void vao_add_vbo(GLuint *vbos, int vbo, int size, const float *data, unsigned int len, unsigned int index);
+
 void vao_bind(GLuint vao);
 
-quad_t* quad_new();
-void quad_free(quad_t* quad);
+
+quad_t *quad_new();
+
+void quad_free(quad_t *quad);
 
 #ifdef __cplusplus
 }

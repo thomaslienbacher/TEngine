@@ -16,8 +16,8 @@ extern "C" {
 #include "texture.h"
 
 typedef struct _model_s {
-    mesh_t* mesh;
-    texture_t* texture;
+    mesh_t *mesh;
+    texture_t *texture;
     mat4x4 mat;
     vec3 pos;
     vec3 rot;
@@ -25,33 +25,43 @@ typedef struct _model_s {
 } model_t;
 
 typedef struct _inst_model_s {
-    mesh_t* mesh;
-    texture_t* texture;
+    mesh_t *mesh;
+    texture_t *texture;
     int count;
-    mat4x4* mats;
+    mat4x4 *mats;
     unsigned int matVbos[4];
 } inst_model_t;
 
 typedef struct _quad_model_s {
-    quad_t* quad;
-    texture_t* texture;
+    quad_t *quad;
+    texture_t *texture;
     vec4 dim;//x, y, xadvance, height
     float rot;
 } quad_model_t;
 
-model_t* model_new(mesh_t* mesh, texture_t* texture);
+model_t *model_new(mesh_t *mesh, texture_t *texture);
+
 void model_transform(model_t *model, const vec3 pos, const vec3 rot, float scale);
+
 void model_transform_as(model_t *model, const vec3 pos, const vec3 rot, const vec3 scale);
+
 void model_transformd(mat4x4 mat, const vec3 pos, const vec3 rot, float scale);
+
 void model_transformd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 scale);
-void model_free(model_t* model);
 
-inst_model_t* inst_model_new(mesh_t* mesh, texture_t* texture, int count);
-void inst_model_update(inst_model_t* inst_model);//pushes mats into the buffer
-void inst_model_free(inst_model_t* inst_model);
+void model_free(model_t *model);
 
-quad_model_t* quad_model_new(texture_t* texture, float x, float y, float width, float height, float rot);
-void quad_model_free(quad_model_t* quad_model);
+
+inst_model_t *inst_model_new(mesh_t *mesh, texture_t *texture, int count);
+
+void inst_model_update(inst_model_t *inst_model);//pushes mats into the buffer
+
+void inst_model_free(inst_model_t *inst_model);
+
+
+quad_model_t *quad_model_new(texture_t *texture, float x, float y, float width, float height, float rot);
+
+void quad_model_free(quad_model_t *quad_model);
 
 #ifdef __cplusplus
 }

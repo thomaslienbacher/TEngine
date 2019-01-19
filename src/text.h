@@ -39,12 +39,17 @@ typedef struct _text_s {
     float width, height;
 } text_t;
 
-font_t *font_newf(FILE *dataFile, FILE *bmpFile, float scaler);
+font_t *font_newf(FILE *dataFile, FILE *pngFile, float scaler);
+
 font_t *font_new(const char *dataFile, const char *bmpFile, float scaler);
+
 void font_free(font_t *font);
 
-text_t *text_new(font_t* font, const char* str);
+
+text_t *text_new(font_t *font, const char *str);
+
 void text_transform(text_t *text, vec2 pos, float scale);
+
 void text_free(text_t *text);
 
 #ifdef __cplusplus

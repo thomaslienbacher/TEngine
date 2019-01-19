@@ -6,7 +6,7 @@
 #include "utils.h"
 #include "master.h"
 
-static void pre_die(FILE* errfile, const char* file, const char* function, int line){
+static void pre_die(FILE *errfile, const char *file, const char *function, int line) {
     int major, minor;
     glGetIntegerv(GL_MAJOR_VERSION, &major);
     glGetIntegerv(GL_MINOR_VERSION, &minor);
@@ -18,7 +18,7 @@ static void pre_die(FILE* errfile, const char* file, const char* function, int l
     fprintf(errfile, "Error: in %s at %s on line %d\n", file, function, line);
 }
 
-static void post_die(FILE* errfile, const char* date, const char* time){
+static void post_die(FILE *errfile, const char *date, const char *time) {
     fprintf(errfile, "Build: %s %s\n\n", date, time);
 
 #ifdef RELEASE_BUILD
@@ -36,8 +36,8 @@ static void post_die(FILE* errfile, const char* date, const char* time){
     exit(1);
 }
 
-void _die(const char* msg, const char* file, const char* function, int line, const char* date, const char* time){
-    FILE* errfile = NULL;
+void _die(const char *msg, const char *file, const char *function, int line, const char *date, const char *time) {
+    FILE *errfile = NULL;
 #ifdef DEBUG_BUILD
     errfile = stderr;
 #else
@@ -49,8 +49,9 @@ void _die(const char* msg, const char* file, const char* function, int line, con
     post_die(errfile, date, time);
 }
 
-void _dief(const char* time, const char* file, const char* function, int line, const char* date, const char* format, ...){
-    FILE* errfile = NULL;
+void _dief(const char *time, const char *file, const char *function, int line, const char *date, const char *format,
+           ...) {
+    FILE *errfile = NULL;
 #ifdef DEBUG_BUILD
     errfile = stderr;
 #else

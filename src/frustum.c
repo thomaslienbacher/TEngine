@@ -15,7 +15,7 @@ void frustum_projview(frustum_t frustum, mat4x4 projview) {
 
     for (int i = 0; i < 6; ++i) {
         float l = 1.0f / vec3_len(frustum[i]);
-        for(int a = 0; a < 4; a++) frustum[i][a] *= l;
+        for (int a = 0; a < 4; a++) frustum[i][a] *= l;
     }
 
 }

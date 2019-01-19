@@ -7,28 +7,31 @@
 #include "master.h"
 #include "utils.h"
 #include "filehelper.h"
+
+#define TINYOBJ_LOADER_C_IMPLEMENTATION
+
 #include "tinyobj_loader_c.h"
 
-mesh_t* mesh_newobjf(FILE *objFile){
+mesh_t *mesh_newobjf(FILE *objFile) {
     //obj parsing
     tinyobj_attrib_t attrib;
-    tinyobj_shape_t* shapes = NULL;
+    tinyobj_shape_t *shapes = NULL;
     size_t num_shapes;
-    tinyobj_material_t* materials = NULL;
+    tinyobj_material_t *materials = NULL;
     size_t num_materials;
 
-    char* temp = NULL;
+    char *temp = NULL;
     size_t data_len = 0;
     fadv_info(objFile, &data_len, &temp);
-    char* data = malloc(data_len + 3);
+    char *data = malloc(data_len + 3);
     strcpy(data, temp);
-    strcat(data, "\n\n");   //If I dont add 2 x \n to the data the last face doesnt get parsed
-                            //I don't know why the this happens, maybe my fadv_ functions are faulty
-                            //just leave the the lines as they are it works and if I change anything it will crash
+    strcat(data, "\n\n");   /*  If I dont add 2 x \n to the data the last face doesnt get parsed
+                                I don't know why the this happens, maybe my fadv_ functions are faulty
+                                just leave the the lines as they are it works and if I change anything it will crash */
     free(temp);
 
     unsigned int flags = TINYOBJ_FLAG_TRIANGULATE;
-    int ret = tinyobj_parse_obj(&attrib, &shapes, &num_shapes, &materials, &num_materials, data, data_len+2, flags);
+    int ret = tinyobj_parse_obj(&attrib, &shapes, &num_shapes, &materials, &num_materials, data, data_len + 2, flags);
     free(data);
 
     if (ret != TINYOBJ_SUCCESS) {
@@ -36,10 +39,10 @@ mesh_t* mesh_newobjf(FILE *objFile){
     }
 
     //single index obj
-    unsigned int* indices = malloc(attrib.num_faces * sizeof(unsigned int));
-    float* vertices = malloc(attrib.num_faces * sizeof(float) * 3);
-    float* texcoords = malloc(attrib.num_faces * sizeof(float) * 2);
-    float* normals = malloc(attrib.num_faces * sizeof(float) * 3);
+    unsigned int *indices = malloc(attrib.num_faces * sizeof(unsigned int));
+    float *vertices = malloc(attrib.num_faces * sizeof(float) * 3);
+    float *texcoords = malloc(attrib.num_faces * sizeof(float) * 2);
+    float *normals = malloc(attrib.num_faces * sizeof(float) * 3);
 
     unsigned int indicesIndex;
     unsigned int vertexIndex = 0;
@@ -48,17 +51,17 @@ mesh_t* mesh_newobjf(FILE *objFile){
         char inarray = 0;
         unsigned int pos = 0;
 
-        for(unsigned int i = 0; i < vertexIndex; i++) {
-            if (vertices[3*i] == attrib.vertices[3*attrib.faces[indicesIndex].v_idx] &&
-                vertices[3*i+1] == attrib.vertices[3*attrib.faces[indicesIndex].v_idx+1] &&
-                vertices[3*i+2] == attrib.vertices[3*attrib.faces[indicesIndex].v_idx+2] &&
+        for (unsigned int i = 0; i < vertexIndex; i++) {
+            if (vertices[3 * i] == attrib.vertices[3 * attrib.faces[indicesIndex].v_idx] &&
+                vertices[3 * i + 1] == attrib.vertices[3 * attrib.faces[indicesIndex].v_idx + 1] &&
+                vertices[3 * i + 2] == attrib.vertices[3 * attrib.faces[indicesIndex].v_idx + 2] &&
 
-                texcoords[2*i] == attrib.texcoords[2*attrib.faces[indicesIndex].vt_idx] &&
-                texcoords[2*i+1] == attrib.texcoords[2*attrib.faces[indicesIndex].vt_idx+1] &&
+                texcoords[2 * i] == attrib.texcoords[2 * attrib.faces[indicesIndex].vt_idx] &&
+                texcoords[2 * i + 1] == attrib.texcoords[2 * attrib.faces[indicesIndex].vt_idx + 1] &&
 
-                normals[3*i] == attrib.normals[3*attrib.faces[indicesIndex].vn_idx] &&
-                normals[3*i+1] == attrib.normals[3*attrib.faces[indicesIndex].vn_idx+1] &&
-                normals[3*i+2] == attrib.normals[3*attrib.faces[indicesIndex].vn_idx+2]) {
+                normals[3 * i] == attrib.normals[3 * attrib.faces[indicesIndex].vn_idx] &&
+                normals[3 * i + 1] == attrib.normals[3 * attrib.faces[indicesIndex].vn_idx + 1] &&
+                normals[3 * i + 2] == attrib.normals[3 * attrib.faces[indicesIndex].vn_idx + 2]) {
 
                 inarray = 1;
                 pos = i;
@@ -67,28 +70,28 @@ mesh_t* mesh_newobjf(FILE *objFile){
         }
 
         //check if I already put this into the buffers, if yes put the index number in to the index buffer
-        if(inarray){
+        if (inarray) {
             indices[indicesIndex] = pos;
         }
-        //if not put it into the buffer
-        else{
-            vertices[3*vertexIndex] = attrib.vertices[3*attrib.faces[indicesIndex].v_idx];
-            vertices[3*vertexIndex+1] = attrib.vertices[3*attrib.faces[indicesIndex].v_idx+1];
-            vertices[3*vertexIndex+2] = attrib.vertices[3*attrib.faces[indicesIndex].v_idx+2];
+            //if not put it into the buffer
+        else {
+            vertices[3 * vertexIndex] = attrib.vertices[3 * attrib.faces[indicesIndex].v_idx];
+            vertices[3 * vertexIndex + 1] = attrib.vertices[3 * attrib.faces[indicesIndex].v_idx + 1];
+            vertices[3 * vertexIndex + 2] = attrib.vertices[3 * attrib.faces[indicesIndex].v_idx + 2];
 
-            texcoords[2*vertexIndex] = attrib.texcoords[2*attrib.faces[indicesIndex].vt_idx];
-            texcoords[2*vertexIndex+1] = 1.0f - attrib.texcoords[2*attrib.faces[indicesIndex].vt_idx+1];
+            texcoords[2 * vertexIndex] = attrib.texcoords[2 * attrib.faces[indicesIndex].vt_idx];
+            texcoords[2 * vertexIndex + 1] = 1.0f - attrib.texcoords[2 * attrib.faces[indicesIndex].vt_idx + 1];
 
-            normals[3*vertexIndex] = attrib.normals[3*attrib.faces[indicesIndex].vn_idx];
-            normals[3*vertexIndex+1] = attrib.normals[3*attrib.faces[indicesIndex].vn_idx+1];
-            normals[3*vertexIndex+2] = attrib.normals[3*attrib.faces[indicesIndex].vn_idx+2];
+            normals[3 * vertexIndex] = attrib.normals[3 * attrib.faces[indicesIndex].vn_idx];
+            normals[3 * vertexIndex + 1] = attrib.normals[3 * attrib.faces[indicesIndex].vn_idx + 1];
+            normals[3 * vertexIndex + 2] = attrib.normals[3 * attrib.faces[indicesIndex].vn_idx + 2];
 
             indices[indicesIndex] = vertexIndex;
             vertexIndex++;
         }
     }
 
-    mesh_t* mesh = mesh_newdata(attrib.num_faces, indices, vertexIndex, vertices, texcoords, normals);
+    mesh_t *mesh = mesh_newdata(attrib.num_faces, indices, vertexIndex, vertices, texcoords, normals);
 
     //cleanup
     tinyobj_attrib_free(&attrib);
@@ -102,7 +105,7 @@ mesh_t* mesh_newobjf(FILE *objFile){
     return mesh;
 }
 
-mesh_t* mesh_newobj(const char *objFile) {
+mesh_t *mesh_newobj(const char *objFile) {
     FILE *obj = fadv_open(objFile, "r");
     mesh_t *mesh = mesh_newobjf(obj);
     fadv_close(obj);
@@ -110,16 +113,16 @@ mesh_t* mesh_newobj(const char *objFile) {
     return mesh;
 }
 
-void vao_add_vbo(GLuint *vbos, int vbo, int size, const float *data, unsigned int len, unsigned int index){
+void vao_add_vbo(GLuint *vbos, int vbo, int size, const float *data, unsigned int len, unsigned int index) {
     glBindBuffer(GL_ARRAY_BUFFER, vbos[vbo]);
     glBufferData(GL_ARRAY_BUFFER, len * sizeof(float), data, GL_STATIC_DRAW);
     glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, 0, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-mesh_t* mesh_newdata(unsigned int numIndices, unsigned int* indices, unsigned int numVertices,
-                     float* vertices, float* texcoords, float* normals){
-    mesh_t* mesh = calloc(1, sizeof(mesh_t));
+mesh_t *mesh_newdata(unsigned int numIndices, unsigned int *indices, unsigned int numVertices,
+                     float *vertices, float *texcoords, float *normals) {
+    mesh_t *mesh = calloc(1, sizeof(mesh_t));
 
     mesh->numElements = numIndices;
 
@@ -149,40 +152,38 @@ static const float QUAD_VERTICES[] = {-1, -1, 1, -1, 1, 1,
 static const float QUAD_UVS[] = {0, 1, 1, 1, 1, 0,
                                  0, 1, 1, 0, 0, 0};
 
-void mesh_bind(mesh_t* mesh){
-    if(mesh == NULL){
-        if(bound) {
+void mesh_bind(mesh_t *mesh) {
+    if (mesh == NULL) {
+        if (bound) {
             glBindVertexArray(0);
             bound = 0;
         }
-    }
-    else if(mesh->vao != bound) {
+    } else if (mesh->vao != bound) {
         glBindVertexArray(mesh->vao);
         bound = mesh->vao;
     }
 }
 
 void vao_bind(GLuint vao) {
-    if(vao == 0){
-        if(bound) {
+    if (vao == 0) {
+        if (bound) {
             glBindVertexArray(0);
             bound = 0;
         }
-    }
-    else if(vao != bound) {
+    } else if (vao != bound) {
         glBindVertexArray(vao);
         bound = vao;
     }
 }
 
-void mesh_free(mesh_t* mesh){
+void mesh_free(mesh_t *mesh) {
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(4, mesh->vbos);
     free(mesh);
 }
 
-quad_t* quad_new() {
-    quad_t* quad = calloc(1, sizeof(quad_t));
+quad_t *quad_new() {
+    quad_t *quad = calloc(1, sizeof(quad_t));
 
     glGenVertexArrays(1, &quad->vao);
     glBindVertexArray(quad->vao);
@@ -194,7 +195,7 @@ quad_t* quad_new() {
     return quad;
 }
 
-void quad_free(quad_t* quad) {
+void quad_free(quad_t *quad) {
     glDeleteVertexArrays(1, &quad->vao);
     glDeleteBuffers(2, quad->vbos);
     free(quad);
