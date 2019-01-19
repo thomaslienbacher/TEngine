@@ -12,7 +12,7 @@ lightengine_t *lightengine_new(program_t *program, int numLights) {
     lightengine->ids = calloc((size_t) numLights, sizeof(char));
     lightengine->lights = calloc((size_t) numLights, sizeof(light_t *));
 
-    char name[24];
+    char name[32];
 
     for (int i = 0; i < numLights; ++i) {
         lightengine->lights[i] = calloc(1, sizeof(light_t));

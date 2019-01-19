@@ -13,9 +13,11 @@
 static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
                                GLenum severity, GLsizei length, const GLchar *message, const void *userParam) {
     if (type == GL_DEBUG_TYPE_ERROR) {
-        dief("OpenGl Callback: ** GL ERROR ** type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
+        dief("OpenGL Debug: ERROR src 0x%x, type 0x%x, id 0x%x, severity 0x%x, message %s\n", source, type, id,
+             severity, message);
     } else {
-        dprintf("OpenGl Callback: INFO type = 0x%x, severity = 0x%x, message = %s\n", type, severity, message);
+        dprintf("OpenGL Debug: INFO src 0x%x, type 0x%x, id 0x%x, severity 0x%x, message %s\n", source, type, id,
+                severity, message);
     }
 }
 
@@ -73,14 +75,9 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     glCullFace(GL_BACK);
 
 #ifdef DEBUG_BUILD
-    if (strstr((char *) glGetString(GL_VENDOR), "NVIDIA")) { //I can't get debug output to work on nvidia...
-        dprintf("Your graphics card vendor is %s.\n"
-                "For reason debug output doesn't work with their GPUs.\n", (char *) glGetString(GL_VENDOR));
-    } else {
-        glEnable(GL_DEBUG_OUTPUT);
-        glDebugMessageCallback((GLDEBUGPROC) debug_msg_callback, 0);
-        glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
-    }
+    glEnable(GL_DEBUG_OUTPUT);
+    glDebugMessageCallback((GLDEBUGPROC) debug_msg_callback, NULL);
+    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
 #endif
 
     _render_init_quadshader();

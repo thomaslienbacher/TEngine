@@ -25,7 +25,7 @@ void _dief(const char *time, const char *file, const char *function, int line, c
     printf(format, __VA_ARGS__);\
 }
 #else
-#define dprintf
+#define dprintf(format, ...)
 #endif
 
 #ifdef __cplusplus

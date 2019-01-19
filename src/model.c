@@ -30,9 +30,7 @@ void model_transform(model_t *model, const vec3 pos, const vec3 rot, float scale
     mat4x4 translateMat;
     mat4x4_translate(translateMat, pos[0], pos[1], pos[2]);
 
-    mat4x4_identity(model->mat);
-    mat4x4_mul(model->mat, model->mat, translateMat);
-    mat4x4_mul(model->mat, model->mat, scaleMat);
+    mat4x4_mul(model->mat, translateMat, scaleMat);
     mat4x4_mul(model->mat, model->mat, rotateMat);
 }
 
@@ -50,9 +48,7 @@ void model_transform_as(model_t *model, const vec3 pos, const vec3 rot, const ve
     mat4x4 translateMat;
     mat4x4_translate(translateMat, pos[0], pos[1], pos[2]);
 
-    mat4x4_identity(model->mat);
-    mat4x4_mul(model->mat, model->mat, translateMat);
-    mat4x4_mul(model->mat, model->mat, scaleMat);
+    mat4x4_mul(model->mat, translateMat, scaleMat);
     mat4x4_mul(model->mat, model->mat, rotateMat);
 }
 
@@ -70,9 +66,7 @@ void model_transformd(mat4x4 mat, const vec3 pos, const vec3 rot, float scale) {
     mat4x4 translateMat;
     mat4x4_translate(translateMat, pos[0], pos[1], pos[2]);
 
-    mat4x4_identity(mat);
-    mat4x4_mul(mat, mat, translateMat);
-    mat4x4_mul(mat, mat, scaleMat);
+    mat4x4_mul(mat, translateMat, scaleMat);
     mat4x4_mul(mat, mat, rotateMat);
 }
 
@@ -90,9 +84,7 @@ void model_transformd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 
     mat4x4 translateMat;
     mat4x4_translate(translateMat, pos[0], pos[1], pos[2]);
 
-    mat4x4_identity(mat);
-    mat4x4_mul(mat, mat, translateMat);
-    mat4x4_mul(mat, mat, scaleMat);
+    mat4x4_mul(mat, translateMat, scaleMat);
     mat4x4_mul(mat, mat, rotateMat);
 }
 

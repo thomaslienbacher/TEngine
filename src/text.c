@@ -91,7 +91,7 @@ text_t *text_new(font_t *font, const char *str) {
     int pb = 0;
     float curX = 0;
 
-    for (int i = 0; i < len; ++i) {
+    for (unsigned int i = 0; i < len; ++i) {
         fontchar_t fc = font->chars[str[i]];
 
         vertices[pa++] = curX;
@@ -154,7 +154,7 @@ void text_transform(text_t *text, vec2 pos, float scale) {
     mat4x4_translate(translateMat, pos[0], pos[1], 0);
 
     mat4x4_identity(text->mat);
-    mat4x4_mul(text->mat, translateMat, scaleMat);//TODO: wrong order, check if same in render_quad
+    mat4x4_mul(text->mat, translateMat, scaleMat);
 }
 
 void text_free(text_t *text) {

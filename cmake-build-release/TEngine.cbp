@@ -28,10 +28,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="TEngine">
-				<Option output="E:/Thomas/Repositories/TEngine/cmake-build-release/TEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="E:/Thomas/Repositories/TEngine/cmake-build-release/libTEngine.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-release"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DRELEASE_BUILD"/>
@@ -50,10 +50,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="TEngine/fast">
-				<Option output="E:/Thomas/Repositories/TEngine/cmake-build-release/TEngine.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="E:/Thomas/Repositories/TEngine/cmake-build-release/libTEngine.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="E:/Thomas/Repositories/TEngine/cmake-build-release"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DRELEASE_BUILD"/>
@@ -122,9 +122,6 @@
 			<Option target="TEngine"/>
 		</Unit>
 		<Unit filename="E:/Thomas/Repositories/TEngine/src/lodepng.h">
-			<Option target="TEngine"/>
-		</Unit>
-		<Unit filename="E:/Thomas/Repositories/TEngine/src/main.c">
 			<Option target="TEngine"/>
 		</Unit>
 		<Unit filename="E:/Thomas/Repositories/TEngine/src/master.h">

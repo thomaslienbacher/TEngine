@@ -3,12 +3,7 @@ project(TEngine C)
 
 set(CMAKE_C_STANDARD 11)
 
-
-#define RELEASE_BUILD   //release build
-#define DEBUG_BUILD     //debug build
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-
+#depending on build type RELEASE_BUILD or DEBUG_BUILD are defined
 if (${CMAKE_BUILD_TYPE} STREQUAL Release)
     add_definitions("-DRELEASE_BUILD")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mwindows -Wall -Wextra")
@@ -16,7 +11,7 @@ elseif (${CMAKE_BUILD_TYPE} STREQUAL Debug)
     add_definitions("-DDEBUG_BUILD")
 endif ()
 
-if (NOT DEFINED TENGINE_LIBRARY)
+if (${TENGINE_TESTAPP})
     set(BUILD_USAGE TestApp)
 else ()
     set(BUILD_USAGE Library)
@@ -27,11 +22,10 @@ message("Building TEngine as ${BUILD_USAGE} in ${CMAKE_BUILD_TYPE}")
 set(SOURCES src/model.c src/texture.c src/render.c src/lodepng.c src/tengine_math.h src/display.c src/display.h src/master.h src/utils.c src/utils.h src/program.c src/program.h src/camera.c src/camera.h src/mesh.c src/mesh.h src/light.c src/light.h src/filehelper.c src/filehelper.h src/tengine_math.c src/vector.c src/vector.h src/framebuffer.c src/framebuffer.h src/frustum.c src/frustum.h src/text.c src/text.h)
 
 if (${BUILD_USAGE} STREQUAL TestApp)
-    add_executable(TEngine src/main.c ${SOURCES})
+    add_executable(TEngine src/demo.c ${SOURCES})
 elseif (${BUILD_USAGE} STREQUAL Library)
     add_library(TEngine ${SOURCES})
 endif ()
-
 
 find_package(PkgConfig REQUIRED)
 find_package(OpenGL REQUIRED)

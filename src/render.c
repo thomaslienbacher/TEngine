@@ -159,7 +159,7 @@ void render_quad(quad_model_t *quad_model) {
     if (quad_model->rot != 0) mat4x4_rotate_Z(rotateMat, rotateMat, -quad_model->rot * DEG_2_RAD);
 
     mat4x4_identity(u_transform);
-    mat4x4_mul(u_transform, scaleMat, translateMat);
+    mat4x4_mul(u_transform, translateMat, scaleMat);
     mat4x4_mul(u_transform, u_transform, rotateMat);
 
     program_unipos_mat(QUAD_SHADER, QUAD_SHADER_MAT_LOC, u_transform);

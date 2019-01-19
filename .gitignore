@@ -10,3 +10,4 @@ CTestTestfile.cmake
 log.txt
 *.exe
 *.cbp
+*.a
