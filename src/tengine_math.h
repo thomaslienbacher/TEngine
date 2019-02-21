@@ -16,19 +16,19 @@ extern "C" {
 #define DEG_2_RAD 0.01745329252f
 
 //float constants
-#define FM_E		2.7182818284590452f
-#define FM_LOG2E 	1.4426950408889634f
-#define FM_LOG10E	0.4342944819032518f
-#define FM_LN2		0.6931471805599453f
-#define FM_LN10		2.3025850929940456f
-#define FM_PI		3.1415926535897932f
-#define FM_PI_2		1.5707963267948966f
-#define FM_PI_4		0.7853981633974483f
-#define FM_1_PI		0.3183098861837906f
-#define FM_2_PI		0.6366197723675813f
-#define FM_2_SQRTPI	1.1283791670955125f
-#define FM_SQRT2 	1.4142135623730950f
-#define FM_SQRT1_2	0.7071067811865475f
+#define FM_E        2.7182818284590452f
+#define FM_LOG2E    1.4426950408889634f
+#define FM_LOG10E   0.4342944819032518f
+#define FM_LN2      0.6931471805599453f
+#define FM_LN10     2.3025850929940456f
+#define FM_PI       3.1415926535897932f
+#define FM_PI_2     1.5707963267948966f
+#define FM_PI_4     0.7853981633974483f
+#define FM_1_PI     0.3183098861837906f
+#define FM_2_PI     0.6366197723675813f
+#define FM_2_SQRTPI 1.1283791670955125f
+#define FM_SQRT2    1.4142135623730950f
+#define FM_SQRT1_2  0.7071067811865475f
 
 #define LINMATH_H_DEFINE_VEC(n) \
 typedef float vec##n[n]; \
@@ -105,7 +105,9 @@ static inline float vec##n##_dot(vec##n a, vec##n b) \
 void vec##n##_print(const vec##n v);
 
 LINMATH_H_DEFINE_VEC(2)
+
 LINMATH_H_DEFINE_VEC(3)
+
 LINMATH_H_DEFINE_VEC(4)
 
 static inline void vec2_set(vec2 dst, float x, float y) {
@@ -524,7 +526,7 @@ static inline void mat4x4_look_at(mat4x4 m, vec3 eye, vec3 center, vec3 up) {
     mat4x4_translate_in_place(m, -eye[0], -eye[1], -eye[2]);
 }
 
-static inline void mat4x4_get_trans(vec3 dst, mat4x4 m){
+static inline void mat4x4_get_trans(vec3 dst, mat4x4 m) {
     dst[0] = m[3][0];
     dst[1] = m[3][1];
     dst[2] = m[3][2];
@@ -684,47 +686,79 @@ static inline void quat_from_mat4x4(quat q, mat4x4 M) {
 
 //general math functions
 
-#define mmin(X) _Generic((X), \
+#define mmin(X, Y) _Generic((X), \
                      int: mmini, \
-                   float: mminf  \
-)(X)
+                    float: mminf,  \
+                    double: mmind,  \
+                    long: mminl  \
+)(X, Y)
 
-#define mmax(X) _Generic((X), \
-                     int: mmaxi, \
-                   float: mmaxf  \
-)(X)
+#define mmax(X, Y) _Generic((X), \
+                    int: mmaxi, \
+                    float: mmaxf,  \
+                    double: mmaxd,  \
+                    long: mmaxl  \
+)(X, Y)
 
-#define mclamp(X) _Generic((X), \
-                    long: mclampl, \
-                   float: mclampf  \
-)(X)
+#define mclamp(V, L, H) _Generic((V), \
+                    int: mclampi, \
+                    float: mclampf,  \
+                    double: mclampd,  \
+                    long: mclampl  \
+)(V, L, H)
 
-static inline int mmini(int a, int b){
+static inline int mmini(int a, int b) {
     return a < b ? a : b;
 }
 
-static inline float mminf(float a, float b){
+static inline float mminf(float a, float b) {
+    return a < b ? a : b;
+}
+
+static inline long mminl(long a, long b) {
+    return a < b ? a : b;
+}
+
+static inline double mmind(double a, double b) {
     return a < b ? a : b;
 }
 
 
-static inline int mmaxi(int a, int b){
+static inline int mmaxi(int a, int b) {
     return a > b ? a : b;
 }
 
-static inline float mmaxf(float a, float b){
+static inline float mmaxf(float a, float b) {
     return a > b ? a : b;
 }
 
-static inline int clampi(int val, int low, int high){
+static inline long mmaxl(long a, long b) {
+    return a > b ? a : b;
+}
+
+static inline double mmaxd(double a, double b) {
+    return a > b ? a : b;
+}
+
+
+static inline int mclampi(int val, int low, int high) {
     return mmini(mmaxi(val, low), high);
 }
 
-static inline float clampf(float val, float low, float high){
+static inline float mclampf(float val, float low, float high) {
     return mminf(mmaxf(val, low), high);
 }
 
-static inline float mlinearf(float a, float b, float factor){
+static inline long mclampl(long val, long low, long high) {
+    return mminl(mmaxl(val, low), high);
+}
+
+static inline double mclampd(double val, double low, double high) {
+    return mmind(mmaxd(val, low), high);
+}
+
+
+static inline float mlinearf(float a, float b, float factor) {
     return a + (b - a) * factor;
 }
 

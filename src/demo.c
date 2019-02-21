@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <assert.h>
 #include "tengine_math.h"
 #include "master.h"
 #include "display.h"
@@ -556,7 +557,7 @@ void test_text_rendering() {
         static float time = 0;
         time += delta;
 
-        float scale = clampf(sinf(time * 2) + 1.2, 1.0, 3.0);
+        float scale = mclamp(sinf(time * 2) + 1.2f, 1.0, 3.0);
 
         text_transform(textA, (float[]) {-textA->width / 2, 0.3}, scale);
         text_transform(textB, (float[]) {-textB->width / 2, 0}, scale);
@@ -585,6 +586,61 @@ void test_text_rendering() {
     display_free(display);
 }
 
+void test_generic_math() {
+    {
+        float fi = mmin(5.0f, 1.0f);
+        printf("mmin(5.0f, 1.0f) = %f\n", fi);
+        assert(fi == 1.0f);
+
+        float fa = mmax(5.0f, 1.0f);
+        printf("mmax(5.0f, 1.0f) = %f\n", fa);
+        assert(fa == 5.0f);
+
+        float fl = mclamp(5.0f, 1.0f, 3.0f);
+        printf("mclamp(5.0f, 1.0f, 3.0f) = %f\n", fl);
+        assert(fl == 3.0f);
+    }
+    {
+        int i = mmin(5, 1);
+        printf("mmin(5, 1) = %d\n", i);
+        assert(i == 1);
+
+        int a = mmax(5, 1);
+        printf("mmax(5, 1) = %d\n", a);
+        assert(a == 5);
+
+        int l = mclamp(5, 1, 3);
+        printf("mclamp(5, 1, 3) = %d\n", l);
+        assert(l == 3);
+    }
+    {
+        long i = mmin(5l, 1l);
+        printf("mmin(5l, 1l) = %ld\n", i);
+        assert(i == 1l);
+
+        long a = mmax(5l, 1l);
+        printf("mmax(5l, 1l) = %ld\n", a);
+        assert(a == 5l);
+
+        long l = mclamp(5l, 1l, 3l);
+        printf("mclamp(5l, 1l, 3l) = %ld\n", l);
+        assert(l == 3l);
+    }
+    {
+        double i = mmin(5.0, 1.0);
+        printf("mmin(5.0, 1.0) = %f\n", i);
+        assert(i == 1.0);
+
+        double a = mmax(5.0, 1.0);
+        printf("mmax(5.0, 1.0) = %f\n", a);
+        assert(a == 5.0);
+
+        double l = mclamp(5.2, 1.1, 3.0);
+        printf("mclamp(5.2, 1.1, 3.0) = %f\n", l);
+        assert(l == 3.0);
+    }
+}
+
 int main(int argc, char *argv[]) {
     //test_vector();
     //test_new_viewport();
@@ -592,8 +648,9 @@ int main(int argc, char *argv[]) {
     //quad_testing();
     //frustum_testing();
     //test_new_camera_and_all_axis_scaling();
+    //test_text_rendering();
 
-    test_text_rendering();
+    test_generic_math();
 
     return 0;
 }
