@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <memory.h>
 #include "vector.h"
 #include "utils.h"
 
@@ -48,6 +49,18 @@ void *vector_get(vector_t *vec, int pos) {
 }
 
 #undef POS_CHECK
+
+size_t vector_resize(vector_t *vec, size_t capacity) {
+    size_t old = vec->size;
+
+    if (capacity <= old) return old;
+
+    vec->size = capacity;
+    vec->array = realloc(vec->array, vec->size * sizeof(void *));
+    memset(vec->array + old, 0, (capacity - old) * sizeof(void *));
+
+    return capacity;
+}
 
 void vector_trim(vector_t *vec) {
     size_t newSize = vec->size;

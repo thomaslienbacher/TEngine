@@ -24,6 +24,8 @@ void *vector_remove(vector_t *vec, int pos);
 
 void *vector_get(vector_t *vec, int pos);
 
+size_t vector_resize(vector_t *vec, size_t capacity);
+
 void vector_trim(vector_t *vec);
 
 void vector_free(vector_t *vec);

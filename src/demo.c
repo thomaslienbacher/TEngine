@@ -510,7 +510,7 @@ void test_new_camera_and_all_axis_scaling() {
     display_free(display);
 }
 
-#endif
+
 
 void test_text_rendering() {
     const int WIDTH = 900;
@@ -641,6 +641,61 @@ void test_generic_math() {
     }
 }
 
+#endif
+
+void print_vec_addrtrim(vector_t *vec) {
+    for (int j = 0; j < vec->size; ++j) {
+        int *d = ((int *) vector_get(vec, j));
+        printf("%d -> %x -> ", j, d);
+        if (d) printf("%d\n", *d);
+        else printf("\n");
+    }
+}
+
+void test_vector_resize() {
+    vector_t *vec = vector_new(10);
+
+    for (int i = 0; i < 30; ++i) {
+        int *d = malloc(sizeof(int));
+        *d = i * i;
+        vector_push(vec, d);
+        printf("%d -> size: %lld\n", i, vec->size);
+    }
+
+    vector_realloc(vec, 200);
+
+    for (int i = 0; i < 230; ++i) {
+        int *d = malloc(sizeof(int));
+        *d = i * i;
+        vector_push(vec, d);
+        printf("%d -> size: %lld\n", i, vec->size);
+    }
+
+    print_vec_addrtrim(vec);
+    vector_realloc(vec, 170);
+
+    free(vector_remove(vec, 1));
+    free(vector_remove(vec, 2));
+    free(vector_remove(vec, 3));
+
+    print_vec_addrtrim(vec);
+
+    for (int k = 0; k < 40; ++k) {
+        free(vector_remove(vec, 10 + k));
+    }
+
+    print_vec_addrtrim(vec);
+    vector_trim(vec);
+    print_vec_addrtrim(vec);
+
+    for (int j = 0; j < vec->size; ++j) {
+        free(vector_remove(vec, j));
+    }
+
+    print_vec_addrtrim(vec);
+    vector_free(vec);
+}
+
 int main(int argc, char *argv[]) {
     //test_vector();
     //test_new_viewport();
@@ -649,8 +704,9 @@ int main(int argc, char *argv[]) {
     //frustum_testing();
     //test_new_camera_and_all_axis_scaling();
     //test_text_rendering();
+    //test_generic_math();
 
-    test_generic_math();
+    test_vector_resize();
 
     return 0;
 }
