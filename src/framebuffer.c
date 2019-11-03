@@ -8,14 +8,14 @@
 #include "render.h"
 
 framebuffer_t *framebuffer_new(unsigned int width, unsigned int height) {
-    framebuffer_t *framebuffer = calloc(1, sizeof(framebuffer_t));
+    framebuffer_t *framebuffer = te_calloc(1, sizeof(framebuffer_t));
     framebuffer->width = width;
     framebuffer->height = height;
     framebuffer->originalWidth = width;
     framebuffer->originalHeight = height;
 
     //texture
-    texture_t *texture = calloc(1, sizeof(texture_t));
+    texture_t *texture = te_calloc(1, sizeof(texture_t));
     framebuffer->texture = texture;
 
     texture->width = width;
@@ -81,5 +81,5 @@ void framebuffer_clear(framebuffer_t *framebuffer) {
 void framebuffer_free(framebuffer_t *framebuffer) {
     texture_free(framebuffer->texture);
     glDeleteFramebuffers(1, &framebuffer->id);
-    free(framebuffer);
+    te_free(framebuffer);
 }

@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c25be2e-3581-470f-8739-5d1463f1ec5c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/camera.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/camera.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/camera.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/demo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/demo.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/display.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/display.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/display.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/display.h" afterDir="false" />
@@ -31,21 +31,22 @@
       <change beforePath="$PROJECT_DIR$/src/filehelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/filehelper.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/framebuffer.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/framebuffer.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/framebuffer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/framebuffer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frustum.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/frustum.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frustum.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/frustum.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/light.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/light.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/master.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/master.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/light.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/light.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/master.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tengine_master.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mesh.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mesh.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/mesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/model.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/model.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/program.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/program.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/program.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/program.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tengine_math.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/tengine_math.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tengine_math.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/tengine_math.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/render.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/text.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/text.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/text.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/text.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/texture.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/texture.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/texture.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/texture.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vector.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector.h" afterDir="false" />
     </list>
@@ -55,38 +56,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug TestApp" />
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>vertex</find>
-      <find>shader</find>
-      <find>2/1/1</find>
-      <find>1/0/0</find>
-      <find>-&gt;</find>
-      <find>buf</find>
-      <find>fclose</find>
-      <find>model-&gt;mat</find>
-      <find>__cplusplus</find>
-      <find>min</find>
-      <find>main</find>
-      <find>comboMatrix</find>
-      <find>mat</find>
-      <find>static</find>
-      <find>texture</find>
-      <find>font</find>
-      <find>=</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>fragment</replace>
-      <replace>program</replace>
-      <replace>[indicesIndex].</replace>
-      <replace>fadv_close</replace>
-      <replace>mat</replace>
-      <replace>combo</replace>
-      <replace>font</replace>
-      <replace>text</replace>
-    </replaceStrings>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release TestApp" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -97,6 +70,7 @@
     <scope name="Inspection Files" pattern="file:src/camera.c||file:src/camera.h||file:src/display.c||file:src/display.h||file:src/filehelper.c||file:src/filehelper.h||file:src/framebuffer.c||file:src/framebuffer.h||file:src/frustum.c||file:src/frustum.h||file:src/light.c||file:src/light.h||file:src/master.h||file:src/mesh.c||file:src/mesh.h||file:src/model.c||file:src/model.h||file:src/program.c||file:src/program.h||file:src/render.c||file:src/render.h||file:src/text.c||file:src/text.h||file:src/texture.c||file:src/texture.h||file:src/utils.c||file:src/utils.h||file:src/vector.c||file:src/vector.h" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectId" id="1T73ApPrq1TOLCJASXRIrRlMALe" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -260,20 +234,22 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="172461000" />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

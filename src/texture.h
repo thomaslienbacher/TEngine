@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include "master.h"
+#include "tengine_master.h"
 
 typedef struct _texture_s {
     unsigned int width;

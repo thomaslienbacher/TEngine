@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include "master.h"
+#include "tengine_master.h"
 #include "framebuffer.h"
 #include "model.h"
 

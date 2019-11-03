@@ -6,7 +6,7 @@
 #include "model.h"
 
 model_t *model_new(mesh_t *mesh, texture_t *texture) {
-    model_t *model = calloc(1, sizeof(model_t));
+    model_t *model = te_calloc(1, sizeof(model_t));
     model->mesh = mesh;
     model->texture = texture;
     vec3_set(model->scale, 1.f, 1.f, 1.f);
@@ -89,15 +89,15 @@ void model_transformd_as(mat4x4 mat, const vec3 pos, const vec3 rot, const vec3 
 }
 
 void model_free(model_t *model) {
-    free(model);
+    te_free(model);
 }
 
 inst_model_t *inst_model_new(mesh_t *mesh, texture_t *texture, int count) {
-    inst_model_t *inst_model = calloc(1, sizeof(inst_model_t));
+    inst_model_t *inst_model = te_calloc(1, sizeof(inst_model_t));
     inst_model->mesh = mesh;
     inst_model->texture = texture;
     inst_model->count = count;
-    inst_model->mats = calloc((size_t) count, sizeof(mat4x4));
+    inst_model->mats = te_calloc((size_t) count, sizeof(mat4x4));
 
     for (int i = 0; i < count; ++i) {
         mat4x4_identity(inst_model->mats[i]);
@@ -128,12 +128,12 @@ void inst_model_update(inst_model_t *inst_model) {
 
 void inst_model_free(inst_model_t *inst_model) {
     glDeleteBuffers(4, inst_model->matVbos);
-    free(inst_model->mats);
-    free(inst_model);
+    te_free(inst_model->mats);
+    te_free(inst_model);
 }
 
 quad_model_t *quad_model_new(texture_t *texture, float x, float y, float width, float height, float rot) {
-    quad_model_t *quad_model = calloc(1, sizeof(quad_model_t));
+    quad_model_t *quad_model = te_calloc(1, sizeof(quad_model_t));
     quad_model->quad = quad_new();
     quad_model->texture = texture;
     quad_model->dim[0] = x;
@@ -147,5 +147,5 @@ quad_model_t *quad_model_new(texture_t *texture, float x, float y, float width, 
 
 void quad_model_free(quad_model_t *quad_model) {
     quad_free(quad_model->quad);
-    free(quad_model);
+    te_free(quad_model);
 }

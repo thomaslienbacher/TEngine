@@ -9,7 +9,7 @@
 static float maxAniso = -1;
 
 texture_t *texture_newf(FILE *texFile, GLenum filter, float aniso) {
-    texture_t *texture = calloc(1, sizeof(texture_t));
+    texture_t *texture = te_calloc(1, sizeof(texture_t));
 
     unsigned error;
     unsigned char *image;
@@ -21,7 +21,7 @@ texture_t *texture_newf(FILE *texFile, GLenum filter, float aniso) {
 
     error = lodepng_decode32(&image, &width, &height, (unsigned char *) fileData, fileLen);
 
-    free(fileData);
+    te_free(fileData);
     if (error) dief("Loading Texture: %s", lodepng_error_text(error));
 
     texture->width = width;
@@ -77,5 +77,5 @@ void texture_bind(texture_t *texture) {
 
 void texture_free(texture_t *texture) {
     glDeleteTextures(1, &texture->id);
-    free(texture);
+    te_free(texture);
 }

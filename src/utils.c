@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include "utils.h"
-#include "master.h"
+#include "tengine_master.h"
 
 static void pre_die(FILE *errfile, const char *file, const char *function, int line) {
     int major, minor;

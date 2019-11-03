@@ -9,10 +9,10 @@
 #include "utils.h"
 
 font_t *font_newf(FILE *dataFile, FILE *pngFile, float scaler) {
-    font_t *font = calloc(1, sizeof(font_t));
+    font_t *font = te_calloc(1, sizeof(font_t));
 
     font->texture = texture_newf(pngFile, GL_LINEAR, 1.0f);
-    font->chars = calloc(256, sizeof(fontchar_t));
+    font->chars = te_calloc(256, sizeof(fontchar_t));
     float xScale = 1.0f / (float) font->texture->width;
     float yScale = 1.0f / (float) font->texture->height;
 
@@ -73,17 +73,17 @@ font_t *font_new(const char *dataFile, const char *bmpFile, float scaler) {
 
 void font_free(font_t *font) {
     texture_free(font->texture);
-    free(font->chars);
-    free(font);
+    te_free(font->chars);
+    te_free(font);
 }
 
 text_t *text_new(font_t *font, const char *str) {
-    text_t *text = calloc(1, sizeof(text_t));
+    text_t *text = te_calloc(1, sizeof(text_t));
 
     size_t len = strlen(str);
     size_t numVertices = len * 6;
-    float *vertices = calloc(numVertices * 2, sizeof(float));
-    float *texcoords = calloc(numVertices * 2, sizeof(float));
+    float *vertices = te_calloc(numVertices * 2, sizeof(float));
+    float *texcoords = te_calloc(numVertices * 2, sizeof(float));
 
     //generate font data
     int pa = 0;
@@ -131,8 +131,8 @@ text_t *text_new(font_t *font, const char *str) {
     vao_add_vbo(text->vbos, 0, 2, vertices, numVertices * 2, POSITION_INDEX);
     vao_add_vbo(text->vbos, 1, 2, texcoords, numVertices * 2, TEXCOORD_INDEX);
 
-    free(vertices);
-    free(texcoords);
+    te_free(vertices);
+    te_free(texcoords);
 
     text->numVertices = numVertices;
     text->texture = font->texture;
@@ -159,5 +159,5 @@ void text_transform(text_t *text, vec2 pos, float scale) {
 void text_free(text_t *text) {
     glDeleteVertexArrays(1, &text->vao);
     glDeleteBuffers(2, text->vbos);
-    free(text);
+    te_free(text);
 }

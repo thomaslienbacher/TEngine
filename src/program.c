@@ -7,7 +7,7 @@
 #include "filehelper.h"
 
 program_t *program_news(const char *vertexSrc, const char *fragmentSrc) {
-    program_t *program = calloc(1, sizeof(program_t));
+    program_t *program = te_calloc(1, sizeof(program_t));
 
     program->id = glCreateProgram();
     GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
@@ -75,8 +75,8 @@ program_t *program_newf(FILE *vertexShd, FILE *fragmentShd) {
     char *vertexSrc = fadv_contents(vertexShd);
     char *fragmentSrc = fadv_contents(fragmentShd);
     program_t *program = program_news(vertexSrc, fragmentSrc);
-    free(vertexSrc);
-    free(fragmentSrc);
+    te_free(vertexSrc);
+    te_free(fragmentSrc);
 
     return program;
 }
@@ -182,5 +182,5 @@ void program_unipos_mat(program_t *program, int loc, mat4x4 m) {
 
 void program_free(program_t *program) {
     glDeleteProgram(program->id);
-    free(program);
+    te_free(program);
 }

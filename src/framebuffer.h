@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include "master.h"
+#include "tengine_master.h"
 #include "texture.h"
 
 typedef struct _framebuffer_s {

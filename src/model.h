@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include "master.h"
+#include "tengine_master.h"
 #include "tengine_math.h"
 #include "utils.h"
 #include "mesh.h"

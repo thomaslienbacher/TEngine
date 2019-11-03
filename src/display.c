@@ -20,7 +20,7 @@ static void debug_msg_callback(GLenum source, GLenum type, GLuint id,
 }
 
 display_t *display_new(const char *title, int width, int height, char fullscreen, float renderScale, char vsync) {
-    display_t *display = calloc(1, sizeof(display_t));
+    display_t *display = te_calloc(1, sizeof(display_t));
     display->running = 1;
     display->lastTick = 0;
 
@@ -98,7 +98,7 @@ void display_set_iconf(display_t *display, FILE *icon) {
     fadv_info(icon, &fileLen, &fileData);
 
     error = lodepng_decode32(&image, &width, &height, (unsigned char *) fileData, fileLen);
-    free(fileData);
+    te_free(fileData);
     if (error) dief("Loading Icon: %s", lodepng_error_text(error));
 
     display->icon = SDL_CreateRGBSurfaceWithFormatFrom(image, width, height, 32, width * 4, SDL_PIXELFORMAT_RGBA32);
@@ -168,5 +168,5 @@ void display_free(display_t *display) {
     SDL_GL_DeleteContext(display->glContext);
     SDL_Quit();
 
-    free(display);
+    te_free(display);
 }

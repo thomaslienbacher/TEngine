@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "tengine_math.h"
-#include "master.h"
+#include "tengine_master.h"
 #include "display.h"
 #include "program.h"
 #include "camera.h"
@@ -695,7 +695,6 @@ void test_vector_resize() {
 }
 
 int main(int argc, char *argv[]) {
-    malloc(1);
     //test_vector();
     //test_new_viewport();
     //test_tex_wrap();
@@ -703,12 +702,12 @@ int main(int argc, char *argv[]) {
     //frustum_testing();
     //test_new_camera_and_all_axis_scaling();
     test_text_rendering();
-    //test_generic_math();
+    test_generic_math();
 
-    //test_vector_resize();
+    test_vector_resize();
 
 #ifdef DEBUG_BUILD
-    _debug_check_allocations();
+    te_check_allocations();
 #endif
 
     return 0;

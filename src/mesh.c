@@ -21,26 +21,26 @@ mesh_t *mesh_newobjf(FILE *objFile) {
     char *temp = NULL;
     size_t data_len = 0;
     fadv_info(objFile, &data_len, &temp);
-    char *data = malloc(data_len + 3);
+    char *data = te_malloc(data_len + 3);
     strcpy(data, temp);
     strcat(data, "\n\n");   /*  If I dont add 2 x \n to the data the last face doesnt get parsed
                                 I don't know why the this happens, maybe my fadv_ functions are faulty
                                 just leave the the lines as they are it works and if I change anything it will crash */
-    free(temp);
+    te_free(temp);
 
     unsigned int flags = TINYOBJ_FLAG_TRIANGULATE;
     int ret = tinyobj_parse_obj(&attrib, &shapes, &num_shapes, &materials, &num_materials, data, data_len + 2, flags);
-    free(data);
+    te_free(data);
 
     if (ret != TINYOBJ_SUCCESS) {
         die("Error: obj not loaded");
     }
 
     //single index obj
-    unsigned int *indices = malloc(attrib.num_faces * sizeof(unsigned int));
-    float *vertices = malloc(attrib.num_faces * sizeof(float) * 3);
-    float *texcoords = malloc(attrib.num_faces * sizeof(float) * 2);
-    float *normals = malloc(attrib.num_faces * sizeof(float) * 3);
+    unsigned int *indices = te_malloc(attrib.num_faces * sizeof(unsigned int));
+    float *vertices = te_malloc(attrib.num_faces * sizeof(float) * 3);
+    float *texcoords = te_malloc(attrib.num_faces * sizeof(float) * 2);
+    float *normals = te_malloc(attrib.num_faces * sizeof(float) * 3);
 
     unsigned int indicesIndex;
     unsigned int vertexIndex = 0;
@@ -95,10 +95,10 @@ mesh_t *mesh_newobjf(FILE *objFile) {
     tinyobj_attrib_free(&attrib);
     tinyobj_shapes_free(shapes, num_shapes);
     tinyobj_materials_free(materials, num_materials);
-    free(vertices);
-    free(texcoords);
-    free(normals);
-    free(indices);
+    te_free(vertices);
+    te_free(texcoords);
+    te_free(normals);
+    te_free(indices);
 
     return mesh;
 }
@@ -120,7 +120,7 @@ void vao_add_vbo(GLuint *vbos, int vbo, int size, const float *data, unsigned in
 
 mesh_t *mesh_newdata(unsigned int numIndices, unsigned int *indices, unsigned int numVertices,
                      float *vertices, float *texcoords, float *normals) {
-    mesh_t *mesh = calloc(1, sizeof(mesh_t));
+    mesh_t *mesh = te_calloc(1, sizeof(mesh_t));
 
     mesh->numElements = numIndices;
 
@@ -177,11 +177,11 @@ void vao_bind(GLuint vao) {
 void mesh_free(mesh_t *mesh) {
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(4, mesh->vbos);
-    free(mesh);
+    te_free(mesh);
 }
 
 quad_t *quad_new() {
-    quad_t *quad = calloc(1, sizeof(quad_t));
+    quad_t *quad = te_calloc(1, sizeof(quad_t));
 
     glGenVertexArrays(1, &quad->vao);
     glBindVertexArray(quad->vao);
@@ -196,5 +196,5 @@ quad_t *quad_new() {
 void quad_free(quad_t *quad) {
     glDeleteVertexArrays(1, &quad->vao);
     glDeleteBuffers(2, quad->vbos);
-    free(quad);
+    te_free(quad);
 }

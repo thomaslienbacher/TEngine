@@ -6,15 +6,15 @@
 #include "utils.h"
 
 lightengine_t *lightengine_new(program_t *program, int numLights) {
-    lightengine_t *lightengine = calloc(1, sizeof(lightengine_t));
+    lightengine_t *lightengine = te_calloc(1, sizeof(lightengine_t));
     lightengine->numLights = numLights;
-    lightengine->ids = calloc((size_t) numLights, sizeof(char));
-    lightengine->lights = calloc((size_t) numLights, sizeof(light_t *));
+    lightengine->ids = te_calloc((size_t) numLights, sizeof(char));
+    lightengine->lights = te_calloc((size_t) numLights, sizeof(light_t *));
 
     char name[32];
 
     for (int i = 0; i < numLights; ++i) {
-        lightengine->lights[i] = calloc(1, sizeof(light_t));
+        lightengine->lights[i] = te_calloc(1, sizeof(light_t));
 
         sprintf(name, "u_lightcolors[%d]", i);
         lightengine->lights[i]->colorLoc = program_getunipos(program, name);
@@ -69,10 +69,10 @@ void lightengine_upload(lightengine_t *lightengine, program_t *program) {
 
 void lightengine_free(lightengine_t *lightengine) {
     for (int i = 0; i < lightengine->numLights; ++i) {
-        free(lightengine->lights[i]);
+        te_free(lightengine->lights[i]);
     }
 
-    free(lightengine->lights);
-    free(lightengine->ids);
-    free(lightengine);
+    te_free(lightengine->lights);
+    te_free(lightengine->ids);
+    te_free(lightengine);
 }

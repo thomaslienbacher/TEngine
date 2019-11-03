@@ -26,7 +26,7 @@ char *fadv_contents(FILE *f) {
     NULL_KILL(f);
     rewind(f);
     size_t len = fadv_length(f);
-    char *contents = malloc(len + 1);
+    char *contents = te_malloc(len + 1);
     fread(contents, len, 1, f);
     contents[len] = 0;
     return contents;
@@ -39,7 +39,7 @@ void fadv_info(FILE *f, size_t *length, char **data) {
     if (len == -1) die("File: ftell returned -1");
     *length = (size_t) len;
     rewind(f);
-    *data = malloc(*length + 1);
+    *data = te_malloc(*length + 1);
     fread(*data, *length, 1, f);
     (*data)[*length] = 0;
 }

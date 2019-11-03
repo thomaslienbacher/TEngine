@@ -5,7 +5,7 @@
 #include "camera.h"
 
 camera_t *camera_new(float fov, float aspect, float near, float far) {
-    camera_t *camera = calloc(1, sizeof(camera_t));
+    camera_t *camera = te_calloc(1, sizeof(camera_t));
 
     mat4x4_perspective(camera->projMat, fov * DEG_2_RAD, aspect, near, far);
     mat4x4_identity(camera->viewMat);
@@ -36,5 +36,5 @@ void camera_lookto(camera_t *camera, vec3 pos, vec3 direction) {
 }
 
 void camera_free(camera_t *camera) {
-    free(camera);
+    te_free(camera);
 }
