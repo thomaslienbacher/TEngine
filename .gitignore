@@ -11,3 +11,4 @@ log.txt
 *.exe
 *.cbp
 *.a
+cmake-build-release-testapp

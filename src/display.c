@@ -2,8 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "display.h"
 #include "utils.h"
 #include "filehelper.h"
@@ -83,7 +81,8 @@ display_t *display_new(const char *title, int width, int height, char fullscreen
     _render_init_quadshader();
 
     if (renderScale <= 0) dief("Display: renderSize is too small: %f", renderScale);
-    display->renderTarget = framebuffer_new((int) lroundf(width * renderScale), (int) lroundf(height * renderScale));
+    display->renderTarget = framebuffer_new((unsigned int) lroundf((float) width * renderScale),
+                                            (unsigned int) lroundf((float) height * renderScale));
     framebuffer_bind(display->renderTarget);
 
     return display;
@@ -133,8 +132,8 @@ void display_prepare(display_t *display, float *delta, float renderScale) {
     display->lastTick = now;
 
     if (renderScale <= 0) dief("Display: renderSize is too small: %f", renderScale);
-    display->renderTarget->width = (int) lroundf(display->width * renderScale);
-    display->renderTarget->height = (int) lroundf(display->height * renderScale);
+    display->renderTarget->width = (int) lroundf((float) display->width * renderScale);
+    display->renderTarget->height = (int) lroundf((float) display->height * renderScale);
 
     framebuffer_bind(display->renderTarget);
     framebuffer_clear(display->renderTarget);

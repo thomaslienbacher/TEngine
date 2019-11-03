@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 13.10.2018.
 //
 
-#include <stdlib.h>
 #include <math.h>
 #include "text.h"
 #include "filehelper.h"
@@ -19,8 +18,8 @@ font_t *font_newf(FILE *dataFile, FILE *pngFile, float scaler) {
 
     char line[128];
     int c = 0;
-    int charWidth;
-    int fontHeight;
+    int charWidth = 0;
+    int fontHeight = 0;
 
     //get header metadata
     for (int i = 0; i < 8; ++i) {
@@ -48,8 +47,8 @@ font_t *font_newf(FILE *dataFile, FILE *pngFile, float scaler) {
             font->chars[c].tw = (float) charWidth * xScale;
             font->chars[c].th = th;
 
-            int row = charNum / (font->texture->width / font->cellWidth);
-            int col = charNum % (font->texture->width / font->cellWidth);
+            unsigned int row = charNum / (font->texture->width / font->cellWidth);
+            unsigned int col = charNum % (font->texture->width / font->cellWidth);
 
             font->chars[c].tx = (float) col * (float) font->cellWidth * xScale;
             font->chars[c].ty = (float) row * th;
@@ -91,7 +90,7 @@ text_t *text_new(font_t *font, const char *str) {
     int pb = 0;
     float curX = 0;
 
-    for (unsigned int i = 0; i < len; ++i) {
+    for (size_t i = 0; i < len; ++i) {
         fontchar_t fc = font->chars[str[i]];
 
         vertices[pa++] = curX;

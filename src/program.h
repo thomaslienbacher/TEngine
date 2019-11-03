@@ -9,7 +9,6 @@
 extern "C" {
 #endif
 
-#include <stdio.h>
 #include "master.h"
 #include "tengine_math.h"
 

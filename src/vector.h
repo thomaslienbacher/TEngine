@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include <stdlib.h>
+#include "master.h"
 
 typedef struct _vector_s {
     void **array;

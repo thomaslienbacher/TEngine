@@ -510,7 +510,7 @@ void test_new_camera_and_all_axis_scaling() {
     display_free(display);
 }
 
-
+#endif
 
 void test_text_rendering() {
     const int WIDTH = 900;
@@ -641,8 +641,6 @@ void test_generic_math() {
     }
 }
 
-#endif
-
 void print_vec_addrtrim(vector_t *vec) {
     for (int j = 0; j < vec->size; ++j) {
         int *d = ((int *) vector_get(vec, j));
@@ -662,7 +660,7 @@ void test_vector_resize() {
         printf("%d -> size: %lld\n", i, vec->size);
     }
 
-    vector_realloc(vec, 200);
+    vector_resize(vec, 200);
 
     for (int i = 0; i < 230; ++i) {
         int *d = malloc(sizeof(int));
@@ -672,7 +670,7 @@ void test_vector_resize() {
     }
 
     print_vec_addrtrim(vec);
-    vector_realloc(vec, 170);
+    vector_resize(vec, 170);
 
     free(vector_remove(vec, 1));
     free(vector_remove(vec, 2));
@@ -697,16 +695,21 @@ void test_vector_resize() {
 }
 
 int main(int argc, char *argv[]) {
+    malloc(1);
     //test_vector();
     //test_new_viewport();
     //test_tex_wrap();
     //quad_testing();
     //frustum_testing();
     //test_new_camera_and_all_axis_scaling();
-    //test_text_rendering();
+    test_text_rendering();
     //test_generic_math();
 
-    test_vector_resize();
+    //test_vector_resize();
+
+#ifdef DEBUG_BUILD
+    _debug_check_allocations();
+#endif
 
     return 0;
 }

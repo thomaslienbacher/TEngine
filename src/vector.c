@@ -18,7 +18,7 @@ vector_t *vector_new(size_t capacity) {
 void vector_push(vector_t *vec, void *data) {
     int nPos = -1;
 
-    for (unsigned int i = 0; i < vec->size; ++i) {
+    for (size_t i = 0; i < vec->size; ++i) {
         if (!vec->array[i]) {
             nPos = i;
             break;
@@ -65,14 +65,14 @@ size_t vector_resize(vector_t *vec, size_t capacity) {
 void vector_trim(vector_t *vec) {
     size_t newSize = vec->size;
 
-    for (unsigned int i = 0; i < vec->size; ++i) {
+    for (size_t i = 0; i < vec->size; ++i) {
         if (!vec->array[i]) newSize--;
     }
 
     void **newArray = calloc(newSize, sizeof(void *));
     int newI = 0;
 
-    for (unsigned int i = 0; i < vec->size; ++i) {
+    for (size_t i = 0; i < vec->size; ++i) {
         if (vec->array[i]) {
             newArray[newI] = vec->array[i];
             newI++;

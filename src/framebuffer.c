@@ -2,13 +2,12 @@
 // Created by Thomas Lienbacher on 25.02.2018.
 //
 
-#include <stdlib.h>
 #include "framebuffer.h"
 #include "texture.h"
 #include "utils.h"
 #include "render.h"
 
-framebuffer_t *framebuffer_new(int width, int height) {
+framebuffer_t *framebuffer_new(unsigned int width, unsigned int height) {
     framebuffer_t *framebuffer = calloc(1, sizeof(framebuffer_t));
     framebuffer->width = width;
     framebuffer->height = height;

@@ -10,7 +10,6 @@ extern "C" {
 #endif
 
 #include "master.h"
-#include <stdio.h>
 
 #define POSITION_INDEX 0
 #define TEXCOORD_INDEX 1

@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-#include <stdlib.h>
 #include "camera.h"
 
 camera_t *camera_new(float fov, float aspect, float near, float far) {

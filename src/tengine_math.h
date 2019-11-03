@@ -148,13 +148,13 @@ static inline void vec4_set(vec4 dst, float x, float y, float z, float w) {
     dst[3] = w;
 }
 
-extern const vec2 VEC2_ZERO;
-extern const vec3 VEC3_ZERO;
-extern const vec4 VEC4_ZERO;
+extern vec2 VEC2_ZERO;
+extern vec3 VEC3_ZERO;
+extern vec4 VEC4_ZERO;
 
-extern const vec3 VEC3_UNITX;
-extern const vec3 VEC3_UNITY;
-extern const vec3 VEC3_UNITZ;
+extern vec3 VEC3_UNITX;
+extern vec3 VEC3_UNITY;
+extern vec3 VEC3_UNITZ;
 
 static inline void vec3_mul_cross(vec3 r, vec3 const a, vec3 const b) {
     r[0] = a[1] * b[2] - a[2] * b[1];

@@ -9,12 +9,11 @@
 extern "C" {
 #endif
 
-#include <stdio.h>
 #include "master.h"
 
 typedef struct _texture_s {
-    int width;
-    int height;
+    unsigned int width;
+    unsigned int height;
     GLuint id;
 } texture_t;
 

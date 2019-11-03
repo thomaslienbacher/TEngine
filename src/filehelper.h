@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-#include <stdio.h>
+#include "master.h"
 
 //fadv = file advanced
 

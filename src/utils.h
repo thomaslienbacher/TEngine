@@ -20,10 +20,7 @@ void _dief(const char *time, const char *file, const char *function, int line, c
 #define dief(msg, ...) _dief(__TIME__, __FILE__, __FUNCTION__, __LINE__, __DATE__, msg, __VA_ARGS__)
 
 #ifdef DEBUG_BUILD
-#define dprintf(format, ...) \
-{\
-    printf(format, __VA_ARGS__);\
-}
+#define dprintf(format, ...) do { printf(format, __VA_ARGS__); } while(0)
 #else
 #define dprintf(format, ...)
 #endif

@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 26.01.2018.
 //
 
-#include <stdlib.h>
 #include "light.h"
 #include "utils.h"
 

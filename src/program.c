@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 20.01.2018.
 //
 
-#include <stdlib.h>
 #include "program.h"
 #include "utils.h"
 #include "filehelper.h"
@@ -15,7 +14,7 @@ program_t *program_news(const char *vertexSrc, const char *fragmentSrc) {
     GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
     //vertex shader
-    unsigned long vertexLen = strlen(vertexSrc);
+    size_t vertexLen = strlen(vertexSrc);
     glShaderSource(vertex, 1, &vertexSrc, (const GLint *) &vertexLen);
     glCompileShader(vertex);
 
@@ -32,7 +31,7 @@ program_t *program_news(const char *vertexSrc, const char *fragmentSrc) {
     }
 
     //fragment shader
-    unsigned long fragmentLen = strlen(fragmentSrc);
+    size_t fragmentLen = strlen(fragmentSrc);
     glShaderSource(fragment, 1, &fragmentSrc, (const GLint *) &fragmentLen);
     glCompileShader(fragment);
 

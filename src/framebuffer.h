@@ -21,7 +21,7 @@ typedef struct _framebuffer_s {
     GLuint id;
 } framebuffer_t;
 
-framebuffer_t *framebuffer_new(int width, int height);
+framebuffer_t *framebuffer_new(unsigned int width, unsigned int height);
 
 void framebuffer_bind(framebuffer_t *framebuffer);
 

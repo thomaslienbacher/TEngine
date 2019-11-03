@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 25.01.2018.
 //
 
-#include <stdlib.h>
 #include "texture.h"
 #include "utils.h"
 #include "filehelper.h"

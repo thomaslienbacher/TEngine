@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 30.01.2018.
 //
 
-#include <stdlib.h>
 #include "filehelper.h"
 #include "utils.h"
 

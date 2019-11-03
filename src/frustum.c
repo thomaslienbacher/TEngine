@@ -2,7 +2,6 @@
 // Created by Thomas Lienbacher on 30.09.2018.
 //
 
-#include <stdio.h>
 #include "frustum.h"
 
 void frustum_projview(frustum_t frustum, mat4x4 projview) {
