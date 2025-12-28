@@ -180,8 +180,8 @@ void mesh_free(mesh_t *mesh) {
     te_free(mesh);
 }
 
-quad_t *quad_new() {
-    quad_t *quad = te_calloc(1, sizeof(quad_t));
+tequad_t *quad_new() {
+    tequad_t *quad = te_calloc(1, sizeof(tequad_t));
 
     glGenVertexArrays(1, &quad->vao);
     glBindVertexArray(quad->vao);
@@ -193,7 +193,7 @@ quad_t *quad_new() {
     return quad;
 }
 
-void quad_free(quad_t *quad) {
+void quad_free(tequad_t *quad) {
     glDeleteVertexArrays(1, &quad->vao);
     glDeleteBuffers(2, quad->vbos);
     te_free(quad);

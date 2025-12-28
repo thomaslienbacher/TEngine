@@ -12,3 +12,4 @@ log.txt
 *.cbp
 *.a
 cmake-build-release-testapp
+TEngine

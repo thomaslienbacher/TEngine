@@ -26,7 +26,7 @@ typedef struct _mesh_s {
 typedef struct _quad_s {
     GLuint vao;
     GLuint vbos[2];//vertices, texcoords
-} quad_t;
+} tequad_t;
 
 mesh_t *mesh_newobjf(FILE *objFile);
 
@@ -45,9 +45,9 @@ void vao_add_vbo(GLuint *vbos, int vbo, int size, const float *data, unsigned in
 void vao_bind(GLuint vao);
 
 
-quad_t *quad_new();
+tequad_t *quad_new();
 
-void quad_free(quad_t *quad);
+void quad_free(tequad_t *quad);
 
 #ifdef __cplusplus
 }

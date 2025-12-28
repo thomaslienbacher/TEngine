@@ -33,7 +33,7 @@ typedef struct _inst_model_s {
 } inst_model_t;
 
 typedef struct _quad_model_s {
-    quad_t *quad;
+    tequad_t *quad;
     texture_t *texture;
     vec4 dim;//x, y, xadvance, height
     float rot;

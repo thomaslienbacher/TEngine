@@ -45,7 +45,7 @@ void cam_control(camera_t *camera, float delta) {
     camera_view(camera, pos, rot[0], rot[1]);
 }
 
-#define __REMOVE_FROM_COMPILATION__
+//#define __REMOVE_FROM_COMPILATION__
 #ifndef  __REMOVE_FROM_COMPILATION__
 
 void print_vec(vector_t *vec) {
@@ -283,7 +283,7 @@ void test_tex_wrap() {
     display_free(display);
 }
 
-void quad_testing() {
+void tequad_testing() {
     //display
     const int WIDTH = 700;
     const int HEIGHT = 700;
@@ -695,16 +695,7 @@ void test_vector_resize() {
 }
 
 int main(int argc, char *argv[]) {
-    //test_vector();
-    //test_new_viewport();
-    //test_tex_wrap();
-    //quad_testing();
-    //frustum_testing();
-    //test_new_camera_and_all_axis_scaling();
-    test_text_rendering();
-    test_generic_math();
-
-    test_vector_resize();
+    test_new_camera_and_all_axis_scaling();
 
 #ifdef DEBUG_BUILD
     te_check_allocations();
